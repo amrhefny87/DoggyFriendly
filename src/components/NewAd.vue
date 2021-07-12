@@ -19,6 +19,7 @@ export default {
 <style scoped>
 .container-add {
     width:  85%;
+    margin-top: 5%;
 }
 .pet {
     height: 18vh;

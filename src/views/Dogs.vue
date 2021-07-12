@@ -6,7 +6,6 @@
         <NewAd />
         <NewAd />
         <NewAd />
-
     </div>
   </div>
 </template>
