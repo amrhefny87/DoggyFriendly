@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <img alt="Dog Logo" src="../assets/logo.png">
+    <img style="width: 18rem" alt="Dog Logo" src="../assets/logoDog.png" />
     <Inicio />
   </div>
 </template>
