@@ -2,9 +2,9 @@
   <div class="container-add d-flex  border border-dark rounded-3">
     <img class="pet" alt="Dog" src="../assets/dog.jpg" />
     <div>
-        <h2>Jack King</h2>
-        <h3>I want someone to take care of my dog</h3>
-        <h4>Between 13:00 and 17:00</h4>
+        <h2>{{event.title }}</h2>
+        <h3>{{event.description }}</h3>
+        <h4>{{event.date }}</h4>
       <router-link to="/dogs" class="moreInfo position-absolute btn text-white btn-primary">More Info</router-link>
     </div>
    
@@ -12,8 +12,13 @@
 </template>
 
 <script>
+
 export default {
   name: 'NewAdd',
+  props: 
+    [
+    "event",
+    ],
 }
 </script>
 <style scoped>
@@ -26,6 +31,7 @@ export default {
 }
 .moreInfo {
     margin-left: 20px;
+    margin-top: -22px;
 }
 h3 {
     font-size: 13px;
