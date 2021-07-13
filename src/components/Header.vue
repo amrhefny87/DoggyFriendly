@@ -8,7 +8,7 @@
           id="image"
         />
       </router-link>
-      <b-navbar-toggle target="navbar-toggle-collapse" class="m-4">
+      <b-navbar-toggle target="navbar-toggle-collapse"  class="m-4" id="border">
         <template #default="{ expanded }">
           <b-icon
             v-if="expanded"
@@ -23,6 +23,8 @@
         >
           <b-nav-item to="/dogs">Dogs</b-nav-item>
           <b-nav-item to="/sitters">Sitters</b-nav-item>
+          <b-nav-item to="/formdogs">Form Dogs</b-nav-item>
+          <b-nav-item to="/formsitters">Form Sitters</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -64,5 +66,9 @@ export default {
 
 #navbar {
   background: #e07a1b;
+}
+
+#border {
+  border: 1px solid transparent
 }
 </style>
