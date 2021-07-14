@@ -1,6 +1,6 @@
 <template>
   <div class="dogs">
-    <h1>Dog</h1>
+    <h1 class="mt-3">Dog</h1>
     <Button root="/adtype" name="Add and Ad" />
     <div v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
           <NewAd :key="event.id"  :result="event" />
