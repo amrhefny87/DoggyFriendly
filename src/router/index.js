@@ -6,6 +6,7 @@ import Sitters from '../views/Sitters.vue'
 import FormDogs from '../views/FormDogs.vue'
 import FormSitters from '../views/FormSitters.vue'
 import AdType from '../views/AdType.vue'
+import Show from '../views/Show.vue'
 
 
 Vue.use(VueRouter)
@@ -40,6 +41,11 @@ const routes = [
     path: '/adtype',
     name: 'Adtype',
     component: AdType
+  },
+  {
+    path: '/show',
+    name: 'Show',
+    component: Show
   }
 ]
 

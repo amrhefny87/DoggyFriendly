@@ -7,7 +7,7 @@
       <b-row no-gutters class="d-flex align-items-center" >
         <b-col md="6">
           <b-card-img
-            :src="result.image"
+            
             alt="Image"
             class="rounded"
             id="img"
@@ -16,9 +16,9 @@
         <b-col md="6" >
           
           <b-card-body>
-            <h2 id="textitle">{{ result.title }}</h2>
+            <h2 id="textitle"></h2>
             <b-card-text id="text">
-              {{ result.description }}
+             
             </b-card-text>
             
             <b-card-text>
