@@ -112,7 +112,7 @@ export default {
   },
   methods: {
     async creatAd() {
-      await axios.post("http://localhost:8000/api/postdogs", this.form).then
+      await axios.post("http://localhost:8000/api/postdogs", this.form)
 
     },
     onSubmit(event) {
