@@ -1,24 +1,26 @@
 <template>
   <div class="NewAdd">
     <b-card 
-      class="overflow-hidden pr-2 pl-2 pb-4 pt-3 d-flex flex-row align-items-center justify-content-center  "
-      style="max-width: 540px; background: #e07a1b; margin-right: 40px; margin-left: 40px; margin-top: 30px; margin-bottom: 10px;"
+      class="overflow-hidden pr-2 pl-2 pb-1 pt-2 d-flex flex-row align-items-center justify-content-center shadow "
+      style="max-width: 540px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px;"
     >
       <b-row no-gutters class="d-flex align-items-center" >
         <b-col md="6">
           <b-card-img
-            src="https://picsum.photos/400/400/?image=20"
+            :src="result.image"
             alt="Image"
             class="rounded"
             id="img"
           ></b-card-img>
         </b-col>
-        <b-col md="6" v-if="result">
+        <b-col md="6" >
+          
           <b-card-body>
-            <h2>{{ result.title }}</h2>
-            <b-card-text>
+            <h2 id="textitle">{{ result.title }}</h2>
+            <b-card-text id="text">
               {{ result.description }}
             </b-card-text>
+            
             <b-card-text>
               
             </b-card-text>
@@ -61,7 +63,7 @@ h4 {
 }
 
 #img {
-  width: 65%;
+  width: 50%;
 }
 
 #buttonMore {
@@ -71,4 +73,22 @@ h4 {
 #buttonMore:hover {
   background: #a15106;
 }
+
+#text {
+  font-size: 13px;
+}
+
+#textTitle {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 500px) {
+    #img {
+        width:200px;
+       
+    }
+}
+
+
 </style>
