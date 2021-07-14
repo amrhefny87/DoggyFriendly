@@ -11,7 +11,7 @@
 <script>
 // @ is an alias to /src
 import NewAd from '@/components/NewAd.vue'
-import axios from 'axios'
+import {apidogs} from '@/components/ApiDogs'
 
 export default {
   name: 'Dogs',
@@ -25,14 +25,14 @@ export default {
 },
 
 mounted(){
-    axios.get('http://127.0.0.1:8000/api/postdogs').then
-    (response => {this.events = response.data})
+    this.fetchApi()
   },
 
-methods:{}
-
-  
-
+methods:{
+  async fetchApi() {
+    const res = await apidogs.getAll();
+    this.events = res.data
+  }
 }
-
+}
 </script>

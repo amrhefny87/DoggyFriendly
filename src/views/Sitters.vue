@@ -11,10 +11,10 @@
 <script>
 // @ is an alias to /src
 import NewAd from '@/components/NewAd.vue'
-import axios from 'axios'
+import {apisitters} from '@/components/ApiSitters'
 
 export default {
-  name: 'Dogs',
+  name: 'Sitters',
   components: {
     NewAd
   },
@@ -25,14 +25,14 @@ export default {
 },
 
 mounted(){
-    axios.get('http://127.0.0.1:8000/api/postsitters').then
-    (response => {this.events = response.data})
+    this.fetchApi()
   },
 
-methods:{}
-
-  
-
+methods:{
+  async fetchApi() {
+    const res = await apisitters.getAll();
+    this.events = res.data
+  }
 }
-
+}
 </script>
