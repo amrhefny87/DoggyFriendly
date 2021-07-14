@@ -23,8 +23,6 @@
         >
           <b-nav-item to="/dogs">Dogs</b-nav-item>
           <b-nav-item to="/sitters">Sitters</b-nav-item>
-          <b-nav-item to="/formdogs">Form Dogs</b-nav-item>
-          <b-nav-item to="/formsitters">Form Sitters</b-nav-item>
           <b-nav-item to="/adtype">Ad Type</b-nav-item>
         </b-navbar-nav>
       </b-collapse>

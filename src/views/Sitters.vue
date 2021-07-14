@@ -3,7 +3,7 @@
     <h1>Sitters</h1>
     <router-link to="/dogs" class="btn text-white btn-primary">Add and Ad</router-link>
     <div v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
-          <NewAd :key="event.id"  :event="event" />
+          <NewAd :key="event.id"  :result="event" />
     </div>
   </div>
 </template>
