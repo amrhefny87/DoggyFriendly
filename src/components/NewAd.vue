@@ -7,7 +7,7 @@
       <b-row no-gutters class="d-flex align-items-center" >
         <b-col md="6">
           <b-card-img
-            src="https://picsum.photos/400/400/?image=20"
+            :src=" result.image"
             alt="Image"
             class="rounded"
             id="img"

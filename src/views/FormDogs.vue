@@ -6,6 +6,19 @@
         <b-form-group
           class="m-2"
           id="input-group-2"
+          label="Date "
+          label-for="input-2"
+        >
+          <b-form-input
+            id="input-2"
+            v-model="form.date"
+            placeholder="Enter Date" type="date"
+            required
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group
+          class="m-2"
+          id="input-group-2"
           label="Description "
           label-for="input-2"
         >
@@ -31,14 +44,14 @@
         </b-form-group>
         <b-form-group
           id="input-group-2"
-          label="Availability"
+          label="Title"
           label-for="input-2"
           class="m-2"
         >
           <b-form-input
             id="input-2"
-            v-model="form.availability"
-            placeholder="Enter availability"
+            v-model="form.title"
+            placeholder="Enter title"
             required
           ></b-form-input>
         </b-form-group>
@@ -58,57 +71,63 @@
         </b-form-group>
         <b-form-group
           id="input-group-2"
-          label="Upload picture"
+          label="Upload image"
           label-for="input-2"
           class="m-2 d-flex flex-column"
         >
           <b-form-file
             id="input-2"
-            v-model="form.picture"
+            v-model="form.image"
             placeholder=""
             required
           ></b-form-file>
         </b-form-group>
 
-        <b-button type="submit" id="buttonSub" class="m-2">Submit</b-button>
+        <b-button @click="creatAd" type="submit" id="buttonSub" class="m-2">Submit</b-button>
         <b-button type="reset" id="buttonSub2" class="m-2">Reset</b-button>
       </b-form>
     </div>
-    <b-card class="mt-3" header="Form Data Result">
-      <pre class="m-0">{{ form }}</pre>
-    </b-card>
   </div>
 </template>
 <script>
+import axios from 'axios';
+
 export default {
   name: "FormDogs",
 
   data() {
     return {
-      form: {
-        description: "",
+      form: [{
         name: "",
-        availability: "",
+        description: "",        
+        date: "2019-05-28 18:42:38",
         comments: "",
-        picture: "",
-      },
+        image: "",
+        title: ""
+      }],
+      
 
       show: true,
     };
   },
   methods: {
+    async creatAd() {
+      await axios.post("http://localhost:8000/api/postdogs", this.form).then
+
+    },
     onSubmit(event) {
       event.preventDefault();
-      alert(JSON.stringify(this.form));
+      console.log(this.form)
     },
+    
     onReset(event) {
       event.preventDefault();
       // Reset our form values
       this.form.description = "";
       this.form.name = "";
-      this.form.availability = "";
+      this.form.title = "";
       this.form.comments = "";
-      this.form.picture = "";
+      this.form.image = "";
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
@@ -117,6 +136,7 @@ export default {
     },
   },
 };
+
 </script>
 <style scoped>
 #formDogContainer {

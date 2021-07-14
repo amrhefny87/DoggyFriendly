@@ -6,4 +6,7 @@ export const apidogs =  {
   getAll() {
     return axios.get(url)
   },
+  create() {
+    axios.post(url, "hola")
+  }
 }
