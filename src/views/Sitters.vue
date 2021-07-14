@@ -11,7 +11,7 @@
 <script>
 // @ is an alias to /src
 import NewAd from '@/components/NewAd.vue'
-import {apisitters} from '@/components/ApiSitters'
+import {apisitters} from '@/apis/ApiSitters'
 
 export default {
   name: 'Sitters',
