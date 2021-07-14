@@ -1,7 +1,7 @@
 <template>
   <div class="dogs">
     <h1>Sitters</h1>
-    <router-link to="/dogs" class="btn text-white btn-primary">Add and Ad</router-link>
+    <Button root="/adtype" name="Add and Ad" />
     <div v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
           <NewAd :key="event.id"  :result="event" />
     </div>
@@ -12,11 +12,13 @@
 // @ is an alias to /src
 import NewAd from '@/components/NewAd.vue'
 import {apisitters} from '@/apis/ApiSitters'
+import Button from '@/components/Button.vue'
 
 export default {
   name: 'Sitters',
   components: {
-    NewAd
+    NewAd,
+    Button
   },
   data(){
     return{
@@ -36,3 +38,9 @@ methods:{
 }
 }
 </script>
+
+<style scoped>
+#button1{
+  background: #EE8B16;
+}
+</style>
