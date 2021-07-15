@@ -10,6 +10,10 @@ import Show from '../views/Show.vue'
 import EditDogs from '../views/EditDogs.vue'
 
 
+import Profils from '../views/Profils.vue'
+import Show from '../views/Show.vue'
+
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -39,21 +43,19 @@ const routes = [
     component: FormSitters
   },
   {
-    path: '/adtype',
-    name: 'Adtype',
-    component: AdType
+
+    path:'/profils',
+    name:'/profils',
+    component: Profils
   },
   {
-    path: '/show',
-    name: 'Show',
+    path:'/show',
+    name:'/show',
     component: Show
-  },
-  {
-    path: '/edit',
-    name: 'EditDogs',
-    component: EditDogs,
-    
-  },
+  }
+  
+
+
 ]
 
 const router = new VueRouter({
