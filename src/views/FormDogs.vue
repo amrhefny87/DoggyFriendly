@@ -126,10 +126,6 @@ export default {
       await apidogs.editEvent(11, this.form)
       return window.location.href =  "dogs"
   },
-  async deletemyEvent() {
-      await apidogs.delete(1)
-      return window.location.href =  "dogs"
-  },
     onReset(event) {
       event.preventDefault();
       this.form.description = "";

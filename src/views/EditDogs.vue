@@ -19,11 +19,5 @@ export default {
 </script>
 
 <style>
-#buttonDelete {
-  display: none;
-}
 
-#buttonSubmit {
-  display: none;
-}
 </style>

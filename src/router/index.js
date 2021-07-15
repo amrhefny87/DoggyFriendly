@@ -6,7 +6,6 @@ import Sitters from '../views/Sitters.vue'
 import FormDogs from '../views/FormDogs.vue'
 import FormSitters from '../views/FormSitters.vue'
 import AdType from '../views/AdType.vue'
-import Show from '../views/Show.vue'
 import EditDogs from '../views/EditDogs.vue'
 
 
@@ -49,11 +48,15 @@ const routes = [
     component: Profils
   },
   {
+    path:'/adtype',
+    name:'/adtype',
+    component: AdType
+  },
+  {
     path:'/show',
     name:'/show',
     component: Show
   }
-  
 
 
 ]
