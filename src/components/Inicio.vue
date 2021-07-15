@@ -26,16 +26,16 @@ export default {
 <style scoped>
 h1 {
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 30px;
   color: black;
 }
 
 h6 {
   margin-top: 15px ;
-  color: white;
+  color: black;
   font-weight: bold;
   padding: 10px;
-  text-shadow: 2px 2px black;
+  
   line-height: 30px;
 }
 ul {
