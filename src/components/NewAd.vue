@@ -7,7 +7,7 @@
       <b-row no-gutters class="d-flex align-items-center" >
         <b-col md="6">
           <b-card-img
-            :src=" result.image"
+            v-bind:src=" result.image"
             alt="Image"
             class="rounded"
             id="img"
