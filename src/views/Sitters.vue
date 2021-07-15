@@ -1,9 +1,10 @@
 <template>
   <div class="dogs">
-    <h1>Sitters</h1>
-    <router-link to="/dogs" class="btn text-white btn-primary">Add and Ad</router-link>
+    <Header />
+    <h1 class="mt-3">Sitters</h1>
+    <Button root="/adtype" name="Add and Ad" />
     <div v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
-          <NewAd :key="event.id"  :event="event" />
+          <NewAd :key="event.id"  :result="event" />
     </div>
   </div>
 </template>
@@ -11,13 +12,19 @@
 <script>
 // @ is an alias to /src
 import NewAd from '@/components/NewAd.vue'
-import axios from 'axios'
+import {apisitters} from '@/apis/ApiSitters'
+import Button from '@/components/Button.vue'
+import Header from "@/components/Header.vue";
 
 export default {
-  name: 'Dogs',
+  name: 'Sitters',
   components: {
-    NewAd
+    NewAd,
+    Button,
+  Header,
   },
+  
+  
   data(){
     return{
       events:[]
@@ -25,14 +32,20 @@ export default {
 },
 
 mounted(){
-    axios.get('http://127.0.0.1:8000/api/postsitters').then
-    (response => {this.events = response.data})
+    this.fetchApi()
   },
 
-methods:{}
-
-  
-
+methods:{
+  async fetchApi() {
+    const res = await apisitters.getAll();
+    this.events = res.data
+  }
 }
-
+}
 </script>
+
+<style scoped>
+#button1{
+  background: #EE8B16;
+}
+</style>

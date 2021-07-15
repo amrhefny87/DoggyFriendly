@@ -1,42 +1,102 @@
 <template>
-  <div class="container-add d-flex  border border-dark rounded-3">
-    <img class="pet" alt="Dog" src="../assets/dog.jpg" />
-    <div>
-        <h2>{{event.title }}</h2>
-        <h3>{{event.description }}</h3>
-        <h4>{{event.date }}</h4>
-      <router-link to="/dogs" class="moreInfo position-absolute btn text-white btn-primary">More Info</router-link>
-    </div>
-   
+  <div class="NewAdd d-flex flex-row" >
+    <b-card 
+      class="overflow-hidden pr-2 pl-2 pb-1 pt-2  shadow "
+      style="max-width: 540px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px;"
+    >
+      <b-row no-gutters class="d-flex align-items-center" >
+        <b-col md="6">
+          <b-card-img
+            :src=" result.image "
+            alt="Image"
+            class="rounded"
+            id="img"
+          ></b-card-img>
+        </b-col>
+        <b-col md="6" >
+          
+          <b-card-body>
+            <h2 id="textitle">{{ result.title }}</h2>
+            <b-card-text id="text">
+              {{ result.description }}
+            </b-card-text>
+            
+            <b-card-text>
+              
+            </b-card-text>
+
+            <router-link
+              to="/show"
+              class="moreInfo btn text-black m-3 "
+              id="buttonMore"
+              >More Info</router-link
+            >
+            <router-link
+              to="/edit"
+              class="moreInfo btn text-black m-3 "
+              id="buttonMore"
+             
+              >Edit</router-link
+            >
+          </b-card-body>
+        </b-col>
+      </b-row>
+    </b-card>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'NewAdd',
-  props: 
-    [
-    "event",
-    ],
-}
+  name: "NewAdd",
+  props: [
+    "result",
+    "EditDogs",
+  ]
+
+  
+};
 </script>
 <style scoped>
-.container-add {
-    width:  85%;
-    margin-top: 5%;
-}
+
 .pet {
-    height: 18vh;
+  height: 18vh;
 }
-.moreInfo {
-    margin-left: 20px;
-    margin-top: -22px;
-}
+
 h3 {
-    font-size: 13px;
+  font-size: 13px;
 }
 h4 {
-    font-size: 9px
+  font-size: 9px;
 }
+
+#img {
+  width: 50%;
+}
+
+#buttonMore {
+  background: #eab474;
+}
+
+#buttonMore:hover {
+  background: #a15106;
+}
+
+#text {
+  font-size: 13px;
+}
+
+#textTitle {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 500px) {
+    #img {
+        width:200px;
+       
+    }
+}
+
+
 </style>

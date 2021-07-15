@@ -1,4 +1,5 @@
 <template>
+
   <div class="container p-5">
     <div class="card p-5" style="background-color: #E07A1B; ">
     <div class="box d-flex justify-content-around">
@@ -51,10 +52,12 @@
         <button class="button-contact">Contact</button>
     </div>
     </div>
+
   </div>
 </template>
 
 <script>
+
 export default {
 
 }
@@ -145,3 +148,4 @@ export default {
 
 }
 </style>
+
