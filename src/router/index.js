@@ -6,6 +6,10 @@ import Sitters from '../views/Sitters.vue'
 import FormDogs from '../views/FormDogs.vue'
 import FormSitters from '../views/FormSitters.vue'
 
+import Profils from '../views/Profils.vue'
+import Show from '../views/Show.vue'
+
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -33,7 +37,19 @@ const routes = [
     path: '/formsitters',
     name: 'formsitters',
     component: FormSitters
+  },
+  {
+    path:'/profils',
+    name:'/profils',
+    component: Profils
+  },
+  {
+    path:'/show',
+    name:'/show',
+    component: Show
   }
+  
+
 ]
 
 const router = new VueRouter({
