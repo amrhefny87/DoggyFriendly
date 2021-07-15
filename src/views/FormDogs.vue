@@ -32,6 +32,20 @@
           ></b-form-input>
         </b-form-group>
         <b-form-group
+          class="m-2"
+          id="input-group-2"
+          label=""
+          label-for="input-2"
+        >
+          <b-form-input
+            id="input-2"
+            v-model="form.date" required
+            placeholder="Enter date" type="datetime-local"
+            min="2011-06-01T08:30:00" max="2022-06-30T16:30:00"
+           pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+          ></b-form-input>
+                  </b-form-group>
+        <b-form-group
           id="input-group-2"
           label=""
           label-for="input-2"
@@ -64,12 +78,11 @@
           label-for="input-2"
           class="m-2 d-flex flex-column"
         >
-          <b-form-file
+          <b-form-textarea
             id="input-2"
             v-model="form.image"
             placeholder=""
-            required
-          ></b-form-file>
+          ></b-form-textarea>
         </b-form-group>
 
         <b-button type="submit" id="buttonSub" class="m-2">Submit</b-button>
@@ -105,11 +118,12 @@ export default {
 
     async onSubmit(event) {
       event.preventDefault();
+      console.log(this.form.image)
       await apidogs.create(this.form);
       return window.location.href =  "dogs"
     },
     async editmyEvent() {
-      await apidogs.editEvent(3, this.form)
+      await apidogs.editEvent(11, this.form)
       return window.location.href =  "dogs"
   },
   async deletemyEvent() {
@@ -118,13 +132,11 @@ export default {
   },
     onReset(event) {
       event.preventDefault();
-      // Reset our form values
       this.form.description = "";
       this.form.name = "";
       this.form.title = "";
       this.form.comments = "";
       this.form.image = "";
-      // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
