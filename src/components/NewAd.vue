@@ -27,9 +27,16 @@
 
             <router-link
               to="/show"
-              class="moreInfo btn text-black  "
+              class="moreInfo btn text-black m-3 "
               id="buttonMore"
               >More Info</router-link
+            >
+            <router-link
+              to="/edit"
+              class="moreInfo btn text-black m-3 "
+              id="buttonMore"
+             
+              >Edit</router-link
             >
           </b-card-body>
         </b-col>
@@ -43,7 +50,8 @@
 export default {
   name: "NewAdd",
   props: [
-    "result"
+    "result",
+    "EditDogs",
   ]
 
   

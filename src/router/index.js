@@ -7,6 +7,7 @@ import FormDogs from '../views/FormDogs.vue'
 import FormSitters from '../views/FormSitters.vue'
 import AdType from '../views/AdType.vue'
 import Show from '../views/Show.vue'
+import EditDogs from '../views/EditDogs.vue'
 
 
 Vue.use(VueRouter)
@@ -46,7 +47,13 @@ const routes = [
     path: '/show',
     name: 'Show',
     component: Show
-  }
+  },
+  {
+    path: '/edit',
+    name: 'EditDogs',
+    component: EditDogs,
+    
+  },
 ]
 
 const router = new VueRouter({
