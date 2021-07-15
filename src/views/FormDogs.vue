@@ -8,7 +8,7 @@
         <b-form-group
           class="m-2"
           id="input-group-2"
-          label=" "
+          label=""
           label-for="input-2"
         >
           <b-form-textarea
@@ -39,8 +39,8 @@
         >
           <b-form-input
             id="input-2"
-            v-model="form.availability"
-            placeholder="Enter availability"
+            v-model="form.title"
+            placeholder="Enter title"
             required
           ></b-form-input>
         </b-form-group>
@@ -60,30 +60,30 @@
         </b-form-group>
         <b-form-group
           id="input-group-2"
-          label="Upload picture"
+          label="Upload image"
           label-for="input-2"
           class="m-2 d-flex flex-column"
         >
           <b-form-file
             id="input-2"
-            v-model="form.picture"
+            v-model="form.image"
             placeholder=""
             required
           ></b-form-file>
         </b-form-group>
 
         <b-button type="submit" id="buttonSub" class="m-2">Submit</b-button>
+        <b-button @click="editmyEvent" id="buttonSub" class="m-2">EDIT</b-button>
+        <b-button @click="deletemyEvent" id="buttonSub" class="m-2">Delete</b-button>
         <b-button type="reset" id="buttonSub2" class="m-2">Reset</b-button>
       </b-form>
     </div>
-    <b-card class="mt-3" header="Form Data Result">
-      <pre class="m-0">{{ form }}</pre>
-    </b-card>
     </div>
   </div>
 </template>
 <script>
 
+import {apidogs} from '@/apis/ApiDogs'
 import Header from "@/components/Header.vue";
 export default {
   name: "FormDogs",
@@ -94,30 +94,36 @@ export default {
 
   data() {
     return {
-      form: {
-        description: "",
-        name: "",
-        availability: "",
-        comments: "",
-        picture: "",
-      },
-
+      form: {},
       show: true,
     };
   },
+  mounted(){
+    this.onSubmit()
+  },
   methods: {
-    onSubmit(event) {
+
+    async onSubmit(event) {
       event.preventDefault();
-      alert(JSON.stringify(this.form));
+      await apidogs.create(this.form);
+      return window.location.href =  "dogs"
     },
+    async editmyEvent() {
+      await apidogs.editEvent(3, this.form)
+      return window.location.href =  "dogs"
+  },
+  async deletemyEvent() {
+      await apidogs.delete(1)
+      return window.location.href =  "dogs"
+  },
     onReset(event) {
       event.preventDefault();
       // Reset our form values
       this.form.description = "";
       this.form.name = "";
-      this.form.availability = "";
+      this.form.title = "";
       this.form.comments = "";
-      this.form.picture = "";
+      this.form.image = "";
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
@@ -126,6 +132,7 @@ export default {
     },
   },
 };
+
 </script>
 <style scoped>
 #formDogContainer {
