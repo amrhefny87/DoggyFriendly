@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
-    <div class="box d-flex justify-content-around m-5">
+  <div class="container p-5">
+    <div class="box d-flex justify-content-around">
         <div class="box1 d-flex flex-column">
             <a href="http://www.goggle.com">
-                <img src="../assets/profil.png" alt="">
+                <img class="img-fluid" src="../assets/profil.png" alt="">
             </a>
             <!-- <button >Profile</button> -->
         </div>
@@ -13,25 +13,41 @@
             <img src="../assets/stars.png" alt="">
         </div>
     </div>   
-    <div class="info d-flex justify-content-around m-5">
-        <div class="info-item">
-            <h2>Description</h2> 
+    <div class="info d-flex justify-content-around mt-2">
+        <div class="description-name text-left">
+            <h2 class="special-p">Description</h2> 
         </div>
-        <div class="info-item-p">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique excepturi, soluta tenetur accusamus porro voluptatum? Ad animi in facilis nulla ab quaerat vero! Quos hic eius, sint blanditiis dolorum quod aliquam delectus. A quos sint qui unde deleniti dolores odio maxime eligendi at! Fugit rerum incidunt enim optio tenetur dolorum.</p>
+        <div class="info-p text-justify">
+            <p class="description-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique excepturi, soluta tenetur accusamus porro voluptatum? Ad animi in facilis nulla ab quaerat vero! Quos hic eius, sint blanditiis dolorum quod aliquam delectus. A quos sint qui unde deleniti dolores odio maxime eligendi at! Fugit rerum incidunt enim optio tenetur dolorum.</p>
         </div>
     </div>  
-    <div class="about">
-        <p>kwskdgkdkwdjkkebdkjkjdbjkbdkjbdkjbkwejbkjdbkjd 7 8</p>
-        <p>pet</p>
-    </div> 
-    <div>
-        <div class="">
-            <h2>Special Comments</h2> 
-    </div>
-        <div class="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique excepturi, soluta tenetur accusamus porro voluptatum? Ad animi in facilis nulla ab quaerat vero! </p>
+    <div class="time mr-5 d-flex">
+        <div>
+            <p class="time-p">I want a caregiver at</p> 
         </div>
+        <div>
+            <p class="time-time">7pm on friday 21/7/2021</p>
+        </div>
+    </div> 
+    <div class="time mr-5 d-flex">
+        <div>
+            <p class="time-p">Pet's Name</p>
+        </div>
+        <div>
+            <p class="time-time">London</p>
+        </div>
+    </div>
+
+    <div class="info d-flex justify-content-around mt-5">
+        <div class="">
+            <p class="special-p">Special Comments</p> 
+        </div>
+        <div class="description-p">
+            <p class="description-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique excepturi, soluta tenetur accusamus porro voluptatum? Ad animi in facilis nulla ab quaerat vero! </p>
+        </div>
+    </div>
+    <div>
+        <button class="button-contact">Contact</button>
     </div>
     
   </div>
@@ -45,18 +61,83 @@ export default {
 
 <style>
 .box{
-    width: 100%;
+    width: 90%;
     height: 20%;
 }
 .info{
     width: 100%;
     height: 30%;
 }
-.info-item{
-    width: 30%;
+.info-description{
+    font-size: 22px;
+    font-weight: bold;
+    text-align:start ;
+    width: 30vh;
 }
 
-.info-item-p{
+.info-p{
+    
+}
+
+.description-name{
     width: 50%;
+}
+.description-p{
+    width: 90%
+}
+
+.profile-image{
+    max-width: 40vh;
+    min-width: 40vh;
+    height: auto;
+}
+
+.about-time{
+    width: 100%;
+}
+
+.special-p {
+    font-size: 22px;
+    font-weight: bold;
+    text-align:start ;
+    width: 50%;
+}
+
+.time{
+    width: 100%;
+}
+
+.time-p{
+    font-size: 18px;
+    font-weight: bold;
+    text-align:start ;
+    width: 50%;
+}
+.time-time{
+    text-align:start;
+    width: 90%;
+}
+.pet {
+    width: 100%;
+}
+.pet-p{
+    font-size: 18px;
+    font-weight: bold;
+    text-align:start ;
+    width: 50%;
+}
+
+.pet-name{
+    text-align:start ;
+    width: 90%;
+}
+
+.button-contact{
+    background-color:#F7A440;
+    border-radius: 18px;
+    width: 20vh;
+    font-size: 20px;
+    box-shadow: 4px 4px 4px rgba(158, 151, 151, 0.25);
+
 }
 </style>
