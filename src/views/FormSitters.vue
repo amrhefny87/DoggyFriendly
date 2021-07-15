@@ -1,12 +1,14 @@
 <template>
-  <div class="p-5">
+<div>
+  <Header />
+  <div class="p-5 d-flex flex-column align-items-center ">
     <h2>Create your Sitter Add</h2>
-    <div id="formDogContainer">
+    <div id="formDogContainer" class="shadow">
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group
           class="m-2"
           id="input-group-2"
-          label="Description "
+          label=" "
           label-for="input-2"
         >
           <b-form-textarea
@@ -19,7 +21,7 @@
         
         <b-form-group
           id="input-group-2"
-          label="Availability"
+          label=""
           label-for="input-2"
           class="m-2"
         >
@@ -33,7 +35,7 @@
 
         <b-form-group
           id="input-group-2"
-          label="Comments"
+          label=""
           label-for="input-2"
           class="m-2"
         >
@@ -54,10 +56,16 @@
       <pre class="m-0">{{ form }}</pre>
     </b-card>
   </div>
+  </div>
 </template>
 <script>
+import Header from "@/components/Header.vue";
+
 export default {
   name: "FormSitters",
+  components: {
+    Header
+  },
 
   data() {
     return {
@@ -99,6 +107,8 @@ export default {
   background: #e07a1b;
   padding: 10px;
   border-radius: 20px;
+   margin-top: 2rem;
+  max-width: 500px;
 }
 
 #buttonSub {

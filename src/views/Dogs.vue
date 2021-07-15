@@ -1,5 +1,6 @@
 <template>
   <div class="dogs">
+    <Header />
     <h1 class="mt-3">Dog</h1>
     <Button root="/adtype" name="Add and Ad" />
     <div v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
@@ -13,12 +14,14 @@
 import NewAd from '@/components/NewAd.vue'
 import {apidogs} from '@/apis/ApiDogs'
 import Button from '@/components/Button.vue'
+import Header from "@/components/Header.vue";
 
 export default {
   name: 'Dogs',
   components: {
     NewAd,
-    Button
+    Button,
+    Header
   },
   data(){
     return{
