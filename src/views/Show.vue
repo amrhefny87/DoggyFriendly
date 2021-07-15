@@ -1,5 +1,6 @@
 <template>
   <div class="container p-5">
+    <div class="card p-5" style="background-color: #E07A1B; ">
     <div class="box d-flex justify-content-around">
         <div class="box1 d-flex flex-column">
             <a href="http://www.goggle.com">
@@ -13,7 +14,7 @@
             <img src="../assets/stars.png" alt="">
         </div>
     </div>   
-    <div class="info d-flex justify-content-around mt-2">
+    <div class="info d-flex justify-content-around mt-2 px-5 mx-5">
         <div class="description-name text-left">
             <h2 class="special-p">Description</h2> 
         </div>
@@ -49,7 +50,7 @@
     <div>
         <button class="button-contact">Contact</button>
     </div>
-    
+    </div>
   </div>
 </template>
 
@@ -60,6 +61,9 @@ export default {
 </script>
 
 <style>
+.container {
+    border: black;
+}
 .box{
     width: 90%;
     height: 20%;
@@ -80,7 +84,7 @@ export default {
 }
 
 .description-name{
-    width: 50%;
+    width: 80%;
 }
 .description-p{
     width: 90%
