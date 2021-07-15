@@ -1,5 +1,5 @@
 <template>
-  <div class="NewAdd d-flex flex-row">
+  <div >
     <b-card 
       class="overflow-hidden pr-2 pl-2 pb-1 pt-2  shadow "
       style="max-width: 540px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px;"
@@ -7,7 +7,7 @@
       <b-row no-gutters class="d-flex align-items-center" >
         <b-col md="6">
           <b-card-img
-            
+            :src="result.image"
             alt="Image"
             class="rounded"
             id="img"

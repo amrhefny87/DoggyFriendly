@@ -27,6 +27,7 @@ export default {
 h1 {
   font-weight: bold;
   margin-top: 15px;
+  color: black;
 }
 
 h6 {
@@ -35,6 +36,7 @@ h6 {
   font-weight: bold;
   padding: 10px;
   text-shadow: 2px 2px black;
+  line-height: 30px;
 }
 ul {
   list-style-type: none;
