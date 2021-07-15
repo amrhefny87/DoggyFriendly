@@ -7,7 +7,7 @@
       <b-row no-gutters class="d-flex align-items-center" >
         <b-col md="6">
           <b-card-img
-            :src=" result.image"
+            src="https://trainthatpooch.com/wp-content/uploads/2018/11/Ways-Dogs-Communicate_Featured-730x510.png"
             alt="Image"
             class="rounded"
             id="img"

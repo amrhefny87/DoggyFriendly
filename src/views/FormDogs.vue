@@ -83,43 +83,44 @@
           ></b-form-file>
         </b-form-group>
 
-        <b-button @click="creatAd" type="submit" id="buttonSub" class="m-2">Submit</b-button>
+        <b-button type="submit" id="buttonSub" class="m-2">Submit</b-button>
+        <b-button @click="editmyEvent" id="buttonSub" class="m-2">EDIT</b-button>
+        <b-button @click="deletemyEvent" id="buttonSub" class="m-2">Delete</b-button>
         <b-button type="reset" id="buttonSub2" class="m-2">Reset</b-button>
       </b-form>
     </div>
   </div>
 </template>
 <script>
-import axios from 'axios';
+import {apidogs} from '@/apis/ApiDogs'
 
 export default {
   name: "FormDogs",
 
   data() {
     return {
-      form: [{
-        name: "",
-        description: "",        
-        date: "2019-05-28 18:42:38",
-        comments: "",
-        image: "",
-        title: ""
-      }],
-      
-
+      form: {},
       show: true,
     };
   },
+  mounted(){
+    this.onSubmit()
+  },
   methods: {
-    async creatAd() {
-      await axios.post("http://localhost:8000/api/postdogs", this.form)
 
-    },
-    onSubmit(event) {
+    async onSubmit(event) {
       event.preventDefault();
-      console.log(this.form)
+      await apidogs.create(this.form);
+      return window.location.href =  "dogs"
     },
-    
+    async editmyEvent() {
+      await apidogs.editEvent(3, this.form)
+      return window.location.href =  "dogs"
+  },
+  async deletemyEvent() {
+      await apidogs.delete(1)
+      return window.location.href =  "dogs"
+  },
     onReset(event) {
       event.preventDefault();
       // Reset our form values
