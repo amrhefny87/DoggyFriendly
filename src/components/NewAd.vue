@@ -38,6 +38,7 @@
              
               >Edit</router-link
             >
+             <b-button @click="deletemyEvent" id="buttonDelete" class="m-2">Delete</b-button>
           </b-card-body>
         </b-col>
       </b-row>
@@ -46,16 +47,25 @@
 </template>
 
 <script>
+import {apidogs} from '@/apis/ApiDogs'
 
 export default {
   name: "NewAdd",
   props: [
     "result",
     "EditDogs",
-  ]
-
+  ],
+  mounted(){
+  },
+  methods: {
+    async deletemyEvent() {
+      await apidogs.delete(this.result.id)
+      return window.location.href =  "dogs"
+  },
+}
   
 };
+
 </script>
 <style scoped>
 
