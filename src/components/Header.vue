@@ -58,6 +58,13 @@ export default {
   color: black;
 }
 
+#nav a:hover {
+  color: rgb(59, 36, 0);
+  
+}
+
+
+
 #image {
   width: 50px;
   margin: 15px;

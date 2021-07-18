@@ -1,34 +1,44 @@
 <template>
-  <div class="NewAdd">
+  <div class="NewAdd d-flex flex-row" >
     <b-card 
-      class="overflow-hidden pr-2 pl-2 pb-4 pt-3 d-flex flex-row align-items-center justify-content-center  "
-      style="max-width: 540px; background: #e07a1b; margin-right: 40px; margin-left: 40px; margin-top: 30px; margin-bottom: 10px;"
+      class="overflow-hidden pr-2 pl-2 pb-1 pt-2  shadow "
+      style="max-width: 540px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px;"
     >
       <b-row no-gutters class="d-flex align-items-center" >
         <b-col md="6">
           <b-card-img
-            v-bind:src=" result.image"
+            :src=" result.image "
             alt="Image"
             class="rounded"
             id="img"
           ></b-card-img>
         </b-col>
-        <b-col md="6" v-if="result">
+        <b-col md="6" >
+          
           <b-card-body>
-            <h2>{{ result.title }}</h2>
-            <b-card-text>
+            <h2 id="textitle">{{ result.title }}</h2>
+            <b-card-text id="text">
               {{ result.description }}
             </b-card-text>
+            
             <b-card-text>
               
             </b-card-text>
 
             <router-link
-              to="/dogs"
-              class="moreInfo btn text-black  "
+              to="/show"
+              class="moreInfo btn text-black m-3 "
               id="buttonMore"
               >More Info</router-link
             >
+            <router-link
+              to="/edit"
+              class="moreInfo btn text-black m-3 "
+              id="buttonMore"
+             
+              >Edit</router-link
+            >
+             <b-button @click="deletemyEvent" id="buttonDelete" class="m-2">Delete</b-button>
           </b-card-body>
         </b-col>
       </b-row>
@@ -37,15 +47,25 @@
 </template>
 
 <script>
+import {apidogs} from '@/apis/ApiDogs'
 
 export default {
   name: "NewAdd",
   props: [
-    "result"
-  ]
-
+    "result",
+    "EditDogs",
+  ],
+  mounted(){
+  },
+  methods: {
+    async deletemyEvent() {
+      await apidogs.delete(this.result.id)
+      return window.location.href =  "dogs"
+  },
+}
   
 };
+
 </script>
 <style scoped>
 
@@ -61,7 +81,7 @@ h4 {
 }
 
 #img {
-  width: 65%;
+  width: 50%;
 }
 
 #buttonMore {
@@ -71,4 +91,22 @@ h4 {
 #buttonMore:hover {
   background: #a15106;
 }
+
+#text {
+  font-size: 13px;
+}
+
+#textTitle {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 500px) {
+    #img {
+        width:200px;
+       
+    }
+}
+
+
 </style>

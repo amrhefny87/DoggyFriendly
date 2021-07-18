@@ -1,25 +1,14 @@
 <template>
-  <div class="p-5">
+  <div>
+    <Header />
+    <div class="p-5 d-flex flex-column align-items-center">
     <h2>Create Add for your Dog</h2>
-    <div id="formDogContainer">
+    <div id="formDogContainer" class="shadow">
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group
           class="m-2"
           id="input-group-2"
-          label="Date "
-          label-for="input-2"
-        >
-          <b-form-input
-            id="input-2"
-            v-model="form.date"
-            placeholder="Enter Date" type="date"
-            required
-          ></b-form-input>
-        </b-form-group>
-        <b-form-group
-          class="m-2"
-          id="input-group-2"
-          label="Description "
+          label=""
           label-for="input-2"
         >
           <b-form-textarea
@@ -31,7 +20,7 @@
         </b-form-group>
         <b-form-group
           id="input-group-2"
-          label="Name"
+          label=""
           label-for="input-2"
           class="m-2 text-left"
         >
@@ -43,8 +32,22 @@
           ></b-form-input>
         </b-form-group>
         <b-form-group
+          class="m-2"
           id="input-group-2"
-          label="Title"
+          label=""
+          label-for="input-2"
+        >
+          <b-form-input
+            id="input-2"
+            v-model="form.date" required
+            placeholder="Enter date" type="datetime-local"
+            min="2011-06-01T08:30:00" max="2022-06-30T16:30:00"
+           pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+          ></b-form-input>
+                  </b-form-group>
+        <b-form-group
+          id="input-group-2"
+          label=""
           label-for="input-2"
           class="m-2"
         >
@@ -58,7 +61,7 @@
 
         <b-form-group
           id="input-group-2"
-          label="Comments"
+          label=""
           label-for="input-2"
           class="m-2"
         >
@@ -75,60 +78,61 @@
           label-for="input-2"
           class="m-2 d-flex flex-column"
         >
-          <b-form-file
+          <b-form-textarea
             id="input-2"
             v-model="form.image"
             placeholder=""
-            required
-          ></b-form-file>
+          ></b-form-textarea>
         </b-form-group>
 
-        <b-button @click="creatAd" type="submit" id="buttonSub" class="m-2">Submit</b-button>
-        <b-button type="reset" id="buttonSub2" class="m-2">Reset</b-button>
+        <b-button type="submit" id="buttonSubmit" class="m-2">Submit</b-button>
+        <b-button @click="editmyEvent" id="buttonEdit" class="m-2">Edit</b-button>
+        <b-button @click="deletemyEvent" id="buttonDelete" class="m-2">Delete</b-button>
+        <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
       </b-form>
+    </div>
     </div>
   </div>
 </template>
 <script>
-import axios from 'axios';
 
+import {apidogs} from '@/apis/ApiDogs'
+import Header from "@/components/Header.vue";
 export default {
   name: "FormDogs",
+  components: {
+    
+    Header
+  },
 
   data() {
     return {
-      form: [{
-        name: "",
-        description: "",        
-        date: "2019-05-28 18:42:38",
-        comments: "",
-        image: "",
-        title: ""
-      }],
-      
-
+      form: {},
       show: true,
     };
   },
+  mounted(){
+    this.onSubmit()
+  },
   methods: {
-    async creatAd() {
-      await axios.post("http://localhost:8000/api/postdogs", this.form)
 
-    },
-    onSubmit(event) {
+    async onSubmit(event) {
       event.preventDefault();
-      console.log(this.form)
+      console.log(this.form.image)
+      await apidogs.create(this.form);
+      return window.location.href =  "dogs"
     },
-    
+    async editmyEvent() {
+      await apidogs.editEvent(11, this.form)
+      return window.location.href =  "dogs"
+  },
     onReset(event) {
       event.preventDefault();
-      // Reset our form values
       this.form.description = "";
       this.form.name = "";
       this.form.title = "";
       this.form.comments = "";
       this.form.image = "";
-      // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
@@ -143,13 +147,23 @@ export default {
   background: #e07a1b;
   padding: 10px;
   border-radius: 20px;
+  margin-top: 2rem;
+  max-width: 500px;
+  
 }
 
-#buttonSub {
+#buttonEdit {
+    background: #eab474;
+}
+#buttonSubmit {
+    background: #eab474;
+}
+#buttonDelete {
+    background: #eab474;
+}
+#buttonReset {
     background: #eab474;
 }
 
-#buttonSub2 {
-    background: #eab474;
-}
+
 </style>

@@ -6,6 +6,11 @@ import Sitters from '../views/Sitters.vue'
 import FormDogs from '../views/FormDogs.vue'
 import FormSitters from '../views/FormSitters.vue'
 import AdType from '../views/AdType.vue'
+import EditDogs from '../views/EditDogs.vue'
+
+
+import Profils from '../views/Profils.vue'
+import Show from '../views/Show.vue'
 
 
 Vue.use(VueRouter)
@@ -37,10 +42,23 @@ const routes = [
     component: FormSitters
   },
   {
-    path: '/adtype',
-    name: 'Adtype',
+
+    path:'/profils',
+    name:'/profils',
+    component: Profils
+  },
+  {
+    path:'/adtype',
+    name:'/adtype',
     component: AdType
+  },
+  {
+    path:'/show',
+    name:'/show',
+    component: Show
   }
+
+
 ]
 
 const router = new VueRouter({
