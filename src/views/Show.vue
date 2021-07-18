@@ -6,7 +6,7 @@
         class="overflow-hidden pr-2 pl-2 pb-1 pt-2  shadow "
         style="max-width: 540px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px;"
       >
-        <b-row no-gutters class="d-flex align-items-center">
+        <b-row no-gutters class="d-flex  align-items-center">
           <b-col md="6">
             <b-card-img
               :src="image"
@@ -21,20 +21,24 @@
               <b-card-text id="text">
                 Description: {{ description }}
               </b-card-text>
-             Comments: {{ comments }}
-              <b-card-text>
-               Date: {{ date }}
-              </b-card-text>
+              Comments: {{ comments }}
+              <b-card-text> Date: {{ date }} </b-card-text>
             </b-card-body>
+            
           </b-col>
         </b-row>
+        <ButtonGoBack />
       </b-card>
+      
     </div>
+    
+    
   </div>
 </template>
 <script>
 import Header from "../components/Header";
 import NewAd from "../components/NewAd";
+import ButtonGoBack from "../components/ButtonGoBack";
 
 export default {
   props: ["id", "title", "description", "comments", "image", "date"],
@@ -42,12 +46,14 @@ export default {
   components: {
     Header,
     NewAd,
+    ButtonGoBack
   },
+  
 };
 </script>
 
 <style>
 #img {
-  width: 100px;
+  width: 150px;
 }
 </style>
