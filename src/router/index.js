@@ -6,9 +6,6 @@ import Sitters from '../views/Sitters.vue'
 import FormDogs from '../views/FormDogs.vue'
 import FormSitters from '../views/FormSitters.vue'
 import AdType from '../views/AdType.vue'
-import EditDogs from '../views/EditDogs.vue'
-
-
 import Profils from '../views/Profils.vue'
 import Show from '../views/Show.vue'
 
@@ -53,9 +50,10 @@ const routes = [
     component: AdType
   },
   {
-    path:'/show',
-    name:'/show',
-    component: Show
+    path:'/show/:id',
+    name:'Show',
+    component: Show,
+    props: true,
   }
 
 

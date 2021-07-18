@@ -1,151 +1,53 @@
 <template>
-
-  <div class="container p-5">
-    <div class="card p-5" style="background-color: #E07A1B; ">
-    <div class="box d-flex justify-content-around">
-        <div class="box1 d-flex flex-column">
-            <a href="http://www.goggle.com">
-                <img class="img-fluid" src="../assets/profil.png" alt="">
-            </a>
-            <!-- <button >Profile</button> -->
-        </div>
-        <div class="box2">
-            <h1>Name:</h1>
-            <h2>Direction:</h2>
-            <img src="../assets/stars.png" alt="">
-        </div>
-    </div>   
-    <div class="info d-flex justify-content-around mt-2 px-5 mx-5">
-        <div class="description-name text-left">
-            <h2 class="special-p">Description</h2> 
-        </div>
-        <div class="info-p text-justify">
-            <p class="description-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique excepturi, soluta tenetur accusamus porro voluptatum? Ad animi in facilis nulla ab quaerat vero! Quos hic eius, sint blanditiis dolorum quod aliquam delectus. A quos sint qui unde deleniti dolores odio maxime eligendi at! Fugit rerum incidunt enim optio tenetur dolorum.</p>
-        </div>
-    </div>  
-    <div class="time mr-5 d-flex">
-        <div>
-            <p class="time-p">I want a caregiver at</p> 
-        </div>
-        <div>
-            <p class="time-time">7pm on friday 21/7/2021</p>
-        </div>
-    </div> 
-    <div class="time mr-5 d-flex">
-        <div>
-            <p class="time-p">Pet's Name</p>
-        </div>
-        <div>
-            <p class="time-time">London</p>
-        </div>
+  <div>
+    <Header />
+    <div class="NewAdd d-flex flex-row justify-content-center">
+      <b-card
+        class="overflow-hidden pr-2 pl-2 pb-1 pt-2  shadow "
+        style="max-width: 540px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px;"
+      >
+        <b-row no-gutters class="d-flex align-items-center">
+          <b-col md="6">
+            <b-card-img
+              :src="image"
+              alt="Image"
+              class="rounded"
+              id="img"
+            ></b-card-img>
+          </b-col>
+          <b-col md="6">
+            <b-card-body>
+              <h2 id="textitle">Title: {{ title }}</h2>
+              <b-card-text id="text">
+                Description: {{ description }}
+              </b-card-text>
+             Comments: {{ comments }}
+              <b-card-text>
+               Date: {{ date }}
+              </b-card-text>
+            </b-card-body>
+          </b-col>
+        </b-row>
+      </b-card>
     </div>
-
-    <div class="info d-flex justify-content-around mt-5">
-        <div class="">
-            <p class="special-p">Special Comments</p> 
-        </div>
-        <div class="description-p">
-            <p class="description-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique excepturi, soluta tenetur accusamus porro voluptatum? Ad animi in facilis nulla ab quaerat vero! </p>
-        </div>
-    </div>
-    <div>
-        <button class="button-contact">Contact</button>
-    </div>
-    </div>
-
   </div>
 </template>
-
 <script>
+import Header from "../components/Header";
+import NewAd from "../components/NewAd";
 
 export default {
-
-}
+  props: ["id", "title", "description", "comments", "image", "date"],
+  name: "Show",
+  components: {
+    Header,
+    NewAd,
+  },
+};
 </script>
 
 <style>
-.container {
-    border: black;
-}
-.box{
-    width: 90%;
-    height: 20%;
-}
-.info{
-    width: 100%;
-    height: 30%;
-}
-.info-description{
-    font-size: 22px;
-    font-weight: bold;
-    text-align:start ;
-    width: 30vh;
-}
-
-.info-p{
-    
-}
-
-.description-name{
-    width: 80%;
-}
-.description-p{
-    width: 90%
-}
-
-.profile-image{
-    max-width: 40vh;
-    min-width: 40vh;
-    height: auto;
-}
-
-.about-time{
-    width: 100%;
-}
-
-.special-p {
-    font-size: 22px;
-    font-weight: bold;
-    text-align:start ;
-    width: 50%;
-}
-
-.time{
-    width: 100%;
-}
-
-.time-p{
-    font-size: 18px;
-    font-weight: bold;
-    text-align:start ;
-    width: 50%;
-}
-.time-time{
-    text-align:start;
-    width: 90%;
-}
-.pet {
-    width: 100%;
-}
-.pet-p{
-    font-size: 18px;
-    font-weight: bold;
-    text-align:start ;
-    width: 50%;
-}
-
-.pet-name{
-    text-align:start ;
-    width: 90%;
-}
-
-.button-contact{
-    background-color:#F7A440;
-    border-radius: 18px;
-    width: 20vh;
-    font-size: 20px;
-    box-shadow: 4px 4px 4px rgba(158, 151, 151, 0.25);
-
+#img {
+  width: 100px;
 }
 </style>
-
