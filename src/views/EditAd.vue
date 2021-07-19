@@ -107,7 +107,7 @@ import { apidogs } from "@/apis/ApiDogs";
 
 
 export default {
-  name: "EditDogs",
+  name: "EditAd",
   components: {
     Header,
     NewAd,

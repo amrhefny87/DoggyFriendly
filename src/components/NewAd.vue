@@ -40,7 +40,7 @@
             >
             <router-link
              :to="{
-                name: 'EditDogs',
+                name: 'EditAd',
                 params: {
                   id: result.id,
                   title: result.title,
