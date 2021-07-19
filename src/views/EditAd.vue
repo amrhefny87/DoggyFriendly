@@ -89,11 +89,12 @@
             ></b-form-textarea>
           </b-form-group>
 
-          <b-button @click="editmyEvent(resul)" id="buttonEdit" class="m-2"
+          <b-button @click="editmyEvent()" id="buttonEdit" class="m-2"
             >Edit</b-button
           >
           <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
         </b-form>
+        <ButtonGoBack />
       </div>
     </div>
   </div>
@@ -104,6 +105,7 @@ import Header from "@/components/Header.vue";
 import NewAd from "../components/NewAd";
 import FormDogs from "../views/FormDogs";
 import { apidogs } from "@/apis/ApiDogs";
+import ButtonGoBack from "../components/ButtonGoBack.vue"
 
 
 export default {
@@ -112,6 +114,7 @@ export default {
     Header,
     NewAd,
     FormDogs,
+    ButtonGoBack,
   },
   props: ["id", "title", "description", "comments", "image", "date", "name"],
 
@@ -119,7 +122,7 @@ export default {
     return {
       form: {},
       show: true,
-      result: {},
+     
     };
   },
   methods: {
