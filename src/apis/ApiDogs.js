@@ -14,7 +14,7 @@ export const apidogs =  {
     return axios.post(url, form)
   },
   editEvent(id, form) {
-    return axios.patch(url+"/"+id, form)
+    return axios.put(url+"/"+id, form)
 },
 delete(id) {
   return axios.delete(url+"/"+id)

@@ -89,8 +89,8 @@
             ></b-form-textarea>
           </b-form-group>
 
-          <b-button @click="editmyEvent(resul)" id="buttonEdit" class="m-2"
-            >Edit</b-button
+          <b-button @click="editmyEvent()" id="buttonEdit" class="m-2"
+            >Enviar</b-button
           >
           <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
         </b-form>
@@ -117,14 +117,21 @@ export default {
 
   data() {
     return {
-      form: {},
+      form: {  id: this.id,
+        title: this.title,
+        description: this.description,
+        comments: this.comments,
+        image: this.image,
+        date: this.date,
+},
       show: true,
-      result: {},
+     
     };
   },
   methods: {
     async editmyEvent() {
-      await apidogs.patch(this.result.id);
+      console.log(this.id)
+      await apidogs.editEvent(this.id,this.form);
       return (window.location.href = "dogs");
     },
   },
