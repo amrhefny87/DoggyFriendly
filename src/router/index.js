@@ -8,7 +8,8 @@ import FormSitters from '../views/FormSitters.vue'
 import AdType from '../views/AdType.vue'
 import Profils from '../views/Profils.vue'
 import Show from '../views/Show.vue'
-import EditAd from "../views/EditAd.vue"
+import EditAdDogs from "../views/EditAdDogs.vue"
+import EditAdSitters from "../views/EditAdSitters.vue"
 
 
 Vue.use(VueRouter)
@@ -57,12 +58,17 @@ const routes = [
     props: true,
   },
   {
-    path:'/editAd/:id',
-    name:'EditAd',
-    component: EditAd,
+    path:'/editAdSitters/:id',
+    name:'EditAdSitters',
+    component: EditAdSitters,
     props: true,
   },
-
+  {
+    path:'/editAdDogs/:id',
+    name:'EditAdDogs',
+    component: EditAdDogs,
+    props: true,
+  }
 
 ]
 

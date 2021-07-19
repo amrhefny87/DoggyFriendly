@@ -19,9 +19,7 @@
             <b-card-text id="text">
               {{ result.description }}
             </b-card-text>
-
-            <b-card-text> </b-card-text>
-
+            <div class="d-flex flex-wrap justify-content-center">
             <router-link
               :to="{
                 name: 'Show',
@@ -32,15 +30,18 @@
                   comments: result.comments,
                   image: result.image,
                   date: result.date,
+                  name: result.name,
+
                 },
               }"
               class="moreInfo btn text-black m-3 "
               id="buttonMore"
               >More Info</router-link
             >
+            <div v-if="type === 'Dogs'">
             <router-link
              :to="{
-                name: 'EditAd',
+                name: 'EditAdDogs',
                 params: {
                   id: result.id,
                   title: result.title,
@@ -55,9 +56,30 @@
               id="buttonMore"
               >Edit</router-link
             >
+            </div>
+            <div v-if="type === 'Sitters'">
+            <router-link
+             :to="{
+                name: 'EditAdSitters',
+                params: {
+                  id: result.id,
+                  title: result.title,
+                  description: result.description,
+                  comments: result.comments,
+                  image: result.image,
+                  date: result.date,
+                  name: result.name,
+                },
+              }"
+              class="moreInfo btn text-black m-3 "
+              id="buttonMore"
+              >Edit</router-link
+            >
+            </div>
             <b-button @click="deletemyEvent" id="buttonDelete" class="m-2"
               >Delete</b-button
             >
+            </div>
           </b-card-body>
         </b-col>
       </b-row>
@@ -70,7 +92,7 @@ import { apidogs } from "@/apis/ApiDogs";
 
 export default {
   name: "NewAdd",
-  props: ["result"],
+  props: ["result", "type"],
   mounted() {},
   methods: {
     async deletemyEvent() {

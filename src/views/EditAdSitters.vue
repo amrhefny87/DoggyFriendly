@@ -13,7 +13,7 @@
           >
             <b-form-textarea
               id="input-2"
-              v-model="description"
+              v-model="form.description"
               placeholder="Enter description"
               required
             ></b-form-textarea>
@@ -26,7 +26,7 @@
           >
             <b-form-input
               id="input-2"
-              v-model="name"
+              v-model="form.name"
               placeholder="Enter name"
               required
             ></b-form-input>
@@ -40,7 +40,7 @@
           
             <b-form-input
               id="input-2"
-              v-model="date"
+              v-model="form.date"
               required
               placeholder="Enter date"
               type="datetime-local"
@@ -57,7 +57,7 @@
           >
             <b-form-input
               id="input-2"
-              v-model="title"
+              v-model="form.title"
               placeholder="Enter title"
               required
             ></b-form-input>
@@ -71,7 +71,7 @@
           >
             <b-form-textarea
               id="input-2"
-              v-model="comments"
+              v-model="form.comments"
               placeholder="Enter comments"
               required
             ></b-form-textarea>
@@ -84,17 +84,18 @@
           >
             <b-form-textarea
               id="input-2"
-              v-model="image"
+              v-model="form.image"
               placeholder=""
             ></b-form-textarea>
           </b-form-group>
 
-          <b-button @click="editmyEvent()" id="buttonEdit" class="m-2"
-            >Edit</b-button
+          <b-button type="submit" id="buttonEdit" class="m-2"
+            >Enviar</b-button
           >
           <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
         </b-form>
         <ButtonGoBack />
+
       </div>
     </div>
   </div>
@@ -104,8 +105,8 @@
 import Header from "@/components/Header.vue";
 import NewAd from "../components/NewAd";
 import FormDogs from "../views/FormDogs";
-import { apidogs } from "@/apis/ApiDogs";
-import ButtonGoBack from "../components/ButtonGoBack.vue"
+import { apisitters } from "@/apis/ApiSitters";
+import ButtonGoBack from "@/components/ButtonGoBack.vue"
 
 
 export default {
@@ -121,21 +122,34 @@ export default {
   data() {
     return {
       form: {
-        id: this.id,
+        name: this.name,
         title: this.title,
         description: this.description,
         comments: this.comments,
         image: this.image,
-        date: this.date,
+        date: this.date
       },
       show: true,
      
     };
   },
   methods: {
-    async editmyEvent() {
-      await apidogs.patch(this.result.id);
-      return (window.location.href = "dogs");
+    async onSubmit(event) {
+      event.preventDefault();
+      await apisitters.editEvent(this.id,this.form);
+      return window.location.href =  "http://localhost:8080/sitters"
+    },
+    onReset(event) {
+      event.preventDefault();
+      this.form.description = "";
+      this.form.name = "";
+      this.form.title = "";
+      this.form.comments = "";
+      this.form.image = "";
+      this.show = false;
+      this.$nextTick(() => {
+        this.show = true;
+      });
     },
   },
 };

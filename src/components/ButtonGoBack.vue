@@ -21,7 +21,7 @@ export default {
 
 <style>
 #buttonGoBack {
-  background: #eab474;
+  background: #5c636a;
 }
 #buttonGoBack:hover {
   background: #a15106;
