@@ -86,7 +86,6 @@
         </b-form-group>
 
         <b-button type="submit" id="buttonSubmit" class="m-2">Submit</b-button>
-        <b-button @click="editmyEvent" id="buttonEdit" class="m-2">Edit</b-button>
         <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
       </b-form>
     </div>
@@ -121,10 +120,6 @@ export default {
       await apidogs.create(this.form);
       return window.location.href =  "dogs"
     },
-    async editmyEvent() {
-      await apidogs.editEvent(11, this.form)
-      return window.location.href =  "dogs"
-  },
     onReset(event) {
       event.preventDefault();
       this.form.description = "";

@@ -76,9 +76,16 @@
               >Edit</router-link
             >
             </div>
-            <b-button @click="deletemyEvent" id="buttonDelete" class="m-2"
+            <div v-if="type === 'Dogs'">
+            <b-button @click="buttonDeleteDogs" id="deletemyEvent" class="m-2"
               >Delete</b-button
             >
+            </div>
+             <div v-if="type === 'Sitters'">
+            <b-button @click="buttonDeleteSitters" id="deletemyEvent" class="m-2"
+              >Delete</b-button
+            >
+            </div>
             </div>
           </b-card-body>
         </b-col>
@@ -89,15 +96,20 @@
 
 <script>
 import { apidogs } from "@/apis/ApiDogs";
+import { apisitters } from "@/apis/ApiSitters";
 
 export default {
   name: "NewAdd",
   props: ["result", "type"],
   mounted() {},
   methods: {
-    async deletemyEvent() {
+    async buttonDeleteDogs() {
       await apidogs.delete(this.result.id);
       return (window.location.href = "dogs");
+    },
+    async buttonDeleteSitters() {
+      await apisitters.delete(this.result.id);
+      return (window.location.href = "sitters");
     },
   },
 };
