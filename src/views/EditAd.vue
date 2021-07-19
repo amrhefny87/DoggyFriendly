@@ -120,7 +120,14 @@ export default {
 
   data() {
     return {
-      form: {},
+      form: {
+        id: this.id,
+        title: this.title,
+        description: this.description,
+        comments: this.comments,
+        image: this.image,
+        date: this.date,
+      },
       show: true,
      
     };
