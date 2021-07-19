@@ -94,6 +94,7 @@
           >
           <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
         </b-form>
+        <ButtonGoBack />
       </div>
     </div>
   </div>
@@ -104,6 +105,7 @@ import Header from "@/components/Header.vue";
 import NewAd from "../components/NewAd";
 import FormDogs from "../views/FormDogs";
 import { apidogs } from "@/apis/ApiDogs";
+import ButtonGoBack from "../components/ButtonGoBack.vue"
 
 
 export default {
@@ -112,6 +114,7 @@ export default {
     Header,
     NewAd,
     FormDogs,
+    ButtonGoBack,
   },
   props: ["id", "title", "description", "comments", "image", "date", "name"],
 
