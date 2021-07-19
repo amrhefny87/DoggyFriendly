@@ -39,7 +39,18 @@
               >More Info</router-link
             >
             <router-link
-              to="/edit"
+             :to="{
+                name: 'EditAd',
+                params: {
+                  id: result.id,
+                  title: result.title,
+                  description: result.description,
+                  comments: result.comments,
+                  image: result.image,
+                  date: result.date,
+                  name: result.name,
+                },
+              }"
               class="moreInfo btn text-black m-3 "
               id="buttonMore"
               >Edit</router-link

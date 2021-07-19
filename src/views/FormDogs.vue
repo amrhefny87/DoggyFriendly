@@ -152,7 +152,7 @@ export default {
 }
 
 #buttonEdit {
-    background: #eab474;
+    background: #a08b71;
 }
 #buttonSubmit {
     background: #eab474;
