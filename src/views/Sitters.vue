@@ -6,6 +6,7 @@
     <div v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
           <NewAd :key="event.id"  :result="event" :type="type" />
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -15,6 +16,8 @@ import NewAd from '@/components/NewAd.vue'
 import {apisitters} from '@/apis/ApiSitters'
 import Button from '@/components/Button.vue'
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+
 
 export default {
   name: 'Sitters',
@@ -22,6 +25,7 @@ export default {
     NewAd,
     Button,
   Header,
+  Footer,
   },
   
   

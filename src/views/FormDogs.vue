@@ -90,6 +90,7 @@
       </b-form>
     </div>
     </div>
+    <Footer />
   </div>
 </template>
 <script>

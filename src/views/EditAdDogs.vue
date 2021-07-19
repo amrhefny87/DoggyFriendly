@@ -98,6 +98,7 @@
 
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -106,7 +107,9 @@ import Header from "@/components/Header.vue";
 import NewAd from "../components/NewAd";
 import FormDogs from "../views/FormDogs";
 import { apidogs } from "@/apis/ApiDogs";
-import ButtonGoBack from "@/components/ButtonGoBack.vue"
+import ButtonGoBack from "../components/ButtonGoBack.vue";
+import Footer from "@/components/Footer.vue";
+
 
 
 export default {
@@ -116,6 +119,7 @@ export default {
     NewAd,
     FormDogs,
     ButtonGoBack,
+    Footer,
   },
   props: ["id", "title", "description", "comments", "image", "date", "name"],
 
