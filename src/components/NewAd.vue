@@ -4,7 +4,7 @@
       class="overflow-hidden pr-2 pl-2 pb-1 pt-2  shadow "
       style="max-width: 540px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px;"
     >
-      <b-row no-gutters class="d-flex align-items-center">
+      <b-row no-gutters class="d-flex align-items-center ">
         <b-col md="6">
           <b-card-img
             :src="result.image"
@@ -13,51 +13,51 @@
             id="img"
           ></b-card-img>
         </b-col>
-        <b-col md="6">
+        <b-col md="6" >
           <b-card-body>
             <h2 id="textitle">{{ result.title }}</h2>
             <b-card-text id="text">
               {{ result.description }}
             </b-card-text>
 
-            <b-card-text> </b-card-text>
-
-            <router-link
-              :to="{
-                name: 'Show',
-                params: {
-                  id: result.id,
-                  title: result.title,
-                  description: result.description,
-                  comments: result.comments,
-                  image: result.image,
-                  date: result.date,
-                },
-              }"
-              class="moreInfo btn text-black m-3 "
-              id="buttonMore"
-              >More Info</router-link
-            >
-            <router-link
-             :to="{
-                name: 'EditAd',
-                params: {
-                  id: result.id,
-                  title: result.title,
-                  description: result.description,
-                  comments: result.comments,
-                  image: result.image,
-                  date: result.date,
-                  name: result.name,
-                },
-              }"
-              class="moreInfo btn text-black m-3 "
-              id="buttonMore"
-              >Edit</router-link
-            >
-            <b-button @click="deletemyEvent" id="buttonDelete" class="m-2"
-              >Delete</b-button
-            >
+            <div class="d-flex flex-row  justify-content-around ">
+              <router-link
+                :to="{
+                  name: 'Show',
+                  params: {
+                    id: result.id,
+                    title: result.title,
+                    description: result.description,
+                    comments: result.comments,
+                    image: result.image,
+                    date: result.date,
+                  },
+                }"
+                class="moreInfo btn text-black p-1 "
+                id="buttonMore"
+                >More Info</router-link
+              >
+              <router-link
+                :to="{
+                  name: 'EditAd',
+                  params: {
+                    id: result.id,
+                    title: result.title,
+                    description: result.description,
+                    comments: result.comments,
+                    image: result.image,
+                    date: result.date,
+                    name: result.name,
+                  },
+                }"
+                class="moreInfo btn text-black p-1 "
+                id="buttonMore"
+                >Edit</router-link
+              >
+              <b-button @click="deletemyEvent" id="buttonDelete" class="p-1"
+                >Delete</b-button
+              >
+            </div>
           </b-card-body>
         </b-col>
       </b-row>
@@ -93,7 +93,7 @@ h4 {
 }
 
 #img {
-  width: 50%;
+  width: 80px;
 }
 
 #buttonMore {
@@ -105,11 +105,11 @@ h4 {
 }
 
 #text {
-  font-size: 13px;
+  font-size: 12px;
 }
 
-#textTitle {
-  font-size: 17px;
+#textitle {
+  font-size: 15px;
   font-weight: bold;
 }
 
