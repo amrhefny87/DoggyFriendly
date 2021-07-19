@@ -32,13 +32,15 @@
       
     </div>
     
-    
+    <Footer />
   </div>
 </template>
 <script>
 import Header from "../components/Header";
 import NewAd from "../components/NewAd";
 import ButtonGoBack from "../components/ButtonGoBack";
+import Footer from "@/components/Footer.vue";
+
 
 export default {
   props: ["id", "title", "description", "comments", "image", "date"],
@@ -46,7 +48,8 @@ export default {
   components: {
     Header,
     NewAd,
-    ButtonGoBack
+    ButtonGoBack,
+    Footer,
   },
   
 };

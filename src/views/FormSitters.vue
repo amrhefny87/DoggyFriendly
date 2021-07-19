@@ -56,15 +56,19 @@
       <pre class="m-0">{{ form }}</pre>
     </b-card>
   </div>
+  <Footer />
   </div>
 </template>
 <script>
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+
 
 export default {
   name: "FormSitters",
   components: {
-    Header
+    Header,
+    Footer,
   },
 
   data() {

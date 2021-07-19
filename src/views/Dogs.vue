@@ -6,6 +6,7 @@
     <div v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
           <NewAd :key="event.id"  :result="event" />
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -15,13 +16,15 @@ import NewAd from '@/components/NewAd.vue'
 import {apidogs} from '@/apis/ApiDogs'
 import Button from '@/components/Button.vue'
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: 'Dogs',
   components: {
     NewAd,
     Button,
-    Header
+    Header,
+    Footer,
   },
   data(){
     return{
