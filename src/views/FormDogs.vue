@@ -90,6 +90,7 @@
       </b-form>
     </div>
     </div>
+    <Footer />
   </div>
 </template>
 <script>
@@ -120,10 +121,6 @@ export default {
       await apidogs.create(this.form);
       return window.location.href =  "dogs"
     },
-    async editmyEvent() {
-      await apidogs.editEvent(11, this.form)
-      return window.location.href =  "dogs"
-  },
     onReset(event) {
       event.preventDefault();
       this.form.description = "";
@@ -151,7 +148,7 @@ export default {
 }
 
 #buttonEdit {
-    background: #eab474;
+    background: #a08b71;
 }
 #buttonSubmit {
     background: #eab474;

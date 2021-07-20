@@ -10,19 +10,22 @@
         </div>
     </div>
   </div>
+  <Footer />
   </div>
 
 </template>
 <script>
 import Button from '@/components/Button.vue'
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 
 
 export default {
     name: "AdType",
     components: {
         Button,
-        Header
+        Header,
+        Footer,
     },
 }
 </script>
