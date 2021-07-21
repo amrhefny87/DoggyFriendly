@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import auth from "../store/auth";
 import { mapActions } from "vuex"
 
 export default {
@@ -42,10 +41,10 @@ export default {
   }),
   methods: {
     ...mapActions({
-      login: 'auth/'
+      login: 'auth/login'
     }),
     submit() {
-     auth.login(this.form)
+     this.login(this.form)
     }
   }
 };
