@@ -11,6 +11,9 @@ export default ({
     mutations: {
         SET_TOKEN (state, token) {
             state.token = token
+        },
+        SET_USER (state, data) {
+            state.user = data
         }
     },
     actions: {
@@ -20,6 +23,20 @@ export default ({
         },
         async attempt ({ commit }, token) {
             commit("SET_TOKEN", token)
+
+        try {
+            let responsive = await axios.get(ENDPOINT_PATH + "users", {
+                headers: {
+                    "Authorization": "Bearer " + token
+                }
+            })
+
+            commit("SET_USER", responsive.data)
+        } catch (e) {
+            commit("SET_TOKEN", null)
+            commit("SET_USER", null)
+
+        }
         }
     },
     
