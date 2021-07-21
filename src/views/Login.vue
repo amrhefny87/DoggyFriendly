@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <h1 class="title">Login in the page</h1>
-    <form action class="form" @submit.prevent="login">
+    <form action class="form" @submit.prevent="submit">
       <label class="form-label" for="#email">Email:</label>
       <input
         v-model="form.email"
@@ -29,7 +29,9 @@
 </template>
 
 <script>
-import auth from "@/logic/auth";
+import auth from "../store/auth";
+import { mapActions } from "vuex"
+
 export default {
   data: () => ({
     form: {
@@ -39,34 +41,11 @@ export default {
     error: false
   }),
   methods: {
-    async login() {
-      try {
-        await auth.login(this.form);
-        this.$router.push("/");
-      } catch (error) {
-        this.error = true;
-      }
-    }
-  }
-};
-</script>
-
-<script>
-import auth from "@/logic/auth";
-export default {
-  data: () => ({
-    email: "",
-    password: "",
-    error: false
-  }),
-  methods: {
-    async login() {
-      try {
-        await auth.login(this.email, this.password);
-        this.$router.push("/");
-      } catch (error) {
-        this.error = true;
-      }
+    ...mapActions({
+      login: 'auth/'
+    }),
+    submit() {
+     auth.login(this.form)
     }
   }
 };
