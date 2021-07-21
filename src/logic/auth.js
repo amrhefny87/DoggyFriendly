@@ -6,8 +6,7 @@ export default {
   register(user) {
     return axios.post(ENDPOINT_PATH + "register", user);
   },
-  login(email, password) {
-    const user = { email, password };
+  login(user) {
     return axios.post(ENDPOINT_PATH + "login", user);
   }
     };

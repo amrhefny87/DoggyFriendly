@@ -4,7 +4,7 @@
     <form action class="form" @submit.prevent="login">
       <label class="form-label" for="#email">Email:</label>
       <input
-        v-model="email"
+        v-model="form.email"
         class="form-input"
         type="email"
         id="email"
@@ -13,7 +13,7 @@
       >
       <label class="form-label" for="#password">Password:</label>
       <input
-        v-model="password"
+        v-model="form.password"
         class="form-input"
         type="password"
         id="password"
@@ -32,14 +32,16 @@
 import auth from "@/logic/auth";
 export default {
   data: () => ({
-    email: "",
-    password: "",
+    form: {
+      email: "",
+      password: "",
+    },
     error: false
   }),
   methods: {
     async login() {
       try {
-        await auth.login(this.email, this.password);
+        await auth.login(this.form);
         this.$router.push("/");
       } catch (error) {
         this.error = true;
