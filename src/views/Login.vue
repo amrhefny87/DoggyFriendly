@@ -51,26 +51,6 @@ export default {
 };
 </script>
 
-<script>
-import auth from "@/logic/auth";
-export default {
-  data: () => ({
-    email: "",
-    password: "",
-    error: false
-  }),
-  methods: {
-    async login() {
-      try {
-        await auth.login(this.email, this.password);
-        this.$router.push("/");
-      } catch (error) {
-        this.error = true;
-      }
-    }
-  }
-};
-</script>
 
 <style scoped>
 .error {
