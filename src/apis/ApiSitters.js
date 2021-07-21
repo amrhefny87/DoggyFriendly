@@ -9,4 +9,13 @@ export const apisitters =  {
      .then((response) => response.json())
      
   },
+  create(form) {
+    return axios.post(url, form)
+  },
+  editEvent(id, form) {
+    return axios.patch(url+"/"+id, form)
+},
+delete(id) {
+  return axios.delete(url+"/"+id)
+}
 }
