@@ -1,6 +1,7 @@
 <template>
   <div class="login">
     <h1 class="title">Login in the page</h1>
+    {{user}}
         <template v-if="authenticated">
       <div>
         <h1>hola</h1>
@@ -55,6 +56,7 @@ export default {
          name: "Home"
        }) */
      })
+    }
   },
   computed: {
     ...mapGetters({
@@ -63,7 +65,7 @@ export default {
     })
   }
 }
-}
+
 </script>
 
 <style scoped>
