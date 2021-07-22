@@ -28,8 +28,13 @@ export default ({
             let res = await axios.post(ENDPOINT_PATH + "login", credentials);
             dispatch("attempt", res.data.token)
         },
-        async attempt ({ commit }, token) {
-            commit("SET_TOKEN", token)
+        async attempt ({ commit,state }, token) {
+            if(token){
+                commit("SET_TOKEN", token)
+            }
+            if(!state.$token){
+            return
+            }
 
         try {
             let responsive = await axios.get(ENDPOINT_PATH + "users")

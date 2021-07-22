@@ -15,6 +15,7 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
+store.dispatch('auth/attemp',localStorage.getItem('token'))
 
 new Vue({
   router,
