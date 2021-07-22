@@ -32,11 +32,7 @@ export default ({
             commit("SET_TOKEN", token)
 
         try {
-            let responsive = await axios.get(ENDPOINT_PATH + "users", {
-                headers: {
-                    "Authorization": "Bearer " + token
-                }
-            })
+            let responsive = await axios.get(ENDPOINT_PATH + "users")
             localStorage.setItem("token", token)
 
             commit("SET_USER", responsive.data)
