@@ -99,7 +99,7 @@ import {apisitters} from '@/apis/ApiSitters'
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue"
 export default {
-  name: "FormDogs",
+  name: "FormSitters",
   components: {
     Header,
     Footer,

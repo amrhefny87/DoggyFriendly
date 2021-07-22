@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Header />
   <div class="login">
     <h1 class="title">Login in the page</h1>
     {{user}}
@@ -32,13 +34,18 @@
       <router-link to="/register">Regístrate</router-link>
     </p>
   </div>
+    </div>
 </template>
 
 <script>
 import { mapActions } from "vuex"
 import { mapGetters } from "vuex"
+import Header from "@/components/Header.vue";
+
 
 export default {
+  name: "Login",
+  components: {Header},
   data: () => ({
     form: {
       email: "",
@@ -84,7 +91,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   width: 20%;
-  min-width: 350px;
+  min-width: 300px;
   max-width: 100%;
   background: rgba(19, 35, 47, 0.9);
   border-radius: 5px;

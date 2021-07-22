@@ -8,5 +8,5 @@ export default {
   },
   login(user) {
     return axios.post(ENDPOINT_PATH + "login", user);
-  }
-    };
+  },
+};
