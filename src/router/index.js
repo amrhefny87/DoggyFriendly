@@ -36,6 +36,16 @@ const routes = [
     path: "/formdogs",
     name: "formdogs",
     component: FormDogs,
+    beforeEnter: (to, from, next) => {
+      if (store.getters["auth/authenticated"]) {
+      }
+      if (!store.getters["auth/authenticated"]) {
+        next({
+          name: "Login",
+        });
+      }
+      next();
+    },
   },
   {
     path: "/formsitters",
@@ -43,16 +53,13 @@ const routes = [
     component: FormSitters,
     beforeEnter: (to, from, next) => {
       if (store.getters["auth/authenticated"]) {
-        ({
-          name: "formsitters",
-        });
       }
       if (!store.getters["auth/authenticated"]) {
-        ({
-          name: "home",
+        next({
+          name: "Login",
         });
       }
-      next()
+      next();
     },
   },
   {
