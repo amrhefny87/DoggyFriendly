@@ -12,6 +12,7 @@ import EditAdDogs from "../views/EditAdDogs.vue"
 import EditAdSitters from "../views/EditAdSitters.vue"
 import Login from "../views/Login";
 import Register from "../views/Register";
+import store from "../store"
 
 Vue.use(VueRouter)
 
@@ -34,12 +35,21 @@ const routes = [
   {
     path: '/formdogs',
     name: 'formdogs',
-    component: FormDogs
+    component: FormDogs,
+    beforeEnter: (to, from, next) => {
+      if (store.getters['auth/authenticated']) {
+        return next ({
+          name: "Login"
+        })
+      }
+      next()
+    }
   },
   {
     path: '/formsitters',
     name: 'formsitters',
-    component: FormSitters
+    component: FormSitters,
+    
   },
   {
 

@@ -15,10 +15,12 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 
 Vue.config.productionTip = false
-store.dispatch('auth/attemp',localStorage.getItem('token'))
+store.dispatch('auth/attempt',localStorage.getItem('token')).then(() => {
+
 
 new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
+})

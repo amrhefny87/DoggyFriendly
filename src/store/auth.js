@@ -32,7 +32,7 @@ export default ({
             if(token){
                 commit("SET_TOKEN", token)
             }
-            if(!state.$token){
+            if(!state.token){
             return
             }
 
