@@ -55,7 +55,7 @@ a {
 }
 
 .hello{
-  background-image: url("../assets/background1.png");
+  background-image: url('../assets/background2.png') ;
 }
 
 </style>
