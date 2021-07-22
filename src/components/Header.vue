@@ -1,6 +1,6 @@
 <template>
   <div id="nav" class="w-100 p-0 m-0 ">
-    <b-navbar toggleable id="navbar">
+    <b-navbar toggleable="lg" id="navbar">
       <router-link to="/">
         <b-img
           src="https://i.ibb.co/rQd5Wnz/imageonline-co-whitebackgroundremoved-1.png"

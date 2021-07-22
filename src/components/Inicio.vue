@@ -54,4 +54,8 @@ a {
   background: #EE8B16;
 }
 
+.hello{
+  background-image: url("../assets/background1.png");
+}
+
 </style>
