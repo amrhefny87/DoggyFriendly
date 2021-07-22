@@ -30,9 +30,11 @@
       <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
       <input class="form-submit" type="submit" value="Login">
     </form>
-    <p class="msg">¿No tienes cuenta?
-      <router-link to="/register">Regístrate</router-link>
+    <div class="d-flex align-items-center justify-content-center">
+    <p class="msg">¿Do you have an account?
+      <router-link to="/register">Register for free</router-link>
     </p>
+    </div>
   </div>
     </div>
 </template>
