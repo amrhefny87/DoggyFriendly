@@ -6,11 +6,12 @@ import Sitters from '../views/Sitters.vue'
 import FormDogs from '../views/FormDogs.vue'
 import FormSitters from '../views/FormSitters.vue'
 import AdType from '../views/AdType.vue'
-import Profile from '../views/Profile.vue'
+import Profils from '../views/Profils.vue'
 import Show from '../views/Show.vue'
 import EditAdDogs from "../views/EditAdDogs.vue"
 import EditAdSitters from "../views/EditAdSitters.vue"
-
+import Login from "../views/Login";
+import Register from "../views/Register";
 
 Vue.use(VueRouter)
 
@@ -42,9 +43,9 @@ const routes = [
   },
   {
 
-    path:'/profile',
-    name:'profile',
-    component: Profile
+    path:'/profils',
+    name:'profils',
+    component: Profils
   },
   {
     path:'/adtype',
@@ -68,8 +69,17 @@ const routes = [
     name:'EditAdDogs',
     component: EditAdDogs,
     props: true,
-  }
-
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
 ]
 
 const router = new VueRouter({
