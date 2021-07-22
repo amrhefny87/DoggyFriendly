@@ -6,7 +6,14 @@ export default ({
     state: {
         token: null,
         user: null,
-        
+    },
+    getters: {
+        authenticated (state) {
+            return state.token && state.user
+        },
+        user (state) {
+            return state.user
+        }
     },
     mutations: {
         SET_TOKEN (state, token) {
@@ -30,9 +37,11 @@ export default ({
                     "Authorization": "Bearer " + token
                 }
             })
+            localStorage.setItem("token", token)
 
             commit("SET_USER", responsive.data)
         } catch (e) {
+            localStorage.removeItem("token")
             commit("SET_TOKEN", null)
             commit("SET_USER", null)
 

@@ -1,6 +1,11 @@
 <template>
   <div class="login">
     <h1 class="title">Login in the page</h1>
+        <template v-if="authenticated">
+      <div>
+        <h1>hola</h1>
+      </div>
+    </template>
     <form action class="form" @submit.prevent="submit">
       <label class="form-label" for="#email">Email:</label>
       <input
@@ -30,6 +35,7 @@
 
 <script>
 import { mapActions } from "vuex"
+import { mapGetters } from "vuex"
 
 export default {
   data: () => ({
@@ -44,10 +50,20 @@ export default {
       login: 'auth/login'
     }),
     submit() {
-     this.login(this.form)
-    }
+     this.login(this.form).then(() => {
+        /*this.$router.replace({
+         name: "Home"
+       }) */
+     })
+  },
+  computed: {
+    ...mapGetters({
+      authenticated: "auth/authenticated",
+      user: "auth/user"
+    })
   }
-};
+}
+}
 </script>
 
 <style scoped>
