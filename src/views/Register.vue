@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Header />
   <div class="register">
     <h1 class="title">Sign Up</h1>
     <form action class="form" @submit.prevent="register">
@@ -40,11 +42,16 @@
       <input class="form-submit" type="submit" value="Sign Up">
     </form>
   </div>
+  </div>
 </template>
 
 <script>
 import auth from "@/logic/auth";
+import Header from "@/components/Header.vue";
+
 export default {
+  name: "Register",
+  components: {Header},
   data: () => ({
     form: {
       name: "",
