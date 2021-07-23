@@ -57,4 +57,8 @@ methods:{
 #button1{
   background: #EE8B16;
 }
+
+.dogs {
+  background-image: url("../assets/background1.png");
+}
 </style>

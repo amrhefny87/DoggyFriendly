@@ -1,10 +1,19 @@
 <template>
   <div class="hello">
     <h1 >DoggyF</h1>
-    <h6>A dog is the only thing on earth that loves you more than he loves himself</h6>
-    <div class="btn-group-vertical">
-      <Button root="/dogs" name="DOGS" />
-      <Button root="/sitters" name="SITTERS" />
+    <h6 class="text-intro">A dog is the only thing on earth that loves you more than he loves himself</h6>
+    <div class="d-flex justify-content-center" style="margin-top:10vh; margin-bottom:20vh; margin-right:5vh;">
+      <div>
+      <a href="/dogs"><img class="icon-img" src="../assets/dogs.png"></a>
+      <a href="/dogs" class="link"><p>DOGS</p></a>
+      </div>
+      <div>
+      <a href="/sitters"><img class="icon-img" src="../assets/sitters.png"></a>
+      <a href="/sitters" class="link"><p >SITTERS</p></a>
+      </div>
+    </div>
+    <div class="spacio">
+
     </div>
   </div>
 </template>
@@ -56,6 +65,34 @@ a {
 
 .hello{
   /* background-image: url('../assets/background2.png') ; */
+  margin-left: 10px;
+  margin-right: 10px;
+  overflow: hidden;
+  width: 100%;
+  
+  
 }
 
+.spacio {
+  height: 4vh;
+}
+
+.link {
+  color: black;
+  font-size: 30px;
+  font-weight: bolder;
+  font-style: italic;
+  text-decoration: none;
+  
+}
+
+.icon-img {
+  width: 10vh;
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.5));
+}
+
+.text-intro{
+  margin:auto;
+  padding: 20;
+}
 </style>

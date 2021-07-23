@@ -19,6 +19,6 @@ export default {
 <style scoped>
    .home2 {
      height: 100%;
-     /* background-image: url('../assets/background2.png') ; */
+     background-image: url('../assets/background2.png') ;
    }
 </style>

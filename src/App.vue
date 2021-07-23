@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" >
     
     <router-view />
   </div>
@@ -18,5 +18,7 @@ export default {
 * {
 font-family: 'Poppins', sans-serif;
 }
+
+
 
 </style>

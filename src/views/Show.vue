@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="show">
     <Header />
     <div class="NewAdd d-flex flex-row justify-content-center">
       <b-card
@@ -58,5 +58,9 @@ export default {
 <style>
 #img {
   width: 100px;
+}
+
+.show {
+  background-image: url("../assets/background1.png");
 }
 </style>
