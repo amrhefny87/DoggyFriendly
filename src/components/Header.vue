@@ -8,13 +8,20 @@
           id="image"
         />
       </router-link>
-      <b-navbar-toggle target="navbar-toggle-collapse"  class="m-4" id="border">
+      <template v-if="authenticated">
+        <div class="d-flex ">
+        <b-img
+          src="https://image.flaticon.com/icons/png/512/1077/1077114.png"
+          alt="doggyF"
+          id="profile-icon"
+        />
+        <p>Hello, {{user[3].name}}</p>
+        </div>
+      </template>
+      <b-navbar-toggle target="navbar-toggle-collapse" class="m-2" id="border">
         <template #default="{ expanded }">
-          <b-icon
-            v-if="expanded"
-            icon="x"
-          ></b-icon>
-          <b-icon v-else icon="grid3x3-gap-fill"></b-icon>
+          <b-icon v-if="expanded" icon="x"></b-icon>
+          <b-icon v-else icon="grid3x3-gap-fill" ></b-icon>
         </template>
       </b-navbar-toggle>
       <b-collapse id="navbar-toggle-collapse" is-nav>
@@ -33,8 +40,16 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Header",
+  computed: {
+    ...mapGetters({
+      authenticated: "auth/authenticated",
+      user: "auth/user",
+    }),
+  },
 };
 </script>
 
@@ -62,10 +77,7 @@ export default {
 
 #nav a:hover {
   color: rgb(59, 36, 0);
-  
 }
-
-
 
 #image {
   width: 50px;
@@ -78,6 +90,13 @@ export default {
 }
 
 #border {
-  border: 1px solid transparent
+  border: 1px solid transparent;
+}
+
+#profile-icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 5px;
+  cursor: pointer;
 }
 </style>
