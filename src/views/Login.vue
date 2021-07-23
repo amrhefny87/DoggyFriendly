@@ -1,7 +1,15 @@
 <template>
+<div>
+  <Header />
   <div class="login">
     <h1 class="title">Login in the page</h1>
-    <form action class="form" @submit.prevent="login">
+    {{user}}
+        <template v-if="authenticated">
+      <div>
+        <h1>hola</h1>
+      </div>
+    </template>
+    <form action class="form" @submit.prevent="submit">
       <label class="form-label" for="#email">Email:</label>
       <input
         v-model="form.email"
@@ -22,15 +30,24 @@
       <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
       <input class="form-submit" type="submit" value="Login">
     </form>
-    <p class="msg">¿No tienes cuenta?
-      <router-link to="/register">Regístrate</router-link>
+    <div class="d-flex align-items-center justify-content-center">
+    <p class="msg">¿Do you have an account?
+      <router-link to="/register">Register for free</router-link>
     </p>
+    </div>
   </div>
+    </div>
 </template>
 
 <script>
-import auth from "@/logic/auth";
+import { mapActions } from "vuex"
+import { mapGetters } from "vuex"
+import Header from "@/components/Header.vue";
+
+
 export default {
+  name: "Login",
+  components: {Header},
   data: () => ({
     form: {
       email: "",
@@ -39,18 +56,26 @@ export default {
     error: false
   }),
   methods: {
-    async login() {
-      try {
-        await auth.login(this.form);
-        this.$router.push("/");
-      } catch (error) {
-        this.error = true;
-      }
+    ...mapActions({
+      login: 'auth/login'
+    }),
+    submit() {
+     this.login(this.form).then(() => {
+        /*this.$router.replace({
+         name: "Home"
+       }) */
+     })
     }
+  },
+  computed: {
+    ...mapGetters({
+      authenticated: "auth/authenticated",
+      user: "auth/user"
+    })
   }
-};
-</script>
+}
 
+</script>
 
 <style scoped>
 .error {
@@ -68,7 +93,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   width: 20%;
-  min-width: 350px;
+  min-width: 300px;
   max-width: 100%;
   background: rgba(19, 35, 47, 0.9);
   border-radius: 5px;

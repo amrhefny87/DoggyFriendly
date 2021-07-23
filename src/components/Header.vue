@@ -23,7 +23,9 @@
         >
           <b-nav-item to="/dogs">Dogs</b-nav-item>
           <b-nav-item to="/sitters">Sitters</b-nav-item>
-          <b-nav-item to="/adtype">Ad Type</b-nav-item>
+          <b-nav-item to="/adtype">Add New Post</b-nav-item>
+          <b-nav-item to="/login">Login</b-nav-item>
+          <b-nav-item to="/register">Register</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -68,6 +70,7 @@ export default {
 #image {
   width: 50px;
   margin: 15px;
+  cursor: pointer;
 }
 
 #navbar {
