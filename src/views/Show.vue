@@ -8,12 +8,12 @@
       >
         <b-row no-gutters class="d-flex  align-items-center">
           <b-col md="6">
-            <b-card-img
+            <a href="/profile"><b-card-img
               :src="image"
               alt="Image"
               class="rounded"
               id="img"
-            ></b-card-img>
+            ></b-card-img></a>
           </b-col>
           <b-col md="6">
             <b-card-body>
