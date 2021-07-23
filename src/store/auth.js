@@ -38,17 +38,20 @@ export default ({
 
         try {
             let responsive = await axios.get(ENDPOINT_PATH + "users")
-            localStorage.setItem("token", token)
 
             commit("SET_USER", responsive.data)
         } catch (e) {
-            localStorage.removeItem("token")
             commit("SET_TOKEN", null)
             commit("SET_USER", null)
 
         }
+        },
+        singOut ( { commit } ) {
+            return axios.post("auth/signout").then(() => {
+                commit("SET_TOKEN", null)
+                commit("SET_USER", null)
+            })
         }
     },
     
 })
-//

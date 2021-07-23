@@ -2,13 +2,13 @@
 <div>
   <Header />
   <div class="login">
-    <h1 class="title">Login in the page</h1>
-    {{user}}
-        <template v-if="authenticated">
+    <template v-if="authenticated">
       <div>
         <h1>hola</h1>
+        <button @click="signOut">adios</button>
       </div>
     </template>
+    <h1 class="title">Login in the page</h1>
     <form action class="form" @submit.prevent="submit">
       <label class="form-label" for="#email">Email:</label>
       <input
@@ -57,8 +57,12 @@ export default {
   }),
   methods: {
     ...mapActions({
-      login: 'auth/login'
+      login: 'auth/login',
     }),
+    signOut() {
+      localStorage.removeItem("token")
+      window.location.href =  "login"
+    },
     submit() {
      this.login(this.form).then(() => {
         /*this.$router.replace({
