@@ -35,6 +35,7 @@ export default {
   border-radius: 20px;
   max-width:500px;
   width: 100%;
+  margin-bottom: 100px;
 }
 #button1{
   background: #E1701A;
