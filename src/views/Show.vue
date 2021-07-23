@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="show">
     <Header />
     <div class="NewAdd d-flex flex-row justify-content-center">
       <b-card
@@ -8,12 +8,12 @@
       >
         <b-row no-gutters class="d-flex  align-items-center">
           <b-col md="6">
-            <b-card-img
+            <a href="/profile"><b-card-img
               :src="image"
               alt="Image"
               class="rounded"
               id="img"
-            ></b-card-img>
+            ></b-card-img></a>
           </b-col>
           <b-col md="6">
             <b-card-body class="d-flex flex-column align-items-center">
@@ -28,6 +28,7 @@
           </b-col>
         </b-row>
         <ButtonGoBack />
+        <ButtonContact />
       </b-card>
       
     </div>
@@ -39,6 +40,7 @@
 import Header from "../components/Header";
 import NewAd from "../components/NewAd";
 import ButtonGoBack from "../components/ButtonGoBack";
+import ButtonContact from "../components/ButtonContact";
 import Footer from "@/components/Footer.vue";
 
 
@@ -49,6 +51,7 @@ export default {
     Header,
     NewAd,
     ButtonGoBack,
+    ButtonContact,
     Footer,
   },
   
@@ -58,5 +61,9 @@ export default {
 <style>
 #img {
   width: 150px;
+}
+
+.show {
+  background-image: url("../assets/background1.png");
 }
 </style>
