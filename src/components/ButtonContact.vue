@@ -4,7 +4,7 @@
         id="buttonContact"
         @click="goBack()"
     >
-        Go Back
+        Contact
     </button>
 </template>
 

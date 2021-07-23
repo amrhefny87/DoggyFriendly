@@ -28,6 +28,7 @@
           </b-col>
         </b-row>
         <ButtonGoBack />
+        <ButtonContact />
       </b-card>
       
     </div>
@@ -39,6 +40,7 @@
 import Header from "../components/Header";
 import NewAd from "../components/NewAd";
 import ButtonGoBack from "../components/ButtonGoBack";
+import ButtonContact from "../components/ButtonContact";
 import Footer from "@/components/Footer.vue";
 
 
@@ -49,6 +51,7 @@ export default {
     Header,
     NewAd,
     ButtonGoBack,
+    ButtonContact,
     Footer,
   },
   
