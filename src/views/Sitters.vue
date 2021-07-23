@@ -1,5 +1,5 @@
 <template>
-  <div class="dogs">
+  <div class="sitters">
     <Header />
     <h1 class="mt-3">{{type}}</h1>
     <Button root="/adtype" name="Add and Ad" />
@@ -52,5 +52,9 @@ methods:{
 <style scoped>
 #button1{
   background: #EE8B16;
+}
+
+.sitters {
+  background-image: url("../assets/background1.png");
 }
 </style>

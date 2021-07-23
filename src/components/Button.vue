@@ -1,5 +1,7 @@
 <template>
-    <router-link :to=root class="btn text-white m-2 rounded-top rounded-bottom" id="button1">{{name}}</router-link>
+    <router-link :to=root class="btn text-white m-2 rounded-top rounded-bottom" id="button1">
+      {{name}}
+    </router-link>
 </template>
 
 <script>
