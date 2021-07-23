@@ -1,15 +1,21 @@
 <template>
-  <div class="d-flex flex-column align-items-center">
+  <div class="adType d-flex flex-column align-items-center">
     <Header/>
-  <div class="p-5 d-flex flex-column align-items-center">
-    <h2>What type of ad do you want to create?</h2>
-    <div id="formDogContainer" class="border border-dark p-5 mt-5 shadow">
-        <div class="btn-group-vertical align-items-center">
-        <Button root="/formdogs" name="DOGS" class="m-3" />
-        <Button root="/formsitters" name="SITTERS" class="m-3" />
-        </div>
+    <div class="p-5 d-flex flex-column align-items-center">
+      <h2>What type of ad do you want to create?</h2>
+      <div id="formDogContainer" class="border border-dark p-5 mt-5 shadow">
+          <div class="d-flex justify-content-center">
+            <div>
+              <a href="/formdogs"><img class="icon-img" src="../assets/dogs.png"></a>
+              <a href="/formdogs" class="link"><p>DOGS</p></a>
+            </div>
+            <div>
+                <a href="/formsitters"><img class="icon-img" src="../assets/sitters.png"></a>
+                <a href="/formsitters" class="link"><p >SITTERS</p></a>
+            </div>
+          </div>
+      </div>
     </div>
-  </div>
   <Footer />
   </div>
 
@@ -31,12 +37,35 @@ export default {
 </script>
 <style scoped>
 #formDogContainer {
-  background: #F7A440;
-  border-radius: 20px;
+  background: #e07a1b;
+  border-radius: 20px 20px 20px 0px;
   max-width:500px;
   width: 100%;
 }
 #button1{
   background: #E1701A;
+}
+.adType {
+  background-image: url('../assets/background1.png');
+  height: 100%;
+}
+.link {
+  color: black;
+  font-size: 24px;
+  font-weight: bolder;
+  font-style: italic;
+  text-decoration: none;
+  
+}
+
+.icon-img {
+  width: 15vh;
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.5));
+}
+
+.text-intro{
+  margin:auto;
+  padding: 20;
+  
 }
 </style>

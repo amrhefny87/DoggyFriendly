@@ -32,6 +32,7 @@
                 <img class="img_contact2" src="../assets/email 1.png" alt="fffff">
         </section>
         
+        
     </div>
     
     <Footer />

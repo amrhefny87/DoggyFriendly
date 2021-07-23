@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="form-sitter">
   <Header />
   <div class="p-5 d-flex flex-column align-items-center ">
     <h2>Create your Sitter Add</h2>
@@ -141,9 +141,10 @@ export default {
 #formDogContainer {
   background: #e07a1b;
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 20px 20px 20px 0px;
   margin-top: 2rem;
   max-width: 500px;
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
   
 }
 
@@ -160,5 +161,8 @@ export default {
     background: #eab474;
 }
 
+.form-sitter {
+  background-image: url('../assets/background1.png');
+}
 
 </style>
