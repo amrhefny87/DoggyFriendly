@@ -19,7 +19,7 @@
             <b-card-body class="d-flex flex-column align-items-center">
               <h2 id="textitle"> {{ title }}</h2>
               <b-card-text id="text">
-                <span style=" font-weight: 800">Description:</span> <br> {{ description }}
+                <span style=" font-weight: 800">Description::</span> <br> {{ description }}
               </b-card-text>
               <span style=" font-weight: 800">Comments:</span> {{ comments }}
               <b-card-text> <span style=" font-weight: 800">Date:</span> <br> {{ date }} </b-card-text>
