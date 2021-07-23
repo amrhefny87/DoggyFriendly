@@ -1,10 +1,12 @@
 <template>
   <div class="dogs">
-    <h1 class="mt-3">Dog</h1>
+    <Header />
+    <h1 class="mt-3">{{type}}</h1>
     <Button root="/adtype" name="Add and Ad" />
     <div v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
-          <NewAd :key="event.id"  :result="event" />
+          <NewAd :key="event.id"  :result="event" :type="type" />
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -13,15 +15,20 @@
 import NewAd from '@/components/NewAd.vue'
 import {apidogs} from '@/apis/ApiDogs'
 import Button from '@/components/Button.vue'
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: 'Dogs',
   components: {
     NewAd,
-    Button
+    Button,
+    Header,
+    Footer,
   },
   data(){
     return{
+      type: "Dogs",
       events:[]
     }
 },

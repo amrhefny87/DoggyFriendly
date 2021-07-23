@@ -1,0 +1,62 @@
+<template>
+  <div>
+    <Header />
+    <div class="NewAdd d-flex flex-row justify-content-center">
+      <b-card
+        class="overflow-hidden pr-2 pl-2 pb-1 pt-2  shadow "
+        style="max-width: 11git00px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px;"
+      >
+        <b-row no-gutters class="d-flex  align-items-center">
+          <b-col md="6">
+            <b-card-img
+              :src="image"
+              alt="Image"
+              class="rounded"
+              id="img"
+            ></b-card-img>
+          </b-col>
+          <b-col md="6">
+            <b-card-body>
+              <h2 id="textitle">Title: {{ title }}</h2>
+              <b-card-text id="text">
+                Description: {{ description }}
+              </b-card-text>
+              Comments: {{ comments }}
+              <b-card-text> Date: {{ date }} </b-card-text>
+            </b-card-body>
+            
+          </b-col>
+        </b-row>
+        <ButtonGoBack />
+      </b-card>
+      
+    </div>
+    
+    <Footer />
+  </div>
+</template>
+<script>
+import Header from "../components/Header";
+import NewAd from "../components/NewAd";
+import ButtonGoBack from "../components/ButtonGoBack";
+import Footer from "@/components/Footer.vue";
+
+
+export default {
+  props: ["id", "title", "description", "comments", "image", "date"],
+  name: "Show",
+  components: {
+    Header,
+    NewAd,
+    ButtonGoBack,
+    Footer,
+  },
+  
+};
+</script>
+
+<style>
+#img {
+  width: 100px;
+}
+</style>

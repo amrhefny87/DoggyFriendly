@@ -1,12 +1,14 @@
 <template>
-  <div class="p-5">
+<div>
+  <Header />
+  <div class="p-5 d-flex flex-column align-items-center ">
     <h2>Create your Sitter Add</h2>
-    <div id="formDogContainer">
+    <div id="formDogContainer" class="shadow">
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group
           class="m-2"
           id="input-group-2"
-          label="Description "
+          label=""
           label-for="input-2"
         >
           <b-form-textarea
@@ -16,24 +18,50 @@
             required
           ></b-form-textarea>
         </b-form-group>
-        
         <b-form-group
           id="input-group-2"
-          label="Availability"
+          label=""
+          label-for="input-2"
+          class="m-2 text-left"
+        >
+          <b-form-input
+            id="input-2"
+            v-model="form.name"
+            placeholder="Enter name"
+            required
+          ></b-form-input>
+        </b-form-group>
+        <b-form-group
+          class="m-2"
+          id="input-group-2"
+          label=""
+          label-for="input-2"
+        >
+          <b-form-input
+            id="input-2"
+            v-model="form.date" required
+            placeholder="Enter date" type="datetime-local"
+            min="2011-06-01T08:30:00" max="2022-06-30T16:30:00"
+           pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
+          ></b-form-input>
+                  </b-form-group>
+        <b-form-group
+          id="input-group-2"
+          label=""
           label-for="input-2"
           class="m-2"
         >
           <b-form-input
             id="input-2"
-            v-model="form.availability"
-            placeholder="Enter availability"
+            v-model="form.title"
+            placeholder="Enter title"
             required
           ></b-form-input>
         </b-form-group>
 
         <b-form-group
           id="input-group-2"
-          label="Comments"
+          label=""
           label-for="input-2"
           class="m-2"
         >
@@ -44,48 +72,62 @@
             required
           ></b-form-textarea>
         </b-form-group>
-        
+        <b-form-group
+          id="input-group-2"
+          label="Upload image"
+          label-for="input-2"
+          class="m-2 d-flex flex-column"
+        >
+          <b-form-textarea
+            id="input-2"
+            v-model="form.image"
+            placeholder=""
+          ></b-form-textarea>
+        </b-form-group>
 
-        <b-button type="submit" id="buttonSub" class="m-2">Submit</b-button>
-        <b-button type="reset" id="buttonSub2" class="m-2">Reset</b-button>
+        <b-button type="submit" id="buttonSubmit" class="m-2">Submit</b-button>
+        <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
       </b-form>
     </div>
-    <b-card class="mt-3" header="Form Data Result">
-      <pre class="m-0">{{ form }}</pre>
-    </b-card>
+    </div>
+    <Footer />
   </div>
 </template>
 <script>
+
+import {apisitters} from '@/apis/ApiSitters'
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue"
 export default {
   name: "FormSitters",
+  components: {
+    Header,
+    Footer,
+  },
 
   data() {
     return {
-      form: {
-        description: "",
-        name: "",
-        availability: "",
-        comments: "",
-        picture: "",
-      },
-
+      form: {},
       show: true,
     };
   },
+  mounted(){
+    this.onSubmit()
+  },
   methods: {
-    onSubmit(event) {
+
+    async onSubmit(event) {
       event.preventDefault();
-      alert(JSON.stringify(this.form));
+      await apisitters.create(this.form);
+      return window.location.href =  "sitters"
     },
     onReset(event) {
       event.preventDefault();
-      // Reset our form values
       this.form.description = "";
       this.form.name = "";
-      this.form.availability = "";
+      this.form.title = "";
       this.form.comments = "";
-      this.form.picture = "";
-      // Trick to reset/clear native browser form validation state
+      this.form.image = "";
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
@@ -93,19 +135,30 @@ export default {
     },
   },
 };
+
 </script>
 <style scoped>
 #formDogContainer {
   background: #e07a1b;
   padding: 10px;
   border-radius: 20px;
+  margin-top: 2rem;
+  max-width: 500px;
+  
 }
 
-#buttonSub {
+#buttonEdit {
+    background: #a08b71;
+}
+#buttonSubmit {
+    background: #eab474;
+}
+#buttonDelete {
+    background: #eab474;
+}
+#buttonReset {
     background: #eab474;
 }
 
-#buttonSub2 {
-    background: #eab474;
-}
+
 </style>
