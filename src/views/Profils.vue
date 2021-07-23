@@ -3,8 +3,7 @@
     <div class="all_info">
             
         <section class="profil"> 
-            <img class="img" src="../assets/profil.png" alt="Foto">
-            </img>
+            <img class="img" src="../assets/profil.png" alt="Foto" />
             <div class="item item_3">
                 <div class="title_form"><strong>Name</strong></div>
                 <div>Bojaninna Doe</div>
@@ -93,10 +92,6 @@ strong{
     display: flex;    
     margin-top: 20px; 
    
-}
-.contact img{
-  
-    
 }
 
 .img_contact{
