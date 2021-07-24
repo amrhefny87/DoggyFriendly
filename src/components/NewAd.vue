@@ -24,7 +24,7 @@
             <router-link
               :to="{
                 name: 'Show',
-                params: {
+               query: {
                   id: result.id,
                   title: result.title,
                   description: result.description,

@@ -74,7 +74,7 @@ const routes = [
     component: AdType,
   },
   {
-    path: "/show/:id",
+    path: "/show/:id/",
     name: "Show",
     component: Show,
     props: true,
