@@ -14,7 +14,7 @@
           ></b-card-img>
         </b-col>
         <b-col md="6" >
-          <b-card-body>
+          <b-card-body class="d-flex justify-content-center align-items-center d-flex flex-column">
             <h2 id="textitle">{{ result.title }}</h2>
             <b-card-text id="text">
               {{ result.description }}

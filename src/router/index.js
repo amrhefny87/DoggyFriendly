@@ -14,7 +14,8 @@ import Login from "../views/Login";
 import Register from "../views/Register";
 import store from "../store";
 import Logged from "../views/Logged"
-import ProfileOther from "../views/ProfileOther"
+import ProfileOther from "../views/ProfileOther";
+import AboutUs from "../views/AboutUs";
 
 Vue.use(VueRouter);
 
@@ -113,6 +114,11 @@ const routes = [
     path: "/logged",
     name: "Logged",
     component: Logged,
+  },
+  {
+    path: "/aboutus",
+    name: "aboutus",
+    component: AboutUs,
   },
 ];
 
