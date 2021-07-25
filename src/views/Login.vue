@@ -2,13 +2,13 @@
 <div>
   <Header />
   <div class="login">
-    <h1 class="title">Login in the page</h1>
-    {{user}}
-        <template v-if="authenticated">
+    <template v-if="authenticated">
       <div>
         <h1>hola</h1>
+        <button @click.prevent="signOut">adios</button>
       </div>
     </template>
+    <h1 class="title">Login in the page</h1>
     <form action class="form" @submit.prevent="submit">
       <label class="form-label" for="#email">Email:</label>
       <input
@@ -40,8 +40,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex"
-import { mapGetters } from "vuex"
+import { mapActions, mapGetters} from "vuex"
 import Header from "@/components/Header.vue";
 
 
@@ -57,8 +56,16 @@ export default {
   }),
   methods: {
     ...mapActions({
-      login: 'auth/login'
+      login: 'auth/login',
+      signOutAction: "auth/signOut"
     }),
+    signOut() {
+      this.signOutAction().then(()=> {
+         /*this.$router.replace({
+         name: "login"
+       }) */
+      })
+    },
     submit() {
      this.login(this.form).then(() => {
         /*this.$router.replace({
@@ -76,7 +83,7 @@ export default {
 }
 
 </script>
-
+//
 <style scoped>
 .error {
   color: red

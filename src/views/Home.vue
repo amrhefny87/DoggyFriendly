@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home2">
     <img style="width: 17rem; margin-top: 3rem;" alt="Dog Logo" src="../assets/logoDog.png" />
     <Inicio />
   </div>
@@ -15,3 +15,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+   .home2 {
+     height: 100%;
+     background-image: url('../assets/background2.png') ;
+   }
+</style>
