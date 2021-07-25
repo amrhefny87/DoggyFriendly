@@ -1,7 +1,7 @@
 <template>
   <router-link
     :to="{
-      name: 'profile',
+      name: 'profile-other',
      
     }"
     class="moreInfo btn text-black m-3 "

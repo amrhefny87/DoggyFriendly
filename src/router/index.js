@@ -14,6 +14,7 @@ import Login from "../views/Login";
 import Register from "../views/Register";
 import store from "../store";
 import Logged from "../views/Logged"
+import ProfileOther from "../views/ProfileOther"
 
 Vue.use(VueRouter);
 
@@ -66,6 +67,13 @@ const routes = [
     path:'/profile',
     name:'profile',
     component: Profile,
+    
+  },
+  {
+
+    path:'/profileother',
+    name:'profile-other',
+    component: ProfileOther,
     
   },
   {

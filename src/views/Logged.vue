@@ -4,7 +4,7 @@
     <template v-if="authenticated">
       <div class="d-flex justify-content-center align-items-center">
       <div class="container-logged">
-        <h6>Hello {{ name }}, you are already logged in :)</h6>
+        <h6>Hello {{user[3].name}}, you are already logged in :)</h6>
         <strong class="mt-4">Start dogging!</strong>
         <div class="d-flex flex-column">
         
