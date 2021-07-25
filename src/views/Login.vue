@@ -5,7 +5,7 @@
     <template v-if="authenticated">
       <div>
         <h1>hola</h1>
-        <button @click="signOut">adios</button>
+        <button @click.prevent="signOut">adios</button>
       </div>
     </template>
     <h1 class="title">Login in the page</h1>
@@ -40,8 +40,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex"
-import { mapGetters } from "vuex"
+import { mapActions, mapGetters} from "vuex"
 import Header from "@/components/Header.vue";
 
 
@@ -58,10 +57,14 @@ export default {
   methods: {
     ...mapActions({
       login: 'auth/login',
+      signOutAction: "auth/signOut"
     }),
     signOut() {
-      localStorage.removeItem("token")
-      window.location.href =  "login"
+      this.signOutAction().then(()=> {
+         /*this.$router.replace({
+         name: "login"
+       }) */
+      })
     },
     submit() {
      this.login(this.form).then(() => {
@@ -80,7 +83,7 @@ export default {
 }
 
 </script>
-
+//
 <style scoped>
 .error {
   color: red
