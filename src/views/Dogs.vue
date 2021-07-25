@@ -7,6 +7,7 @@
           <NewAd :key="event.id"  :result="event" :type="type" />
     </div>
     <Footer />
+    <div>a</div>
   </div>
 </template>
 
