@@ -1,4 +1,6 @@
 <template>
+<div>
+  <Header />
   <div class="login">
     <h1 class="title">Login in the page</h1>
     <form action class="form" @submit.prevent="submit">
@@ -26,12 +28,16 @@
       <router-link to="/register">Regístrate</router-link>
     </p>
   </div>
+    </div>
 </template>
 
 <script>
 import { mapActions } from "vuex"
+import Header from "@/components/Header.vue";
 
 export default {
+  name: "Login",
+  components: {Header},
   data: () => ({
     form: {
       email: "",
