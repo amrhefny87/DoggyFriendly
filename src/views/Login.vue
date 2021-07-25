@@ -4,6 +4,8 @@
   <div class="login">
     
     <h1 class="title">Login</h1>
+
+    
     
     <form action class="form" @submit.prevent="submit">
       <label class="form-label" for="#email">Email:</label>

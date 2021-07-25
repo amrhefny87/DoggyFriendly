@@ -13,7 +13,7 @@
       </div>
     </template>
     <div class="all_info">
-         <h2 class="text-center m">Your profile</h2>
+         <h2 class="text-center m">Your profile</h2> {{ title }}
       <section class="profil">
          
         <img class="img" src="../assets/profil.png" alt="Foto" />
