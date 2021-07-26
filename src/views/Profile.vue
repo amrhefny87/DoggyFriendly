@@ -10,6 +10,8 @@
         >
           Log Out
         </button>
+
+        <ButtonMyPosts />
       </div>
     </template>
     <div class="all_info">
@@ -51,6 +53,7 @@
 import Header from "../components/Header";
 import Footer from "@/components/Footer.vue";
 import { mapGetters, mapActions } from "vuex";
+import ButtonMyPosts from "../components/ButtonMyPosts";
 export default {
   props: ["id", "title", "description", "direction", "comments", "image", "date"],
   name: "Profile",
@@ -58,6 +61,8 @@ export default {
     Header,
 
     Footer,
+
+    ButtonMyPosts,
   },
   methods: {
     ...mapActions({
@@ -164,6 +169,13 @@ p {
   background: #5c636a;
 }
 #buttonLogout:hover {
+  background: #a15106;
+}
+
+#buttonMyPost {
+  background: #5c636a;
+}
+#buttonMyPost:hover {
   background: #a15106;
 }
 </style>

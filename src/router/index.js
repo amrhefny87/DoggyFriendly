@@ -16,6 +16,7 @@ import store from "../store";
 import Logged from "../views/Logged"
 import ProfileOther from "../views/ProfileOther";
 import AboutUs from "../views/AboutUs";
+import MyPosts from "../views/MyPosts.vue";
 
 Vue.use(VueRouter);
 
@@ -77,6 +78,13 @@ const routes = [
     component: ProfileOther,
     
   },
+  {
+
+    path:'/myposts',
+    name:'MyPosts',
+    component: MyPosts,
+    
+  },  
   {
     path: "/adtype",
     name: "adtype",
