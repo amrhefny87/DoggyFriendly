@@ -20,35 +20,42 @@
         <b-container class="info-grid">
           <b-row class="mt-3" align-v="start">
             <b-col cols="5" class="title">Name</b-col>
-            <b-col cols="3" class="text">{{ user.name }}</b-col>
+            <b-col cols="3" class="text">{{ user[11].name }}</b-col>
             <b-col><img class="stars" src="../assets/stars.png" alt=""/></b-col>
           </b-row>
 
           <b-row class="mt-3">
             <b-col sm="5" class="title">Direction</b-col>
-            <b-col sm="7" class="text">{{ user[3].direction }}</b-col>
+            <b-col sm="7" class="text">{{ user[11].direction }}</b-col>
           </b-row>
 
           <b-row class="mt-3">
             <b-col cols="5" class="title">About Us</b-col>
             <b-col cols="7" class="text"
               ><p>
-                {{ user[3].pet_name }}
+                {{ user[11].pet_name }}
               </p></b-col
             >
           </b-row>
           <router-link
              :to="{
-                name: 'EditAdSitters',
-               
+                name: 'editprofile',
+                 params: {
+                  id: user[11].id,
+                  name: user[11].name,
+                  direction: user[11].direction,
+                   password: user[11].password,
+                  image: user[11].image,
+                  pet_name: user[11].pet_name,
+                
+                  
+                },
               }"
               class="moreInfo btn text-black m-3 "
               id="buttonMore"
               >Edit</router-link
             >
-            <b-button @click="buttonDeleteDogs" id="deletemyEvent" class="m-2"
-              >Delete</b-button
-            >
+           
         </b-container>
       </section>
     </div>
@@ -63,14 +70,7 @@ import Footer from "@/components/Footer.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: [
-    "id",
-    "title",
-    "name",
-    "description",
-    "direction",
-    "comments",
-    "image",
-    "date",
+   ""
   ],
   name: "Profile",
   components: {
@@ -85,9 +85,9 @@ export default {
     }),
     signOut() {
       this.signOutAction().then(() => {
-        /*this.$router.replace({
+        this.$router.replace({
          name: "login"
-       }) */
+       }) 
       });
     },
   },
