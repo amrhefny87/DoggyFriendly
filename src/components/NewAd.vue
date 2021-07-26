@@ -82,11 +82,16 @@
             <b-button @click="buttonDeleteDogs" id="deletemyEvent" class="m-2"
               >Delete</b-button
             >
+            <b-button @click="likePostDog" id="likeAPost" class="m-2"
+              >Woof</b-button
+            >
             </div>
              <div v-if="type === 'Sitters'">
             <b-button @click="buttonDeleteSitters" id="deletemyEvent" class="m-2"
               >Delete</b-button
             >
+            
+            
             </div>
             </div>
           </b-card-body>
@@ -99,6 +104,7 @@
 <script>
 import { apidogs } from "@/apis/ApiDogs";
 import { apisitters } from "@/apis/ApiSitters";
+import axios from "axios";
 
 export default {
   name: "NewAdd",
@@ -113,6 +119,14 @@ export default {
       await apisitters.delete(this.result.id);
       return (window.location.href = "sitters");
     },
+    async likePostDog($id){
+      $id => this.result.id;
+      axios.post('likePostDog', $id);
+      // await apidogs.likePostDog(this.result.id);
+      // alert (response);
+       return (window.location.href = "dogs");
+      // alert(this.result.id);
+    }
   },
 };
 </script>
