@@ -2,13 +2,11 @@
 <div>
   <Header />
   <div class="login">
-    <template v-if="authenticated">
-      <div>
-        <h1>hola</h1>
-        <button @click.prevent="signOut">adios</button>
-      </div>
-    </template>
-    <h1 class="title">Login in the page</h1>
+    
+    <h1 class="title">Login</h1>
+
+    
+    
     <form action class="form" @submit.prevent="submit">
       <label class="form-label" for="#email">Email:</label>
       <input
@@ -27,7 +25,7 @@
         id="password"
         placeholder="Password"
       >
-      <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
+      <p v-if="error" class="error">Please, introduce you mail o password correctly</p>
       <input class="form-submit" type="submit" value="Login">
     </form>
     <div class="d-flex align-items-center justify-content-center">
@@ -42,11 +40,12 @@
 <script>
 import { mapActions, mapGetters} from "vuex"
 import Header from "@/components/Header.vue";
+import Logged from "./Logged"
 
 
 export default {
   name: "Login",
-  components: {Header},
+  components: {Header, Logged},
   data: () => ({
     form: {
       email: "",
@@ -68,9 +67,9 @@ export default {
     },
     submit() {
      this.login(this.form).then(() => {
-        /*this.$router.replace({
-         name: "Home"
-       }) */
+        this.$router.replace({
+         name: "Logged"
+       }) 
      })
     }
   },
