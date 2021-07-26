@@ -4,6 +4,7 @@
   <div class="login">
     <template v-if="authenticated">
       <div>
+        {{ user }}
         <h1>hola</h1>
         <button @click.prevent="signOut">adios</button>
       </div>
