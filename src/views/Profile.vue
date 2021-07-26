@@ -13,34 +13,44 @@
       </div>
     </template>
     <div class="all_info">
-         <h2 class="text-center m">Your profile</h2> 
+      <h2 class="text-center m">Your profile</h2>
       <section class="profil">
-         
         <img class="img" src="../assets/profil.png" alt="Foto" />
 
         <b-container class="info-grid">
           <b-row class="mt-3" align-v="start">
             <b-col cols="5" class="title">Name</b-col>
-            <b-col cols="3" class="text">{{user[3].name}}</b-col>
+            <b-col cols="3" class="text">{{ user.name }}</b-col>
             <b-col><img class="stars" src="../assets/stars.png" alt=""/></b-col>
           </b-row>
 
           <b-row class="mt-3">
             <b-col sm="5" class="title">Direction</b-col>
-            <b-col sm="7" class="text">{{user[3].direction}}</b-col>
+            <b-col sm="7" class="text">{{ user[3].direction }}</b-col>
           </b-row>
 
           <b-row class="mt-3">
             <b-col cols="5" class="title">About Us</b-col>
             <b-col cols="7" class="text"
               ><p>
-               {{user[3].pet_name}}
+                {{ user[3].pet_name }}
               </p></b-col
             >
           </b-row>
+          <router-link
+             :to="{
+                name: 'EditAdSitters',
+               
+              }"
+              class="moreInfo btn text-black m-3 "
+              id="buttonMore"
+              >Edit</router-link
+            >
+            <b-button @click="buttonDeleteDogs" id="deletemyEvent" class="m-2"
+              >Delete</b-button
+            >
         </b-container>
       </section>
-     
     </div>
 
     <Footer />
@@ -52,7 +62,16 @@ import Header from "../components/Header";
 import Footer from "@/components/Footer.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
-  props: ["id", "title", "description", "direction", "comments", "image", "date"],
+  props: [
+    "id",
+    "title",
+    "name",
+    "description",
+    "direction",
+    "comments",
+    "image",
+    "date",
+  ],
   name: "Profile",
   components: {
     Header,
@@ -72,13 +91,12 @@ export default {
       });
     },
   },
-    computed: {
-      ...mapGetters({
-        authenticated: "auth/authenticated",
-        user: "auth/user",
-      }),
-    },
-  
+  computed: {
+    ...mapGetters({
+      authenticated: "auth/authenticated",
+      user: "auth/user",
+    }),
+  },
 };
 </script>
 
@@ -154,8 +172,6 @@ strong {
 .contact img {
 }
 
-
-
 p {
   width: 220px;
 }
@@ -166,4 +182,8 @@ p {
 #buttonLogout:hover {
   background: #a15106;
 }
+#buttonMore {
+background: #a15106;
+}
+ 
 </style>
