@@ -2,11 +2,16 @@
   <div class="hello">
     <h1>DoggyF</h1>
     <h6 class="text-intro">
+      The App for Dog-friendly people <br> The couchsurfing for dogs!
+    </h6>
+    <h6 class="text-intro2">
       A dog is the only thing on earth that loves you more than he loves himself
     </h6>
+     
+    
     <div
       class="d-flex justify-content-around align-items-center "
-      style="margin-top:10vh; margin-bottom:20vh; ;"
+      style="margin-top:3vh; margin-bottom:20vh; ;"
     >
       <div class="d-flex flex-column justify-content-center align-items-center">
         <a href="/dogs"><img class="icon-img" src="../assets/dogs.png"/></a>
@@ -91,6 +96,16 @@ a {
 .text-intro {
   margin: auto;
   padding: 20;
-  font-size: 16px;
+  font-size: 18px;
+  filter: drop-shadow(5px 5px 4px rgba(102, 54, 27, 0.5));
+}
+
+.text-intro2 {
+  margin: auto;
+  padding: 20;
+  font-size: 14px;
+  font-style: italic;
+  background: rgba(194, 93, 35, 0.5);
+  width: 60%;
 }
 </style>

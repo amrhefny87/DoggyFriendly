@@ -2,54 +2,39 @@
   <div class="all d-flex justify-content-center">
     <Header />
     <template v-if="authenticated">
-      <div>
-        <button
-          class="btn text-white m-3 rounded-top rounded-bottom"
-          id="buttonLogout"
-          @click.prevent="signOut"
-        >
-          Log Out
-        </button>
-      </div>
+      
     </template>
     <div class="all_info">
-      <h2 class="text-center m">Your profile</h2>
+         <h2 class="text-center m">Your profile</h2> 
       <section class="profil">
+         
         <img class="img" src="../assets/profil.png" alt="Foto" />
 
         <b-container class="info-grid">
           <b-row class="mt-3" align-v="start">
             <b-col cols="5" class="title">Name</b-col>
-            <b-col cols="3" class="text">{{ user.name }}</b-col>
+            <b-col cols="3" class="text"></b-col>
             <b-col><img class="stars" src="../assets/stars.png" alt=""/></b-col>
           </b-row>
 
           <b-row class="mt-3">
             <b-col sm="5" class="title">Direction</b-col>
-            <b-col sm="7" class="text">{{ user[3].direction }}</b-col>
+            <b-col sm="7" class="text"></b-col>
           </b-row>
 
           <b-row class="mt-3">
             <b-col cols="5" class="title">About Us</b-col>
             <b-col cols="7" class="text"
               ><p>
-                {{ user[3].pet_name }}
+               
               </p></b-col
             >
           </b-row>
-          <router-link
-             :to="{
-                name: 'EditAdSitters',
-               
-              }"
-              class="moreInfo btn text-black m-3 "
-              id="buttonMore"
-              >Edit</router-link
-            >
-            <b-button @click="buttonDeleteDogs" id="deletemyEvent" class="m-2"
-              >Delete</b-button
-            >
         </b-container>
+      </section>
+      <section class="contact d-flex justify-content-center">
+        <img class="img_contact" src="../assets/whatsapp 1.png" alt="fffff" />
+        <img class="img_contact2" src="../assets/email 1.png" alt="fffff" />
       </section>
     </div>
 
@@ -62,19 +47,11 @@ import Header from "../components/Header";
 import Footer from "@/components/Footer.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
-  props: [
-    "id",
-    "title",
-    "name",
-    "description",
-    "direction",
-    "comments",
-    "image",
-    "date",
-  ],
-  name: "Profile",
+  props: ["id", "title", "description", "direction", "comments", "image", "date"],
+  name: "profile-other",
   components: {
     Header,
+
     Footer,
   },
   methods: {
@@ -90,12 +67,13 @@ export default {
       });
     },
   },
-  computed: {
-    ...mapGetters({
-      authenticated: "auth/authenticated",
-      user: "auth/user",
-    }),
-  },
+    computed: {
+      ...mapGetters({
+        authenticated: "auth/authenticated",
+        user: "auth/user",
+      }),
+    },
+  
 };
 </script>
 
@@ -171,6 +149,17 @@ strong {
 .contact img {
 }
 
+.img_contact {
+  width: 50px;
+  height: 50px;
+}
+
+.img_contact2 {
+  width: 50px;
+  height: 50px;
+  margin-left: 30px;
+}
+
 p {
   width: 220px;
 }
@@ -181,8 +170,4 @@ p {
 #buttonLogout:hover {
   background: #a15106;
 }
-#buttonMore {
-background: #a15106;
-}
- 
 </style>

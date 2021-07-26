@@ -1,6 +1,6 @@
 <template>
   <div id="nav" class="w-100 p-0 m-0 ">
-    <b-navbar toggleable="lg" id="navbar">
+    <b-navbar toggleable="xl" id="navbar">
       <router-link to="/">
         <b-img
           src="https://i.ibb.co/rQd5Wnz/imageonline-co-whitebackgroundremoved-1.png"
@@ -9,29 +9,29 @@
         />
       </router-link>
       <template v-if="authenticated">
-        <div class="d-flex ">
-        <b-img
-          src="https://image.flaticon.com/icons/png/512/1077/1077114.png"
-          alt="doggyF"
-          id="profile-icon"
-        />
-        <p>Hello, {{user[3].name}}</p>
+        <div class=" m-0 p-0 ">
+         
+          <a href="/profile"><b-icon  icon="person-fill" font-scale="2" variant="dark" style="cursor: pointer;" class="iconPersona" ></b-icon></a>
+        
         </div>
       </template>
-      <b-navbar-toggle target="navbar-toggle-collapse" class="m-2" id="border">
+      <b-navbar-toggle target="navbar-toggle-collapse" class="p-3" id="border">
         <template #default="{ expanded }">
           <b-icon v-if="expanded" icon="x"></b-icon>
-          <b-icon v-else icon="grid3x3-gap-fill" ></b-icon>
+          <b-icon v-else icon="grid3x3-gap-fill"></b-icon>
         </template>
       </b-navbar-toggle>
-      <b-collapse id="navbar-toggle-collapse" is-nav>
+      <b-collapse id="navbar-toggle-collapse" is-nav class="colapseNav">
         <b-navbar-nav
           class="ml-auto p-3 d-flex justify-content-start align-items-start"
         >
           <b-nav-item to="/dogs">Dogs</b-nav-item>
           <b-nav-item to="/sitters">Sitters</b-nav-item>
+          <b-nav-item to="/aboutus">About Us</b-nav-item>
           <b-nav-item to="/adtype">Add New Post</b-nav-item>
+          
           <b-nav-item to="/login">Login</b-nav-item>
+          
           <b-nav-item to="/register">Register</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
@@ -64,6 +64,9 @@ export default {
 
 #nav {
   padding: 30px;
+  
+  
+  
 }
 
 #nav a {
@@ -98,5 +101,16 @@ export default {
   height: 20px;
   margin-bottom: 5px;
   cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  .colapseNav {
+    margin-left:300px;
+  
+  }
+  .iconPersona {
+    margin-left: 300px;
+    
+  }
 }
 </style>

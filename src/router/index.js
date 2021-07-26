@@ -13,6 +13,9 @@ import EditAdSitters from "../views/EditAdSitters.vue"
 import Login from "../views/Login";
 import Register from "../views/Register";
 import store from "../store";
+import Logged from "../views/Logged"
+import ProfileOther from "../views/ProfileOther";
+import AboutUs from "../views/AboutUs";
 
 Vue.use(VueRouter);
 
@@ -64,7 +67,15 @@ const routes = [
 
     path:'/profile',
     name:'profile',
-    component: Profile
+    component: Profile,
+    
+  },
+  {
+
+    path:'/profileother',
+    name:'profile-other',
+    component: ProfileOther,
+    
   },
   {
     path: "/adtype",
@@ -72,7 +83,7 @@ const routes = [
     component: AdType,
   },
   {
-    path: "/show/:id",
+    path: "/show/:id/",
     name: "Show",
     component: Show,
     props: true,
@@ -98,6 +109,16 @@ const routes = [
     path: "/register",
     name: "Register",
     component: Register,
+  },
+  {
+    path: "/logged",
+    name: "Logged",
+    component: Logged,
+  },
+  {
+    path: "/aboutus",
+    name: "aboutus",
+    component: AboutUs,
   },
 ];
 
