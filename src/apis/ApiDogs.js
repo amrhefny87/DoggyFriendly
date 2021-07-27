@@ -7,7 +7,9 @@ export const apidogs = {
     return axios.get(url);
   },
   create(form) {
-    return axios.post(url, form);
+    return axios.post(url, form).then(res => {
+      console.log(res)
+    });
   },
   editEvent(id, form) {
     return axios.patch(url + "/" + id, form);

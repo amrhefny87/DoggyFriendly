@@ -26,6 +26,7 @@ export default ({
     actions: {
         async login ({ dispatch },credentials) {
             let res = await axios.post(ENDPOINT_PATH + "login", credentials);
+
             dispatch("attempt", res.data.token)
         },
         async attempt ({ commit,state }, token) {
@@ -35,16 +36,15 @@ export default ({
             if(!state.token){
             return
             }
+            try {
+                let res = await axios.get(ENDPOINT_PATH + "authuser")
+                commit("SET_USER", res.data)
 
-        try {
-            let responsive = await axios.get(ENDPOINT_PATH + "users")
+            } catch(e) {
+                commit("SET_TOKEN", null)
+                commit("SET_USER", null)
+            }
 
-            commit("SET_USER", responsive.data)
-        } catch (e) {
-            commit("SET_TOKEN", null)
-            commit("SET_USER", null)
-
-        }
         },
         signOut ( { commit } ) {
             return axios.post(ENDPOINT_PATH + "logout").then(() => {

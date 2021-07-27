@@ -20,20 +20,20 @@
         <b-container class="info-grid">
           <b-row class="mt-3" align-v="start">
             <b-col cols="5" class="title">Name</b-col>
-            <b-col cols="3" class="text">{{ user[11].name }}</b-col>
+            <b-col cols="3" class="text">{{ user.name }}</b-col>
             <b-col><img class="stars" src="../assets/stars.png" alt=""/></b-col>
           </b-row>
 
           <b-row class="mt-3">
             <b-col sm="5" class="title">Direction</b-col>
-            <b-col sm="7" class="text">{{ user[11].direction }}</b-col>
+            <b-col sm="7" class="text">{{ user.direction }}</b-col>
           </b-row>
 
           <b-row class="mt-3">
             <b-col cols="5" class="title">About Us</b-col>
             <b-col cols="7" class="text"
               ><p>
-                {{ user[11].pet_name }}
+                {{ user.pet_name }}
               </p></b-col
             >
           </b-row>
@@ -41,12 +41,12 @@
              :to="{
                 name: 'editprofile',
                  params: {
-                  id: user[11].id,
-                  name: user[11].name,
-                  direction: user[11].direction,
-                   password: user[11].password,
-                  image: user[11].image,
-                  pet_name: user[11].pet_name,
+                  id: user.id,
+                  name: user.name,
+                  direction: user.direction,
+                   password: user.password,
+                  image: user.image,
+                  pet_name: user.pet_name,
                 
                   
                 },

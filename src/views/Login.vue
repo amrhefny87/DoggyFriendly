@@ -4,8 +4,7 @@
   <div class="login">
     
     <h1 class="title">Login</h1>
-
-    
+        {{ user }}
     
     <form action class="form" @submit.prevent="submit">
       <label class="form-label" for="#email">Email:</label>
@@ -67,9 +66,7 @@ export default {
     },
     submit() {
      this.login(this.form).then(() => {
-        this.$router.replace({
-         name: "Logged"
-       }) 
+       
      })
     }
   },
