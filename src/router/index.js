@@ -16,7 +16,8 @@ import store from "../store";
 import Logged from "../views/Logged"
 import ProfileOther from "../views/ProfileOther";
 import AboutUs from "../views/AboutUs";
-import MyPosts from "../views/MyPosts.vue";
+import MyPostsDogs from "../views/MyPostsDogs.vue";
+import MyPostsSitters from "../views/MyPostsSitters.vue";
 
 Vue.use(VueRouter);
 
@@ -80,11 +81,18 @@ const routes = [
   },
   {
 
-    path:'/myposts',
-    name:'MyPosts',
-    component: MyPosts,
+    path:'/mypostsdogs',
+    name:'MyPostsDogs',
+    component: MyPostsDogs,
     
-  },  
+  }, 
+  {
+
+    path:'/mypostssitters',
+    name:'MyPostsSitters',
+    component: MyPostsSitters,
+    
+  }, 
   {
     path: "/adtype",
     name: "adtype",

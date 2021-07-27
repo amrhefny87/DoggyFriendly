@@ -1,7 +1,7 @@
 <template>
     <div class="dogs">
         <Header />
-        <h1 class="mt-3">My Posts</h1>
+        <h1 class="mt-3">My Posts Dogs</h1>
         
         <Button root="/adtype" name="Add and Ad" />
         <div v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
@@ -15,13 +15,13 @@
 <script>
 // @ is an alias to /src
 import NewPost from '@/components/NewPost.vue'
-import {apimyPosts} from '@/apis/ApiMyPosts';
+import {apiMyPostsDogs} from '@/apis/ApiMyPostsDogs';
 import Button from '@/components/Button.vue'
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
-    name: 'MyPosts',
+    name: 'MyPostsDogs',
     components: {
         NewPost,
         Button,
@@ -30,7 +30,7 @@ export default {
     },
     data(){
         return{
-        id:'', 
+        type: 'Dogs', 
         events:[]
         }
 },
@@ -41,7 +41,7 @@ mounted(){
 
 methods:{
     async fetchApi() {
-        const res = await apimyPosts.myPosts(1);
+        const res = await apiMyPostsDogs.getAll();
         this.events = res.data
     }
     

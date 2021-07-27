@@ -1,26 +1,26 @@
 <template>
     <router-link
         :to="{
-        name: 'MyPosts',
+        name: 'MyPostsSitters',
         
         }"
         class="btn text-white m-2 rounded-top rounded-bottom"
-        id="buttonMyPosts"
-        >MyPosts</router-link>
+        id="buttonMyPostsSitters"
+        >MyPostsSitters</router-link>
 </template>
 
 <script>
 export default {
-    name: "ButtonMyPosts",
+    name: "ButtonMyPostsSitters",
     
 };
 </script>
 
-<style>
-#buttonMyPosts {
+<style scoped>
+#buttonMyPostsSitters {
     background: #5c636a;
 }
-#buttonMyPosts:hover {
+#buttonMyPostsSitters:hover {
     background: #a15106;
 }
 </style>

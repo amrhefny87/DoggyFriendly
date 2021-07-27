@@ -11,7 +11,8 @@
           Log Out
         </button>
 
-        <ButtonMyPosts />
+        <ButtonMyPostsDogs />
+        <ButtonMyPostsSitters />
       </div>
     </template>
     <div class="all_info">
@@ -53,7 +54,8 @@
 import Header from "../components/Header";
 import Footer from "@/components/Footer.vue";
 import { mapGetters, mapActions } from "vuex";
-import ButtonMyPosts from "../components/ButtonMyPosts";
+import ButtonMyPostsDogs from "../components/ButtonMyPostsDogs";
+import ButtonMyPostsSitters from "../components/ButtonMyPostsSitters";
 export default {
   props: ["id", "title", "description", "direction", "comments", "image", "date"],
   name: "Profile",
@@ -62,7 +64,9 @@ export default {
 
     Footer,
 
-    ButtonMyPosts,
+    ButtonMyPostsDogs,
+
+    ButtonMyPostsSitters,
   },
   methods: {
     ...mapActions({

@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const url = "http://127.0.0.1:8000/api/myPosts";
+const url = "http://127.0.0.1:8000/api/my_posts_sitters";
 
-export const apimyPosts = {
+export const apiMyPostsSitters = {
     getAll() {
         return axios.get(url);
     },
@@ -15,7 +15,7 @@ export const apimyPosts = {
     delete(id) {
         return axios.delete(url + "/" + id);
     },
-    myPosts(id){
+    myPostsDogs(id){
         return axios.get(url + "/" + id);
     }
 };

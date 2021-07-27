@@ -20,11 +20,12 @@
                 {{ result.description }}
                 </b-card-text>
                 <div class="d-flex flex-wrap justify-content-center align-items-center">
-                <div>
+                
+                <div v-if="type === 'Dogs'">
                 <router-link
                 :to="{
-                    name: 'Show',
-                query: {
+                    name: 'EditAdDogs',
+                    params: {
                     id: result.id,
                     title: result.title,
                     description: result.description,
@@ -32,10 +33,8 @@
                     image: result.image,
                     date: result.date,
                     name: result.name,
-
                     },
                 }"
-                
                 class="moreInfo btn text-black m-3 "
                 id="buttonMore"
                 >Edit</router-link
@@ -83,7 +82,7 @@ import { apidogs } from "@/apis/ApiDogs";
 import { apisitters } from "@/apis/ApiSitters";
 
 export default {
-    name: "NewAdd",
+    name: "NewPost",
     props: ["result", "type"],
     mounted() {},
     methods: {
@@ -120,10 +119,6 @@ h4 {
 
 #buttonMore:hover {
     background: #a15106;
-}
-
-#buttonDeleteDogs {
-    background: #eab474;
 }
 
 #text {
