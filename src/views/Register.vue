@@ -2,7 +2,7 @@
 <div>
   <Header />
   <div class="register">
-    <h1 class="title">Sign Up</h1>
+    <h2 class="titleRegister">Sign Up</h2>
     <form action class="form" @submit.prevent="register">
       <label class="form-label" for="#email">Email:</label>
       <input
@@ -30,7 +30,7 @@
         id="password"
         placeholder="Password"
       >
-      <label class="form-label" for="#password-repeat">Repite la contraeña:</label>
+      <label class="form-label" for="#password-repeat">Repeat password:</label>
       <input
         v-model="form.password_confirmation"
         class="form-input"
@@ -38,20 +38,23 @@
         id="password-repeat"
         placeholder="Password"
       >
-      <p v-if="error" class="error">Has introducido mal el email o la contraseña.</p>
+      <p v-if="error" class="error">Your password is incorrect. Introduce it again.</p>
       <input class="form-submit" type="submit" value="Sign Up">
     </form>
   </div>
+  <Footer />
   </div>
 </template>
 
 <script>
 import auth from "@/logic/auth";
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
+
 
 export default {
   name: "Register",
-  components: {Header},
+  components: {Header, Footer},
   data: () => ({
     form: {
       name: "",
@@ -77,19 +80,24 @@ export default {
 <style  scoped>
 .register {
   padding: 2rem;
+  background-image: url("../assets/background1.png");
+  height: 100%;
 }
-.title {
+.titleRegister {
   text-align: center;
+  color: black;
+  font-weight: bold;
+  
 }
 .form {
-  margin: 3rem auto;
+  margin: 2rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 20%;
   min-width: 300px;
   max-width: 100%;
-  background: rgba(19, 35, 47, 0.9);
+  background: #e07a1b;
   border-radius: 5px;
   padding: 40px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
@@ -111,10 +119,10 @@ export default {
 }
 .form-input:focus {
     outline: 0;
-    border-color: #1ab188;
+    border-color: #643102;
   }
 .form-submit {
-  background: #1ab188;
+  background: #a15106;
   border: none;
   color: white;
   margin-top: 3rem;
@@ -123,10 +131,10 @@ export default {
   transition: background 0.2s;
 }
 .form-submit:hover {
-    background: #0b9185;
+    background: #643102;
   }
 .error {
   margin: 1rem 0 0;
-  color: #ff4a96;
+  color: #d651c4;
 }
 </style>
