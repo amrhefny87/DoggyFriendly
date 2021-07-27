@@ -2,7 +2,7 @@
   <div class="form-dogs">
     <Header />
     <div class="p-5 d-flex flex-column align-items-center">
-    <h2>Create Add for your Dog</h2>
+    <h2 class="font-weight-bold text-dark">Create Add for your Dog</h2>
     <div id="formDogContainer" class="shadow">
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group
@@ -86,11 +86,13 @@
 
 import {apidogs} from '@/apis/ApiDogs'
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 export default {
   name: "FormDogs",
   components: {
     
-    Header
+    Header,
+    Footer,
   },
 
   data() {

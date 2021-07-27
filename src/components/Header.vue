@@ -10,9 +10,15 @@
       </router-link>
       <template v-if="authenticated">
         <div class=" m-0 p-0 ">
-         
-          <a href="/profile"><b-icon  icon="person-fill" font-scale="2" variant="dark" style="cursor: pointer;" class="iconPersona" ></b-icon></a>
-        
+          <a href="/profile"
+            ><b-icon
+              icon="person-fill"
+              font-scale="2"
+              variant="dark"
+              style="cursor: pointer;"
+              class="iconPersona"
+            ></b-icon
+          ></a>
         </div>
       </template>
       <b-navbar-toggle target="navbar-toggle-collapse" class="p-3" id="border">
@@ -28,11 +34,14 @@
           <b-nav-item to="/dogs">Dogs</b-nav-item>
           <b-nav-item to="/sitters">Sitters</b-nav-item>
           <b-nav-item to="/aboutus">About Us</b-nav-item>
-          <b-nav-item to="/adtype">Add New Post</b-nav-item>
-          
-          <b-nav-item to="/login">Login</b-nav-item>
-          
-          <b-nav-item to="/register">Register</b-nav-item>
+          <template v-if="authenticated"
+            >
+            <b-nav-item to="/adtype">Add New Post</b-nav-item>
+          </template>
+          <template v-else>
+            <b-nav-item to="/login">Login</b-nav-item>
+            <b-nav-item to="/register">Register</b-nav-item>
+          </template>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
@@ -64,9 +73,6 @@ export default {
 
 #nav {
   padding: 30px;
-  
-  
-  
 }
 
 #nav a {
@@ -105,12 +111,10 @@ export default {
 
 @media (min-width: 1200px) {
   .colapseNav {
-    margin-left:300px;
-  
+    margin-left: 300px;
   }
   .iconPersona {
     margin-left: 300px;
-    
   }
 }
 </style>
