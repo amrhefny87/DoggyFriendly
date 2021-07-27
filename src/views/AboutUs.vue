@@ -3,6 +3,7 @@
       <Header/>
       <div>
           <h3>About Us</h3>
+          <div>cards</div>
       </div>
       <Footer/>
   </div>
