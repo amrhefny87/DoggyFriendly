@@ -2,14 +2,14 @@
   <div class="adType d-flex flex-column align-items-center">
     <Header/>
     <div class="p-5 d-flex flex-column align-items-center">
-      <h2>What type of ad do you want to create?</h2>
-      <div id="formDogContainer" class="border border-dark p-5 mt-5 shadow">
-          <div class="d-flex justify-content-center">
-            <div>
+      <h2 class="title-adtype">What type of ad do you want to create?</h2>
+      <div id="formDogContainer" class="border border-dark mt-5 shadow">
+          <div class="d-flex flex-column justify-content-center flex-sm-row">
+            <div class="p-3">
               <a href="/formdogs"><img class="icon-img" src="../assets/dogs.png"></a>
               <a href="/formdogs" class="link"><p>DOGS</p></a>
             </div>
-            <div>
+            <div class="p-3">
                 <a href="/formsitters"><img class="icon-img" src="../assets/sitters.png"></a>
                 <a href="/formsitters" class="link"><p >SITTERS</p></a>
             </div>
@@ -39,9 +39,17 @@ export default {
 #formDogContainer {
   background: #e07a1b;
   border-radius: 20px 20px 20px 0px;
-  max-width:500px;
+  max-width:300px;
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom:70px;
+  
+}
+
+@media (min-width: 600px) {
+  #formDogContainer {
+    max-width:600px;
+    padding: 30px;
+  }
 }
 #button1{
   background: #E1701A;
@@ -68,5 +76,9 @@ export default {
   margin:auto;
   padding: 20;
   
+}
+
+.title-adtype {
+ color: black;
 }
 </style>

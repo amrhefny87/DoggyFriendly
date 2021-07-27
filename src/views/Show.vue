@@ -1,38 +1,48 @@
 <template>
   <div class="show">
     <Header />
-    <div class="NewAdd d-flex flex-row justify-content-center">
-      <b-card
-        class="overflow-hidden pr-2 pl-2 pb-1 pt-2  shadow "
-        style="max-width:600px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px;"
+    <div class="d-flex justify-content-center align-items-center mt-2 mb-5" >
+      <div 
+      
+        class="d-flex flex-column flex-sm-row p-3 shadow rounded justify-content-center align-items-center"
+        style="max-width:1100px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 30px; margin-bottom: 110px;"
       >
-        <b-row no-gutters class="d-flex  align-items-center">
-          <b-col md="6">
-            <a href="/profile"><b-card-img
-              :src="image"
-              alt="Image"
-              class="rounded"
-              id="img"
-            ></b-card-img></a>
-          </b-col>
-          <b-col md="6">
-            <b-card-body class="d-flex flex-column align-items-center">
-              <h2 id="textitle"> {{ title }}</h2>
-              <b-card-text id="text">
-                <span style=" font-weight: 800">Description:</span> <br> {{ description }}
-              </b-card-text>
-              <span style=" font-weight: 800">Comments:</span> {{ comments }}
-              <b-card-text> <span style=" font-weight: 800">Date:</span> <br> {{ date }} </b-card-text>
-            </b-card-body>
-            
-          </b-col>
-        </b-row>
-        <ButtonGoBack />
-        <ButtonContact />
-      </b-card>
+      <div id="container-show">
+        <a href="/profile"
+          ><b-card-img
+            :src="this.$route.query.image"
+            alt="Image"
+            class="rounded"
+            id="img"
+          ></b-card-img
+        ></a>
+        <h2 class="pt-2">{{ this.$route.query.title }}</h2>
+        </div>
+        <div>
+          
+          <ButtonContact />
+           <ButtonGoBack />
+           <b-card-text>
+          <span style=" font-weight: 800">Date:</span> <br />
+          {{ this.$route.query.date }}
+        </b-card-text>
+        </div>
+        
+        <b-card-text id="text" class=" p-3">
+          <span style=" font-weight: 800">Description:</span> <br />
+          {{ this.$route.query.description }}
+        </b-card-text>
+        <b-card-text class="p-3">
+          <span style=" font-weight: 800">Comments:</span> <br />
+          {{ this.$route.query.comments }}</b-card-text
+        >
+        
+       
+        
+      </div>
       
     </div>
-    
+
     <Footer />
   </div>
 </template>
@@ -42,7 +52,6 @@ import NewAd from "../components/NewAd";
 import ButtonGoBack from "../components/ButtonGoBack";
 import ButtonContact from "../components/ButtonContact";
 import Footer from "@/components/Footer.vue";
-
 
 export default {
   props: ["id", "title", "description", "comments", "image", "date"],
@@ -54,13 +63,25 @@ export default {
     ButtonContact,
     Footer,
   },
-  
 };
 </script>
 
-<style>
+<style >
 #img {
+  width: 100px;
+}
+
+@media (min-width: 600px) {
+  #img {
   width: 150px;
+}
+}
+
+@media (min-width: 600px) {
+  #container-show {
+  padding: 20px;
+  
+}
 }
 
 .show {
