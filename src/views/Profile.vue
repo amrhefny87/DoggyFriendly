@@ -26,29 +26,36 @@
 
           <b-row class="mt-3">
             <b-col sm="5" class="title">Direction</b-col>
-            <b-col sm="7" class="text">{{ user[3].direction }}</b-col>
+            <b-col sm="7" class="text">{{ user.direction }}</b-col>
           </b-row>
 
           <b-row class="mt-3">
             <b-col cols="5" class="title">About Us</b-col>
             <b-col cols="7" class="text"
               ><p>
-                {{ user[3].pet_name }}
+                {{ user.pet_name }}
               </p></b-col
             >
           </b-row>
           <router-link
              :to="{
-                name: 'EditAdSitters',
-               
+                name: 'editprofile',
+                 params: {
+                  id: user.id,
+                  name: user.name,
+                  direction: user.direction,
+                   password: user.password,
+                  image: user.image,
+                  pet_name: user.pet_name,
+                
+                  
+                },
               }"
               class="moreInfo btn text-black m-3 "
               id="buttonMore"
               >Edit</router-link
             >
-            <b-button @click="buttonDeleteDogs" id="deletemyEvent" class="m-2"
-              >Delete</b-button
-            >
+           
         </b-container>
       </section>
     </div>
@@ -63,14 +70,7 @@ import Footer from "@/components/Footer.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: [
-    "id",
-    "title",
-    "name",
-    "description",
-    "direction",
-    "comments",
-    "image",
-    "date",
+   ""
   ],
   name: "Profile",
   components: {
@@ -84,9 +84,9 @@ export default {
     }),
     signOut() {
       this.signOutAction().then(() => {
-        /*this.$router.replace({
+        this.$router.replace({
          name: "login"
-       }) */
+       }) 
       });
     },
   },

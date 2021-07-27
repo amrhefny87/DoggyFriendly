@@ -72,18 +72,7 @@
             required
           ></b-form-textarea>
         </b-form-group>
-        <b-form-group
-          id="input-group-2"
-          label="Upload image"
-          label-for="input-2"
-          class="m-2 d-flex flex-column"
-        >
-          <b-form-textarea
-            id="input-2"
-            v-model="form.image"
-            placeholder=""
-          ></b-form-textarea>
-        </b-form-group>
+        <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="">
 
         <b-button type="submit" id="buttonSubmit" class="m-2">Submit</b-button>
         <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
@@ -114,10 +103,12 @@ export default {
     this.onSubmit()
   },
   methods: {
-
+  uploadImage(event) {
+      this.form.image = event.target.files[0].name
+  },
     async onSubmit(event) {
+
       event.preventDefault();
-      console.log(this.form.image)
       await apidogs.create(this.form);
       return window.location.href =  "dogs"
     },

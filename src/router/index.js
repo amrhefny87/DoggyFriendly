@@ -16,6 +16,7 @@ import store from "../store";
 import Logged from "../views/Logged"
 import ProfileOther from "../views/ProfileOther";
 import AboutUs from "../views/AboutUs";
+import EditProfile from "../views/EditProfile";
 
 Vue.use(VueRouter);
 
@@ -65,11 +66,20 @@ const routes = [
   },
   {
 
-    path:'/profile',
+    path:'/profile/',
     name:'profile',
     component: Profile,
     
   },
+  {
+
+    path:'/editprofile/:id',
+    name:'editprofile',
+    component: EditProfile,
+    props: true,
+    
+  },
+
   {
 
     path:'/profileother',
