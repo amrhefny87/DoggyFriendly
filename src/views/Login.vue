@@ -1,110 +1,120 @@
 <template>
-<div>
-  <Header />
-  <div class="login">
-    
-    <h1 class="title">Login</h1>
+  <div>
+    <Header />
+    <div class="login">
+      <h2 class="title">Login</h2>
 
-    
-    
-    <form action class="form" @submit.prevent="submit">
-      <label class="form-label" for="#email">Email:</label>
-      <input
-        v-model="form.email"
-        class="form-input"
-        type="email"
-        id="email"
-        required
-        placeholder="Email"
-      >
-      <label class="form-label" for="#password">Password:</label>
-      <input
-        v-model="form.password"
-        class="form-input"
-        type="password"
-        id="password"
-        placeholder="Password"
-      >
-      <p v-if="error" class="error">Please, introduce you mail o password correctly</p>
-      <input class="form-submit" type="submit" value="Login">
-    </form>
-    <div class="d-flex align-items-center justify-content-center">
-    <p class="msg">¿Do you have an account?
-      <router-link to="/register">Register for free</router-link>
-    </p>
+      <form action class="form" @submit.prevent="submit">
+        <label class="form-label" for="#email">Email:</label>
+        <input
+          v-model="form.email"
+          class="form-input"
+          type="email"
+          id="email"
+          required
+          placeholder="Email"
+        />
+        <label class="form-label" for="#password">Password:</label>
+        <input
+          v-model="form.password"
+          class="form-input"
+          type="password"
+          id="password"
+          placeholder="Password"
+        />
+        <p v-if="error" class="error">
+          Please, introduce you mail o password correctly
+        </p>
+        <input class="form-submit" type="submit" value="Login" />
+        <div class="d-flex align-items-center justify-content-center">
+        <p class="msg mt-5">
+          ¿Do you have an account? <br>
+          <router-link to="/register">Register for free</router-link>
+        </p>
+      </div>
+      </form>
+      
     </div>
+    <Footer />
   </div>
-    </div>
 </template>
 
 <script>
-import { mapActions, mapGetters} from "vuex"
+import { mapActions, mapGetters } from "vuex";
 import Header from "@/components/Header.vue";
-import Logged from "./Logged"
-
+import Footer from "@/components/Footer.vue";
+import Logged from "./Logged";
 
 export default {
   name: "Login",
-  components: {Header, Logged},
+  components: { Header, Logged, Footer },
   data: () => ({
     form: {
       email: "",
       password: "",
     },
-    error: false
+    error: false,
   }),
   methods: {
     ...mapActions({
-      login: 'auth/login',
-      signOutAction: "auth/signOut"
+      login: "auth/login",
+      signOutAction: "auth/signOut",
     }),
     signOut() {
-      this.signOutAction().then(()=> {
-         /*this.$router.replace({
+      this.signOutAction().then(() => {
+        /*this.$router.replace({
          name: "login"
        }) */
-      })
+      });
     },
     submit() {
-     this.login(this.form).then(() => {
+      this.login(this.form).then(() => {
         this.$router.replace({
-         name: "Logged"
-       }) 
-     })
-    }
+          name: "Logged",
+        });
+      });
+    },
   },
   computed: {
     ...mapGetters({
       authenticated: "auth/authenticated",
-      user: "auth/user"
-    })
-  }
-}
-
+      user: "auth/user",
+    }),
+  },
+};
 </script>
 //
 <style scoped>
 .error {
-  color: red
+  color: red;
 }
 .login {
   padding: 2rem;
+
+  background-image: url("../assets/background1.png");
+  height: 100%;
 }
 .title {
   text-align: center;
+  color: black
 }
 .form {
-  margin: 3rem auto;
+  margin: 2rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 20%;
   min-width: 300px;
   max-width: 100%;
-  background: rgba(19, 35, 47, 0.9);
+  background: #e07a1b;
   border-radius: 5px;
   padding: 40px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
+}
+
+.msg {
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 .form-label {
   margin-top: 2rem;
@@ -112,8 +122,8 @@ export default {
   margin-bottom: 0.5rem;
 }
 .form-label:first-of-type {
-    margin-top: 0rem;
-  }
+  margin-top: 0rem;
+}
 .form-input {
   padding: 10px 15px;
   background: none;
@@ -122,11 +132,11 @@ export default {
   color: white;
 }
 .form-input:focus {
-    outline: 0;
-    border-color: #1ab188;
-  }
+  outline: 0;
+  border-color: #643102;
+}
 .form-submit {
-  background: #1ab188;
+  background: #a15106;
   border: none;
   color: white;
   margin-top: 3rem;
@@ -135,6 +145,6 @@ export default {
   transition: background 0.2s;
 }
 .form-submit:hover {
-    background: #0b9185;
-  }
+  background: #643102;
+}
 </style>

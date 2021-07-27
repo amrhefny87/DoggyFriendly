@@ -3,7 +3,7 @@
     <Header/>
     <div class="p-5 d-flex flex-column align-items-center">
       <h2 class="title-adtype">What type of ad do you want to create?</h2>
-      <div id="formDogContainer" class="border border-dark mt-5 shadow">
+      <div id="formDogContainer" class="  mt-5 shadow">
           <div class="d-flex flex-column justify-content-center flex-sm-row">
             <div class="p-3">
               <a href="/formdogs"><img class="icon-img" src="../assets/dogs.png"></a>
