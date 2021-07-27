@@ -123,8 +123,7 @@ export default {
   margin: auto;
 }
 
-.name {
-}
+
 
 .text {
   text-align: start;
@@ -168,8 +167,7 @@ strong {
   display: flex;
   margin-top: 20px;
 }
-.contact img {
-}
+
 
 p {
   width: 220px;
