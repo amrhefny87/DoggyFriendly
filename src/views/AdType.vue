@@ -1,5 +1,5 @@
 <template>
-  <div v-if="authenticated">
+  
     <div class="adType d-flex flex-column align-items-center">
       <Header />
       <div class="p-5 d-flex flex-column align-items-center">
@@ -23,13 +23,13 @@
       </div>
       <Footer />
     </div>
-  </div>
+  
 </template>
 <script>
 import Button from "@/components/Button.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-import { mapGetters, mapActions } from "vuex";
+
 
 export default {
   name: "AdType",
@@ -39,12 +39,7 @@ export default {
     Footer,
   },
 
-  computed: {
-    ...mapGetters({
-      authenticated: "auth/authenticated",
-      user: "auth/user",
-    }),
-  },
+  
 };
 </script>
 <style scoped>

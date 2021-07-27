@@ -34,10 +34,8 @@
           <b-nav-item to="/dogs">Dogs</b-nav-item>
           <b-nav-item to="/sitters">Sitters</b-nav-item>
           <b-nav-item to="/aboutus">About Us</b-nav-item>
-          <template v-if="authenticated"
-            >
-            <b-nav-item to="/adtype">Add New Post</b-nav-item>
-          </template>
+          <b-nav-item to="/adtype">Add New Post</b-nav-item>
+          <template v-if="authenticated" >git  </template>
           <template v-else>
             <b-nav-item to="/login">Login</b-nav-item>
             <b-nav-item to="/register">Register</b-nav-item>
