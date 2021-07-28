@@ -49,23 +49,12 @@
 </template>
 
 <script>
-import { apidogs } from "@/apis/ApiDogs";
-import { apisitters } from "@/apis/ApiSitters";
 
 export default {
   name: "NewAdd",
   props: ["result", "type"],
   mounted() {},
-  methods: {
-    async buttonDeleteDogs() {
-      await apidogs.delete(this.result.id);
-      return (window.location.href = "dogs");
-    },
-    async buttonDeleteSitters() {
-      await apisitters.delete(this.result.id);
-      return (window.location.href = "sitters");
-    },
-  },
+  
 };
 </script>
 <style scoped>
