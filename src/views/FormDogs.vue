@@ -83,7 +83,7 @@
   </div>
 </template>
 <script>
-import {ApiUploadDogImage} from '@/apis/ApiUploadDogImage'
+import { auth } from '@/apis/auth'
 import {apidogs} from '@/apis/ApiDogs'
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
@@ -112,7 +112,7 @@ export default {
   async saveImage() {
       let fd = new FormData()
       fd.append("image", this.imageArray)
-      await ApiUploadDogImage.postImage(fd).then(res => {
+      await auth.uploadImage(fd).then(res => {
           this.form.image = "http://127.0.0.1:8000/storage/" + res.data
       }).catch(err => console.log(err)) 
   },

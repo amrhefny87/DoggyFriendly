@@ -14,5 +14,8 @@ export const auth = {
   },
   logout() {
     return axios.post(ENDPOINT_PATH + "logout")
-  }
+  },
+  uploadImage(image) {
+    return axios.post(ENDPOINT_PATH + "uploadImage", image)
+  },
 };

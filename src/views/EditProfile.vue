@@ -49,27 +49,10 @@
           </b-form-group>
           <b-form-group
             id="input-group-2"
-            label="Upload image"
             label-for="input-2"
             class="m-2 d-flex flex-column"
           >
-            <b-form-textarea
-              id="input-2"
-               v-model="form.image"
-              placeholder=""
-            ></b-form-textarea>
-          </b-form-group>
-          <b-form-group
-            id="input-group-2"
-            label="Password"
-            label-for="input-2"
-            class="m-2 d-flex flex-column"
-          >
-            <b-form-textarea
-              id="input-2"
-               v-model="form.password"
-              placeholder=""
-            ></b-form-textarea>
+          <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="">
           </b-form-group>
 
           <b-button type="submit" id="buttonEdit" class="m-2"
@@ -89,6 +72,8 @@
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import { apiusers } from "@/apis/ApiUsers";
+import { auth } from '@/apis/auth'
+
 export default {
     name: "editprofile",
     
@@ -106,12 +91,23 @@ export default {
         password: this.password,
       },
       show: true,
-     
+      imageArray: null
     };
   },
   methods: {
+    uploadImage(event) {
+      this.imageArray = event.target.files[0]
+  },
+  async saveImage() {
+      let fd = new FormData()
+      fd.append("image", this.imageArray)
+      await auth.uploadImage(fd).then(res => {
+          this.form.image = "http://127.0.0.1:8000/storage/" + res.data
+      }).catch(err => console.log(err)) 
+  },
     async onSubmit(event) {
       event.preventDefault();
+      await this.saveImage()
       await apiusers.editEvent(this.id,this.form);
       return window.location.href =  "http://localhost:8080/profile"
     },
