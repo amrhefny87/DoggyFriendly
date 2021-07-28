@@ -114,7 +114,7 @@ export default {
       event.preventDefault();
       let fd = new FormData()
       fd.append("image", this.imageArray)
-      await axios.post("http://127.0.0.1:8000/api/upload", fd).then(res => {
+      await axios.post("http://127.0.0.1:8000/api/uploadDogImage", fd).then(res => {
           this.form.image = "http://127.0.0.1:8000/storage/" + res.data
       }).catch(err => console.log(err)) 
       await apidogs.create(this.form);
