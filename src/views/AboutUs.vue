@@ -1,11 +1,8 @@
 <template>
   <div>
       <Header/>
-<<<<<<< HEAD
-      <div>
-<<<<<<< HEAD
-          <h3>About Us</h3>
-=======
+
+      
       <div class="header">
           <div class="mb-3"><h3><strong>About Us</strong> </h3></div>
           <div><h5>Welcome to DoggyF, the App for doggy-lovers.
@@ -18,7 +15,6 @@ Would you like to help create an altruistic community of doggy-lovers?<br><br>
 In order to participate in the DoggyF community, the first thing you must do is register as a user.<br>
 From there, you can edit post ads according to the Dogs or Sitters category and contact other users.<br>
 If not, you can only consult the published announcements.</p></div>
->>>>>>> feature/janna
           
 =======
           <h3>About us</h3>
@@ -183,7 +179,7 @@ name: 'aboutus',
 }
 </script>
 
-<style>
+<style scoped>
 *{
     margin: 0;
     padding: 0;
