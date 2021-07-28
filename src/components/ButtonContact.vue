@@ -4,7 +4,7 @@
       name: 'profile-other',
      
     }"
-    class="moreInfo btn text-black m-3 "
+    class="btn text-white m-2 rounded-top rounded-bottom"
     id="buttonContact"
     >Contact</router-link
   >

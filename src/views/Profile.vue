@@ -10,6 +10,9 @@
         >
           Log Out
         </button>
+
+        <ButtonMyPostsDogs />
+        <ButtonMyPostsSitters />
       </div>
     </template>
     <h2 class="text-center text-dark font-weight-bold">My profile</h2>
@@ -62,6 +65,8 @@
 import Header from "../components/Header";
 import Footer from "@/components/Footer.vue";
 import { mapGetters, mapActions } from "vuex";
+import ButtonMyPostsDogs from "../components/ButtonMyPostsDogs";
+import ButtonMyPostsSitters from "../components/ButtonMyPostsSitters";
 export default {
   props: [
    ""
@@ -70,6 +75,10 @@ export default {
   components: {
     Header,
     Footer,
+
+    ButtonMyPostsDogs,
+
+    ButtonMyPostsSitters,
   },
   methods: {
     ...mapActions({
@@ -196,4 +205,11 @@ background: #a15106;
   
 }
  
+
+#buttonMyPost {
+  background: #5c636a;
+}
+#buttonMyPost:hover {
+  background: #a15106;
+}
 </style>
