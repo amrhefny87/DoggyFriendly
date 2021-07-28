@@ -40,54 +40,6 @@
               >More Info</router-link
             >
             </div>
-            <div v-if="type === 'Dogs'">
-            <router-link
-             :to="{
-                name: 'EditAdDogs',
-                params: {
-                  id: result.id,
-                  title: result.title,
-                  description: result.description,
-                  comments: result.comments,
-                  image: result.image,
-                  date: result.date,
-                  name: result.name,
-                },
-              }"
-              class="moreInfo btn text-black m-3 "
-              id="buttonMore"
-              >Edit</router-link
-            >
-            </div>
-            <div v-if="type === 'Sitters'">
-            <router-link
-             :to="{
-                name: 'EditAdSitters',
-                params: {
-                  id: result.id,
-                  title: result.title,
-                  description: result.description,
-                  comments: result.comments,
-                  image: result.image,
-                  date: result.date,
-                  name: result.name,
-                },
-              }"
-              class="moreInfo btn text-black m-3 "
-              id="buttonMore"
-              >Edit</router-link
-            >
-            </div>
-            <div v-if="type === 'Dogs'">
-            <b-button @click="buttonDeleteDogs" id="deletemyEvent" class="m-2"
-              >Delete</b-button
-            >
-            </div>
-             <div v-if="type === 'Sitters'">
-            <b-button @click="buttonDeleteSitters" id="deletemyEvent" class="m-2"
-              >Delete</b-button
-            >
-            </div>
             </div>
           </b-card-body>
         </b-col>
