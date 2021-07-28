@@ -32,7 +32,7 @@
         </b-container>
       </section>
       <section class="contact d-flex justify-content-center">
-        <img class="img_contact" src="../assets/whatsapp 1.png" alt="fffff" />
+        <img class="img_contact" src="../assets/whatsapp 1.png" @click="apiwhatsapp()" alt="fffff" />
         <img class="img_contact2" src="../assets/email 1.png" alt="fffff" />
       </section>
     </div>
@@ -63,6 +63,9 @@ export default {
   },
 
   methods: {
+    apiwhatsapp() {
+      window.location.href = `https://api.whatsapp.com/send?phone=${this.form.number}&text=hola ${this.form.name},%20qué%20tal?`;
+    },
     async profile() {
       const res = await auth.otherUser(this.$route.query.user_id)
       this.form = res.data
