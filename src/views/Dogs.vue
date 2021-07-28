@@ -13,6 +13,10 @@
       <ring-loader :loading="isLoading" :color="'#e07f24'" :size="200"></ring-loader>
       
     </div>
+    <div class="d-flex justify-content-center align-content-center">
+      <ring-loader :loading="isLoading" :color="'#e07f24'" :size="200"></ring-loader>
+      
+    </div>
     <Footer />
   </div>
 </template>
