@@ -6,7 +6,7 @@ export const apilikesdogs = {
   getAll() {
     return axios.get(url);
   },
-  like() {
+  like(id) {
     return axios.post(url).then(res => {
       console.log(res)
     });

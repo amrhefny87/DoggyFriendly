@@ -123,7 +123,7 @@ export default {
       return (window.location.href = "sitters");
     },
     async likePostDog(){
-      await apilikesdogs.like();
+      await apilikesdogs.like(this.result.id);
       return (window.location.href = "dogs");
     }
   },
