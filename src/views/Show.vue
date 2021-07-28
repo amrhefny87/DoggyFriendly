@@ -19,10 +19,19 @@
         <h2 class="pt-2">{{ this.$route.query.title }}</h2>
         </div>
         <div>
-          
-          <ButtonContact />
+          <router-link
+          :to="{
+            name: 'profile-other',
+          query: {
+            user_id: this.$route.query.user_id 
+            },
+            }"
+            class="btn text-white m-2 rounded-top rounded-bottom"
+            id="buttonContact"
+            >Contact</router-link>
            <ButtonGoBack />
            <b-card-text>
+
           <span style=" font-weight: 800">Date:</span> <br />
           {{ this.$route.query.date }}
         </b-card-text>
@@ -50,23 +59,27 @@
 import Header from "../components/Header";
 import NewAd from "../components/NewAd";
 import ButtonGoBack from "../components/ButtonGoBack";
-import ButtonContact from "../components/ButtonContact";
 import Footer from "@/components/Footer.vue";
 
 export default {
-  props: ["id", "title", "description", "comments", "image", "date"],
+  props: ["id", "title", "description", "comments", "image", "date", "name", "user_id"],
   name: "Show",
   components: {
     Header,
     NewAd,
     ButtonGoBack,
-    ButtonContact,
     Footer,
   },
 };
 </script>
 
 <style >
+#buttonContact {
+  background: #5c636a;
+}
+#buttonContact:hover {
+  background: #a15106;
+}
 #img {
   width: 100px;
 }

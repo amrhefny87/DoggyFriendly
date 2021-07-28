@@ -5,27 +5,26 @@
       
     </template>
     <div class="all_info">
-         <h2 class="text-center m">Your profile</h2> 
+         <h2 class="text-center m">Other profile</h2> 
       <section class="profil">
          
-        <img class="img" src="../assets/profil.png" alt="Foto" />
+        <img class="img" :src="this.form.image" alt="Foto" />
 
         <b-container class="info-grid">
           <b-row class="mt-3" align-v="start">
             <b-col cols="5" class="title">Name</b-col>
-            <b-col cols="3" class="text"></b-col>
+            <b-col cols="3" class="text">{{this.form.name}}</b-col>
             <b-col><img class="stars" src="../assets/stars.png" alt=""/></b-col>
           </b-row>
 
           <b-row class="mt-3">
             <b-col sm="5" class="title">Direction</b-col>
-            <b-col sm="7" class="text"></b-col>
+            <b-col sm="7" class="text">{{this.form.direction}}</b-col>
           </b-row>
 
           <b-row class="mt-3">
             <b-col cols="5" class="title">About Us</b-col>
-            <b-col cols="7" class="text"
-              ><p>
+            <b-col cols="7" class="text">{{this.form.about_us}}<p>
                
               </p></b-col
             >
@@ -46,15 +45,28 @@
 import Header from "../components/Header";
 import Footer from "@/components/Footer.vue";
 import { mapGetters, mapActions } from "vuex";
+import { auth } from "@/apis/auth";
 export default {
-  props: ["id", "title", "description", "direction", "comments", "image", "date"],
+  props: ["user_id"],
   name: "profile-other",
   components: {
     Header,
-
     Footer,
   },
+  data(){
+    return{
+      form:{},      
+    }
+  },
+  mounted(){
+    this.profile()
+  },
+
   methods: {
+    async profile() {
+      const res = await auth.otherUser(this.$route.query.user_id)
+      this.form = res.data
+    },
     ...mapActions({
       login: "auth/login",
       signOutAction: "auth/signOut",

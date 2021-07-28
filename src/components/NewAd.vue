@@ -32,7 +32,7 @@
                   image: result.image,
                   date: result.date,
                   name: result.name,
-
+                  user_id: result.user_id
                 },
               }"
               class="moreInfo btn text-black m-3 "
