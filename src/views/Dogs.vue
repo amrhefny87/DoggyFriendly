@@ -1,7 +1,7 @@
 <template>
   <div class="dogs">
     <Header />
-    <h1 class="mt-3">{{type}}</h1>
+    <h2 class="mt-3 text-dark">{{type}}</h2>
     <Button  root="/adtype" name="Add and Ad" />
     <div
      v-if="!isLoading" 

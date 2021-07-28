@@ -5,7 +5,7 @@
       The App for Dog-friendly people <br> The couchsurfing for dogs!
     </h6>
     <h6 class="text-intro2">
-      A dog is the only thing on earth that loves you more than he loves himself
+      "A dog is the only thing on earth that loves you more than he loves himself"
     </h6>
      
     
@@ -40,19 +40,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
-  font-weight: bold;
-  margin-top: 30px;
-  color: black;
+  font-weight: 900;
+  margin-top: 20px;
+  color: #FFF;
+  text-align: center;
+  font-weight: 700;
+  font: italic bold 50px Georgia, Serif;
+  text-shadow: -4px 3px 0 #ee8b16, -6px 5px 0 #0a0e27;
 }
 
-h6 {
-  margin-top: 15px;
-  color: black;
-  font-weight: bold;
-  padding: 10px;
-
-  line-height: 30px;
-}
 ul {
   list-style-type: none;
   padding: 0;
@@ -95,17 +91,21 @@ a {
 
 .text-intro {
   margin: auto;
-  padding: 20;
+  padding: 20px;
+  margin-top: 20px;
   font-size: 18px;
   filter: drop-shadow(5px 5px 4px rgba(102, 54, 27, 0.5));
+  color: white;
 }
 
 .text-intro2 {
   margin: auto;
-  padding: 20;
-  font-size: 14px;
+  padding: 20px;
+  font-size: 20px;
   font-style: italic;
-  background: rgba(194, 93, 35, 0.5);
-  width: 60%;
+  width: 80%;
+  color: black;
+  text-shadow: -2px 1px 0 #ee8b16, -1px 1px 1px ;
+  letter-spacing: 2px;
 }
 </style>

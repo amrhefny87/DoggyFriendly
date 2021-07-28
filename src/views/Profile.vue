@@ -12,31 +12,26 @@
         </button>
       </div>
     </template>
+    <h2 class="text-center text-dark font-weight-bold">My profile</h2>
     <div class="all_info">
-      <h2 class="text-center m">Your profile</h2>
-      <section class="profil">
-        <img class="img" src="../assets/profil.png" alt="Foto" />
-
-        <b-container class="info-grid">
-          <b-row class="mt-3" align-v="start">
-            <b-col cols="5" class="title">Name</b-col>
-            <b-col cols="3" class="text">{{ user.name }}</b-col>
-            <b-col><img class="stars" src="../assets/stars.png" alt=""/></b-col>
-          </b-row>
-
-          <b-row class="mt-3">
-            <b-col sm="5" class="title">Direction</b-col>
-            <b-col sm="7" class="text">{{ user.direction }}</b-col>
-          </b-row>
-
-          <b-row class="mt-3">
-            <b-col cols="5" class="title">About Us</b-col>
-            <b-col cols="7" class="text"
-              ><p>
-                {{ user.pet_name }}
-              </p></b-col
-            >
-          </b-row>
+      
+      
+      <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center align-items-lg-start text-dark">
+        <img class="img mb-3" src="../assets/profil.png" alt="Foto" />
+        <div>
+          <p class="infoProfile">Name:  </p>
+          <p>{{ user.name }}</p>
+        </div>
+        <div>
+          <p class="infoProfile">Direction: </p>
+          <p>{{ user.direction }}</p>
+        </div>
+        <div>
+          <p class="infoProfile">About us:  </p>
+          <p>{{ user.pet_name }}</p>
+        </div>
+      </div>
+      
           <router-link
              :to="{
                 name: 'editprofile',
@@ -56,8 +51,7 @@
               >Edit</router-link
             >
            
-        </b-container>
-      </section>
+       
     </div>
 
     <Footer />
@@ -107,23 +101,29 @@ export default {
 }
 .all_info {
   align-items: center;
-  border: 1px solid rgb(17, 17, 17);
-  border-radius: 25px 25px 25px 0px;
+    border-radius: 25px 25px 25px 0px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 30px;
-  width: 80%;
+  width: 90%;
   background-color: #e9a14c;
   box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.25);
 }
 .img {
-  max-width: 80%;
+  max-width: 60%;
+  width: 20%;
   margin: auto;
 }
 
-
+@media (max-width: 600px) {
+ .img {
+  max-width: 60%;
+  width: 50%;
+  margin: auto;
+}
+}
 
 .text {
   text-align: start;
@@ -137,6 +137,14 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+@media (max-width: 500px) {
+ .profil {
+  display: flex;
+  flex-direction: row;
+  
+}
 }
 
 .info-grid {
@@ -181,6 +189,11 @@ p {
 }
 #buttonMore {
 background: #a15106;
+}
+
+.infoProfile {
+  font-weight: 900;
+  
 }
  
 </style>

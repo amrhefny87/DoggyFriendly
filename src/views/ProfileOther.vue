@@ -77,7 +77,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .all {
   flex-direction: column;
   overflow: visible;
@@ -92,17 +92,12 @@ export default {
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 30px;
-  width: 80%;
+  width: 90%;
   background-color: #e9a14c;
   box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.25);
 }
-.img {
-  max-width: 80%;
-  margin: auto;
-}
 
-.name {
-}
+
 
 .text {
   text-align: start;
@@ -145,8 +140,6 @@ strong {
 .contact {
   display: flex;
   margin-top: 20px;
-}
-.contact img {
 }
 
 .img_contact {
