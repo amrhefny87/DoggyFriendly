@@ -1,4 +1,4 @@
-import {auth} from '@/logic/auth'
+import {auth} from '@/apis/auth'
 
 export default ({
     namespaced: true,
