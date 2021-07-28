@@ -88,7 +88,15 @@ const routes = [
     path:'/profileother',
     name:'profile-other',
     component: ProfileOther,
-    
+    beforeEnter: (to, from, next) => {
+      if (store.getters["auth/authenticated"]) {}
+      else {
+        next({
+          name: "Login",
+        });
+      }
+      next();
+    },
   },
   {
 

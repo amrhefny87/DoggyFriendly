@@ -42,8 +42,8 @@
           >
             <b-form-textarea
               id="input-2"
-              v-model="form.pet_name"
-              placeholder="Pet name"
+              v-model="form.about_us"
+              placeholder="about_us"
               required
             ></b-form-textarea>
           </b-form-group>
@@ -52,7 +52,7 @@
             label-for="input-2"
             class="m-2 d-flex flex-column"
           >
-          <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="">
+          <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="" required>
           </b-form-group>
 
           <b-button type="submit" id="buttonEdit" class="m-2"
@@ -78,14 +78,14 @@ export default {
     name: "editprofile",
     
     components: { Header, Footer},
-     props: ["id", "name", "direction", "image", "pet_name", "password"],
+     props: ["id", "name", "direction", "image", "about_us", "password"],
 
   data() {
     return {
       form: {
         name: this.name,
         direction: this.direction,
-        pet_name: this.pet_name,
+        about_us: this.about_us,
         image: this.image,
         date: this.date,
         password: this.password,

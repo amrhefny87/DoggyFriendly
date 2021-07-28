@@ -18,4 +18,7 @@ export const auth = {
   uploadImage(image) {
     return axios.post(ENDPOINT_PATH + "uploadImage", image)
   },
+  otherUser(id) {
+    return axios.get(ENDPOINT_PATH + "user/" + id)
+  }
 };

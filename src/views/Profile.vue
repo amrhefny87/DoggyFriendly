@@ -31,7 +31,7 @@
         </div>
         <div>
           <p class="infoProfile">About us:  </p>
-          <p>{{ user.pet_name }}</p>
+          <p>{{ user.about_us }}</p>
         </div>
       </div>
       
@@ -42,9 +42,9 @@
                   id: user.id,
                   name: user.name,
                   direction: user.direction,
-                   password: user.password,
+                  password: user.password,
                   image: user.image,
-                  pet_name: user.pet_name,
+                  about_us: user.about_us,
                 
                   
                 },
