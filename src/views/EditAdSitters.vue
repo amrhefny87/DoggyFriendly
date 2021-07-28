@@ -137,7 +137,8 @@ export default {
     async onSubmit(event) {
       event.preventDefault();
       await apisitters.editEvent(this.id,this.form);
-      return window.location.href =  "http://localhost:8080/sitters"
+      return this.$router.push("/mypostssitters")
+
     },
     onReset(event) {
       event.preventDefault();

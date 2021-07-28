@@ -141,7 +141,7 @@ export default {
     async onSubmit(event) {
       event.preventDefault();
       await apidogs.editEvent(this.id,this.form);
-      return window.location.href =  "http://localhost:8080/dogs"
+      return this.$router.push("/mypostsdogs")
     },
     onReset(event) {
       event.preventDefault();
