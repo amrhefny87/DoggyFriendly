@@ -94,6 +94,12 @@
             <b-button @click="likePostDog" id="likeAPost" class="m-2"
               >Woof</b-button
             >
+            
+            </div>
+            <div v-if="type === 'Dogs'">
+              <b-button @click="dislikePostDog" id="dislikeAPost" class="m-2"
+              >DisWoof</b-button
+            >
             </div>
             </div>
           </b-card-body>
@@ -109,6 +115,8 @@ import {apilikesdogs} from '@/apis/ApiLikesDogs'
 import { apisitters } from "@/apis/ApiSitters";
 import axios from "axios";
 
+
+
 export default {
   name: "NewAdd",
   props: ["result", "type"],
@@ -116,15 +124,22 @@ export default {
   methods: {
     async buttonDeleteDogs() {
       await apidogs.delete(this.result.id);
-      return (window.location.href = "dogs");
+      //return (window.location.href = "dogs");
+      return this.$router.push("Dogs");
     },
     async buttonDeleteSitters() {
       await apisitters.delete(this.result.id);
       return (window.location.href = "sitters");
     },
     async likePostDog(){
-      await apilikesdogs.like(this.result.id);
+      await apilikesdogs.like(this.result);
       return (window.location.href = "dogs");
+    },
+    async dislikePostDog(){
+      await apilikesdogs.dislike(this.result.id);
+      
+      return (window.location.href = "dogs");
+      
     }
   },
 };

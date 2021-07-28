@@ -6,14 +6,14 @@ export const apilikesdogs = {
   getAll() {
     return axios.get(url);
   },
-  like(id) {
-    return axios.post(url).then(res => {
+  like(request) {
+    return axios.post(url, request).then(res => {
       console.log(res)
     });
   },
   
   
-  delete(id) {
+  dislike(id) {
     return axios.delete(url + "/" + id);
-  },
-};
+}
+}

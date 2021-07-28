@@ -17,6 +17,7 @@ import Logged from "../views/Logged"
 import ProfileOther from "../views/ProfileOther";
 import AboutUs from "../views/AboutUs";
 import EditProfile from "../views/EditProfile";
+import ProfileMenu from "../components/ProfileMenu"
 
 Vue.use(VueRouter);
 
@@ -129,6 +130,11 @@ const routes = [
     path: "/aboutus",
     name: "aboutus",
     component: AboutUs,
+  },
+  {
+    path: "/profilemenu",
+    name: "ProfileMenu",
+    component: ProfileMenu,
   },
 ];
 

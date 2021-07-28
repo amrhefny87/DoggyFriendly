@@ -2,7 +2,7 @@
 <div class="form-sitter">
   <Header />
   <div class="p-5 d-flex flex-column align-items-center ">
-    <h2>Create your Sitter Add</h2>
+    <h2 class="font-weight-bold text-dark">Create your Sitter Add</h2>
     <div id="formDogContainer" class="shadow">
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group

@@ -2,9 +2,9 @@
   <div class="form-dogs">
     <Header />
     <div class="p-5 d-flex flex-column align-items-center">
-    <h2>Create Add for your Dog</h2>
+    <h2 class="font-weight-bold text-dark">Create Add for your Dog</h2>
     <div id="formDogContainer" class="shadow">
-      <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+      <b-form @submit.prevent="onSubmit" @reset="onReset" v-if="show">
         <b-form-group
           class="m-2"
           id="input-group-2"
@@ -86,17 +86,21 @@
 
 import {apidogs} from '@/apis/ApiDogs'
 import Header from "@/components/Header.vue";
+import axios from "axios";
+import Footer from "@/components/Footer.vue";
 export default {
   name: "FormDogs",
   components: {
     
-    Header
+    Header,
+    Footer,
   },
 
   data() {
     return {
       form: {},
       show: true,
+      imageArray: null
     };
   },
   mounted(){
@@ -104,11 +108,15 @@ export default {
   },
   methods: {
   uploadImage(event) {
-      this.form.image = event.target.files[0].name
+      this.imageArray = event.target.files[0]
   },
     async onSubmit(event) {
-
       event.preventDefault();
+      let fd = new FormData()
+      fd.append("image", this.imageArray)
+      await axios.post("http://127.0.0.1:8000/api/uploadDogImage", fd).then(res => {
+          this.form.image = "http://127.0.0.1:8000/storage/" + res.data
+      }).catch(err => console.log(err)) 
       await apidogs.create(this.form);
       return window.location.href =  "dogs"
     },
