@@ -83,10 +83,9 @@
   </div>
 </template>
 <script>
-
+import {ApiUploadDogImage} from '@/apis/ApiUploadDogImage'
 import {apidogs} from '@/apis/ApiDogs'
 import Header from "@/components/Header.vue";
-import axios from "axios";
 import Footer from "@/components/Footer.vue";
 export default {
   name: "FormDogs",
@@ -110,13 +109,16 @@ export default {
   uploadImage(event) {
       this.imageArray = event.target.files[0]
   },
-    async onSubmit(event) {
-      event.preventDefault();
+  async saveImage() {
       let fd = new FormData()
       fd.append("image", this.imageArray)
-      await axios.post("http://127.0.0.1:8000/api/uploadDogImage", fd).then(res => {
+      await ApiUploadDogImage.postImage(fd).then(res => {
           this.form.image = "http://127.0.0.1:8000/storage/" + res.data
       }).catch(err => console.log(err)) 
+  },
+    async onSubmit(event) {
+      event.preventDefault();
+      await this.saveImage()
       await apidogs.create(this.form);
       return window.location.href =  "dogs"
     },
