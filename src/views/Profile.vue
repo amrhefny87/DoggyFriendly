@@ -75,7 +75,6 @@ export default {
   name: "Profile",
   components: {
     Header,
-
     Footer,
   },
   methods: {
