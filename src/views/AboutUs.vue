@@ -45,6 +45,8 @@ import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import Niki from "@/assets/DogMartin.png";
 import Martin from "@/assets/martin.jpg";
+import Pingo from "@/assets/DogCris.jpg";
+import Cris from "@/assets/cris.jpg";
 export default {
   name: "aboutus",
   components: {
@@ -52,6 +54,8 @@ export default {
     Footer,
     Niki,
     Martin,
+    Pingo,
+    Cris,
   },
   data() {
     return {
@@ -79,9 +83,11 @@ export default {
           imageMe: Martin,
         },
         {
-          namePerson: "Otro",
-          profession: "Graphic designer",
-          description: "XXXXXXXXXX",
+          namePerson: "Cris Mouta",
+          profession: "Doggy-lover and programmer",
+          description: "To err is human — to forgive, canine.",
+          imageDog: Pingo,
+          imageMe: Cris,
         },
         {
           namePerson: "Otro",
