@@ -76,8 +76,13 @@
               required
             ></b-form-textarea>
           </b-form-group>
+          <b-form-group
+            id="input-group-2"
+            label-for="input-2"
+            class="m-2 d-flex flex-column"
+          >
           <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="">
-
+          </b-form-group>
           <b-button type="submit" id="buttonEdit" class="m-2"
             >Update</b-button
           >
