@@ -1,12 +1,12 @@
 <template>
   <div class="footercontainer ">
     <div class="d-flex flex-row p-2">
-      <b-icon icon="instagram" class="p-4" aria-hidden="true" style="cursor: pointer;"></b-icon>
-      <b-icon icon="facebook" class="p-4" aria-hidden="true"  style="cursor: pointer;"></b-icon>
-      <b-icon icon="linkedin" class="p-4" aria-hidden="true"  style="cursor: pointer;"></b-icon>
+      <b-icon icon="instagram" class="p-4" aria-hidden="true" variant="dark" style="cursor: pointer;"></b-icon>
+      <b-icon icon="facebook" class="p-4" aria-hidden="true"  variant="dark" style="cursor: pointer;"></b-icon>
+      <b-icon icon="linkedin" class="p-4" aria-hidden="true"  variant="dark" style="cursor: pointer;"></b-icon>
     </div>
     <div >
-      <p class="pb-2">Developed by muyDiversos</p>
+      <p class="pb-2" style="color: black">Developed by muyDiversos</p>
     </div>
   </div>
 </template>
@@ -29,6 +29,8 @@ name: "Footer",
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  bottom:0;
+  
   
 }
 </style>

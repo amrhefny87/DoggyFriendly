@@ -16,6 +16,10 @@ import store from "../store";
 import Logged from "../views/Logged"
 import ProfileOther from "../views/ProfileOther";
 import AboutUs from "../views/AboutUs";
+import EditProfile from "../views/EditProfile";
+import ProfileMenu from "../components/ProfileMenu"
+import MyPostsDogs from "../views/MyPostsDogs.vue";
+import MyPostsSitters from "../views/MyPostsSitters.vue";
 
 Vue.use(VueRouter);
 
@@ -65,11 +69,20 @@ const routes = [
   },
   {
 
-    path:'/profile',
+    path:'/profile/',
     name:'profile',
     component: Profile,
     
   },
+  {
+
+    path:'/editprofile/:id',
+    name:'editprofile',
+    component: EditProfile,
+    props: true,
+    
+  },
+
   {
 
     path:'/profileother',
@@ -77,6 +90,20 @@ const routes = [
     component: ProfileOther,
     
   },
+  {
+
+    path:'/mypostsdogs',
+    name:'MyPostsDogs',
+    component: MyPostsDogs,
+    
+  }, 
+  {
+
+    path:'/mypostssitters',
+    name:'MyPostsSitters',
+    component: MyPostsSitters,
+    
+  }, 
   {
     path: "/adtype",
     name: "adtype",
@@ -119,6 +146,11 @@ const routes = [
     path: "/aboutus",
     name: "aboutus",
     component: AboutUs,
+  },
+  {
+    path: "/profilemenu",
+    name: "ProfileMenu",
+    component: ProfileMenu,
   },
 ];
 

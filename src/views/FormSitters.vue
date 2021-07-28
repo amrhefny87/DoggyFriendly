@@ -2,7 +2,7 @@
 <div class="form-sitter">
   <Header />
   <div class="p-5 d-flex flex-column align-items-center ">
-    <h2>Create your Sitter Add</h2>
+    <h2 class="font-weight-bold text-dark">Create your Sitter Add</h2>
     <div id="formDogContainer" class="shadow">
       <b-form @submit="onSubmit" @reset="onReset" v-if="show">
         <b-form-group
@@ -72,18 +72,8 @@
             required
           ></b-form-textarea>
         </b-form-group>
-        <b-form-group
-          id="input-group-2"
-          label="Upload image"
-          label-for="input-2"
-          class="m-2 d-flex flex-column"
-        >
-          <b-form-textarea
-            id="input-2"
-            v-model="form.image"
-            placeholder=""
-          ></b-form-textarea>
-        </b-form-group>
+
+        <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="">
 
         <b-button type="submit" id="buttonSubmit" class="m-2">Submit</b-button>
         <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
@@ -94,7 +84,7 @@
   </div>
 </template>
 <script>
-
+import {ApiUploadSittersImage} from '@/apis/ApiUploadSittersImage'
 import {apisitters} from '@/apis/ApiSitters'
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue"
@@ -109,15 +99,26 @@ export default {
     return {
       form: {},
       show: true,
+      imageArray: null
     };
   },
   mounted(){
     this.onSubmit()
   },
   methods: {
-
+uploadImage(event) {
+      this.imageArray = event.target.files[0]
+  },
+  async saveImage() {
+      let fd = new FormData()
+      fd.append("image", this.imageArray)
+      await ApiUploadSittersImage.postImage(fd).then(res => {
+          this.form.image = "http://127.0.0.1:8000/storage/" + res.data
+      }).catch(err => console.log(err)) 
+  },
     async onSubmit(event) {
       event.preventDefault();
+      await this.saveImage()
       await apisitters.create(this.form);
       return window.location.href =  "sitters"
     },
