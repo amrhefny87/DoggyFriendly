@@ -21,7 +21,7 @@
     </div>
     </div>
     <h4 class="mt-4" id="textitle"><strong>Meet our team</strong></h4>
-    <div class="body d-flex flex-lg-row">
+    <div class="body d-flex flex-lg-row align-items-center justify-content-center">
       <div class="card " v-for="item in items" :key="item.message">
         <div class="imgBox">
           <img :src="item.imageDog" />
@@ -87,7 +87,7 @@ export default {
       },
       items: [
         {
-          namePerson: "Martín Madridejos",
+          namePerson: "Martín",
           profession: "Doggy-lover and programmer",
           description: "I love bothering dogs",
           imageDog: Niki,
@@ -96,12 +96,12 @@ export default {
         {
           namePerson: "Thierno",
           profession: "Graphic designer and Doggy-lover",
-          description: "My rabbit is my live",
+          description: "My rabbit is my life",
           imageDog: conejo,
           imageMe: thierno,
         },
         {
-          namePerson: "Cris Mouta",
+          namePerson: "Cris",
           profession: "Doggy-lover and programmer",
           description: "To err is human — to forgive, canine.",
           imageDog: Pingo,
@@ -152,7 +152,6 @@ export default {
 .body {
   margin: 20px;
   min-height: 100vh;
-  background: #E9A14C;
   flex-wrap: wrap;
 }
 p {
@@ -180,7 +179,7 @@ p {
   box-shadow: 10px 20px 40pc rgba(0, 0, 0, 0.25);
   transition: 1s;
  margin: 100px;
-  padding: 5px;
+  
 }
 .card:hover {
   transform: translateX(50%);
@@ -249,7 +248,7 @@ margin: 0;
     box-shadow: 10px 20px 40pc rgba(0, 0, 0, 0.25);
     transition: 1s;
     margin: 20px;
-    margin-left: 130px;
+    
   }
 .infoCard {
   width: 100px;
