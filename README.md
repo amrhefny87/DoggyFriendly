@@ -37,8 +37,8 @@ La aplicación tiene características de Red Social y de Gestión de contenidos.
 - npm install
 - npm install axios
 - npm install cli-spinners
-- NPM ROUTER?
-- NPM VUEX?
+- vue add router
+- vue add vuex
 
 ## Instala laravel ⚡⚡⚡
 - composer require laravel/sanctum
@@ -62,9 +62,6 @@ El usuario tiene además la opción de visualizar, editar y borrar sus anuncios 
 - Martín Madridejos
 - Snezhanna Stefanova
 - Thierno Diallo
-
-## Servidor en producción
-- MECCCCCCC
 
 ## Herramientas y tecnologías utilizadas :airplane: :rocket:
 - HTML5

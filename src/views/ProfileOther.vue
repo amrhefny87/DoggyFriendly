@@ -122,12 +122,9 @@ export default {
 .img_contact {
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 
-.img_contact2 {
-  width: 50px;
-  height: 50px;
-  margin-left: 30px;
-}
+
 
 </style>
