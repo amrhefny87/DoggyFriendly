@@ -1,8 +1,8 @@
 <template>
-  <div class="form-dogs">
-    <Header />
+  <div class="form-dogs" style="height:100vh">
+    <Header  class="fixed-top" />
     <div class="p-5 d-flex flex-column align-items-center">
-    <h2 class="font-weight-bold text-dark">Create Add for your Dog</h2>
+    <h2 class="font-weight-bold text-dark m-4">Create Add for your Dog</h2>
     <div id="formDogContainer" class="shadow">
       <b-form @submit.prevent="onSubmit" @reset="onReset" v-if="show">
         <b-form-group
@@ -85,7 +85,7 @@
       </b-form>
     </div>
     </div>
-    <Footer />
+    <Footer  class="fixed-bottom" />
   </div>
 </template>
 <script>
