@@ -207,7 +207,7 @@ p {
     transform: perspective(1000px);
     box-shadow: 10px 20px 40pc rgba(0, 0, 0, 0.25);
     transition: 1s;
-    margin: 30px;
+    margin: 31px;
   }
 
 .infoCard {
