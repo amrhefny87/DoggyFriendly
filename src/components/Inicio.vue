@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello container">
     <h1>DoggyF</h1>
     <h6 class="text-intro">
       The App for Dog-friendly people <br> The couchsurfing for dogs!
@@ -11,7 +11,7 @@
     
     <div
       class="d-flex justify-content-around align-items-center "
-      style="margin-top:3vh; margin-bottom:20vh; ;"
+      
     >
       <div class="d-flex flex-column justify-content-center align-items-center">
         <a href="/dogs"><img class="icon-img" src="../assets/dogs.png"/></a>
@@ -41,7 +41,6 @@ export default {
 <style scoped>
 h1 {
   font-weight: 900;
-  margin-top: 20px;
   color: #FFF;
   text-align: center;
   font-weight: 700;
@@ -73,7 +72,7 @@ a {
 }
 
 .spacio {
-  height: 4vh;
+  height: 2vh;
 }
 
 .link {
@@ -91,7 +90,7 @@ a {
 
 .text-intro {
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   margin-top: 20px;
   font-size: 18px;
   filter: drop-shadow(5px 5px 4px rgba(102, 54, 27, 0.5));
