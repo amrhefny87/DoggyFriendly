@@ -104,7 +104,7 @@ export default {
 }
 
 #navbar {
-  background: #e07a1b;
+  background: #e07a1b59;
 }
 
 #border {
