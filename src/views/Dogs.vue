@@ -9,10 +9,7 @@
           <NewAd :key="event.id"  :result="event" :type="type" />
           
     </div>
-    <div class="d-flex justify-content-center align-content-center">
-      <ring-loader :loading="isLoading" :color="'#e07f24'" :size="200"></ring-loader>
-      
-    </div>
+    
     <div class="d-flex justify-content-center align-content-center">
       <ring-loader :loading="isLoading" :color="'#e07f24'" :size="200"></ring-loader>
       
