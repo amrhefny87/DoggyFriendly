@@ -9,11 +9,11 @@
         <h5 class="mt-3">
           {{ info.title }}
         </h5>
-        <p class="info">
+        <h6 class="h6 mt-3">
           {{ info.description }}
-        </p>
-        <h5>{{ info.title2 }}</h5>
-        <p>{{ info.description2 }}</p>
+        </h6>
+        <h5 class="mt-3">{{ info.title2 }}</h5>
+        <h6 class="h6 mt-3">{{ info.description2 }}</h6>
       </div>
     </div>
     <h4 class="mt-4"><strong>Meet our team</strong></h4>
@@ -124,9 +124,7 @@ export default {
   padding: 20px;
 }
 
-.info {
-  width: 100vw;
-}
+
 
 .body {
   display: flex;
@@ -216,15 +214,6 @@ p {
     box-shadow: 10px 20px 40pc rgba(0, 0, 0, 0.25);
     transition: 1s;
     margin: 30px;
-  }
-
-  p {
-    width: 100%;
-    font-size: 10px;
-    margin-top: 30px;
-  }
-  .info {
-    max-width: 80vw;
   }
 
   
