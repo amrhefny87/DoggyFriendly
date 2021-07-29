@@ -1,7 +1,9 @@
-# <img src="src\assets\doggyLogo.png" alt="drawing" style="width:150px;"/>
+# <img src="src\assets\doggyLogo.png" alt="drawing" style="width:50px;"/>
 
 ### *DoggyF, el couchsurfing para perros* 
 <br>
+
+## FALTAN FOTOS!!!!!!!!!!!!!!
 
 ## Contexto del proyecto 🌱
 Desarrollar una startup tecnológica y su aplicación Web MVP.
