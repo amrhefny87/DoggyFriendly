@@ -30,7 +30,7 @@
             id="buttonContact"
             >Contact</router-link>
            <ButtonGoBack />
-           <b-card-text>
+           <b-card-text id="text">
 
           <span style=" font-weight: 800">Date:</span> <br />
           {{ this.$route.query.date }}
