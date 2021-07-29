@@ -16,7 +16,7 @@
             id="img"
           ></b-card-img
         ></a>
-        <h2 class="pt-2">{{ this.$route.query.title }}</h2>
+        <h2 id="text" class="pt-2">{{ this.$route.query.title }}</h2>
         </div>
         <div>
           <router-link
@@ -32,7 +32,7 @@
            <ButtonGoBack />
            <b-card-text>
 
-          <span id="text" style=" font-weight: 800">Date:</span> <br />
+          <span style=" font-weight: 800">Date:</span> <br />
           {{ this.$route.query.date }}
         </b-card-text>
         </div>
