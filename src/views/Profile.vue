@@ -22,7 +22,7 @@
       <div class="d-flex flex-column flex-lg-row justify-content-center align-items-center align-items-lg-start text-dark">
         <img class="img mb-3" :src="user.image" alt="Foto" />
         <div>
-          <p class="infoProfile">Name:  </p>
+          <p class="infoProfile">Name: - </p>
           <p>{{ user.name }}</p>
         </div>
         <div>
