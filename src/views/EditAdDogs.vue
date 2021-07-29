@@ -78,19 +78,14 @@
           </b-form-group>
           <b-form-group
             id="input-group-2"
-            label="Upload image"
             label-for="input-2"
             class="m-2 d-flex flex-column"
           >
-            <b-form-textarea
-              id="input-2"
-              v-model="form.image"
-              placeholder=""
-            ></b-form-textarea>
+          <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="">
           </b-form-group>
 
           <b-button type="submit" id="buttonEdit" class="m-2"
-            >Enviar</b-button
+            >Update</b-button
           >
           <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
         </b-form>
@@ -106,6 +101,7 @@
 import Header from "@/components/Header.vue";
 import NewAd from "../components/NewAd";
 import FormDogs from "../views/FormDogs";
+import { auth } from '@/apis/auth'
 import { apidogs } from "@/apis/ApiDogs";
 import ButtonGoBack from "../components/ButtonGoBack.vue";
 import Footer from "@/components/Footer.vue";
@@ -134,14 +130,25 @@ export default {
         date: this.date
       },
       show: true,
-     
+      imageArray: null
     };
   },
   methods: {
+    uploadImage(event) {
+      this.imageArray = event.target.files[0]
+  },
+  async saveImage() {
+      let fd = new FormData()
+      fd.append("image", this.imageArray)
+      await auth.uploadImage(fd).then(res => {
+          this.form.image = "http://127.0.0.1:8000/storage/" + res.data
+      }).catch(err => console.log(err)) 
+  },
     async onSubmit(event) {
       event.preventDefault();
+      await this.saveImage()
       await apidogs.editEvent(this.id,this.form);
-      return window.location.href =  "http://localhost:8080/dogs"
+      return this.$router.push("/mypostsdogs")
     },
     onReset(event) {
       event.preventDefault();

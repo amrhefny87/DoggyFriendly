@@ -72,8 +72,13 @@
             required
           ></b-form-textarea>
         </b-form-group>
-        <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="">
-
+          <b-form-group
+            id="input-group-2"
+            label-for="input-2"
+            class="m-2 d-flex flex-column"
+          >
+          <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="">
+          </b-form-group>
         <b-button type="submit" id="buttonSubmit" class="m-2">Submit</b-button>
         <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
       </b-form>
@@ -83,10 +88,9 @@
   </div>
 </template>
 <script>
-
+import { auth } from '@/apis/auth'
 import {apidogs} from '@/apis/ApiDogs'
 import Header from "@/components/Header.vue";
-import axios from "axios";
 import Footer from "@/components/Footer.vue";
 export default {
   name: "FormDogs",
@@ -110,13 +114,16 @@ export default {
   uploadImage(event) {
       this.imageArray = event.target.files[0]
   },
-    async onSubmit(event) {
-      event.preventDefault();
+  async saveImage() {
       let fd = new FormData()
       fd.append("image", this.imageArray)
-      await axios.post("http://127.0.0.1:8000/api/uploadDogImage", fd).then(res => {
+      await auth.uploadImage(fd).then(res => {
           this.form.image = "http://127.0.0.1:8000/storage/" + res.data
       }).catch(err => console.log(err)) 
+  },
+    async onSubmit(event) {
+      event.preventDefault();
+      await this.saveImage()
       await apidogs.create(this.form);
       return window.location.href =  "dogs"
     },

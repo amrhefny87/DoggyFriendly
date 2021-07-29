@@ -18,6 +18,8 @@ import ProfileOther from "../views/ProfileOther";
 import AboutUs from "../views/AboutUs";
 import EditProfile from "../views/EditProfile";
 import ProfileMenu from "../components/ProfileMenu"
+import MyPostsDogs from "../views/MyPostsDogs.vue";
+import MyPostsSitters from "../views/MyPostsSitters.vue";
 
 Vue.use(VueRouter);
 
@@ -86,8 +88,30 @@ const routes = [
     path:'/profileother',
     name:'profile-other',
     component: ProfileOther,
-    
+    beforeEnter: (to, from, next) => {
+      if (store.getters["auth/authenticated"]) {}
+      else {
+        next({
+          name: "Login",
+        });
+      }
+      next();
+    },
   },
+  {
+
+    path:'/mypostsdogs',
+    name:'MyPostsDogs',
+    component: MyPostsDogs,
+    
+  }, 
+  {
+
+    path:'/mypostssitters',
+    name:'MyPostsSitters',
+    component: MyPostsSitters,
+    
+  }, 
   {
     path: "/adtype",
     name: "adtype",

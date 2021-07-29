@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import auth from "@/logic/auth";
+import {auth} from "@/apis/auth";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 

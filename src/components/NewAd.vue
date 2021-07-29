@@ -2,14 +2,14 @@
   <div class="NewAdd d-flex flex-row">
     <b-card
       class="overflow-hidden pr-2 pl-2 pb-1 pt-2  shadow "
-      style="max-width: 540px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px;"
+      style="max-width: 540px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px; border-radius: 20px"
     >
       <b-row no-gutters class="d-flex align-items-center ">
         <b-col md="6">
           <b-card-img
             :src="result.image"
             alt="Image"
-            class="rounded"
+            style="border-radius: 20px"
             id="img"
           ></b-card-img>
         </b-col>
@@ -32,7 +32,7 @@
                   image: result.image,
                   date: result.date,
                   name: result.name,
-
+                  user_id: result.user_id
                 },
               }"
               class="moreInfo btn text-black m-3 "
@@ -40,6 +40,7 @@
               >More Info</router-link
             >
             </div>
+
             <div v-if="type === 'Dogs'">
               <div v-if="!liked">
             <img src="../assets/pawWhite.png" @click="likePostDog" id="likeAPost" class="m-2"
@@ -57,6 +58,7 @@
               >{{likesCount}}</p
             >
             </div>
+
             </div>
           </b-card-body>
         </b-col>
@@ -66,6 +68,7 @@
 </template>
 
 <script>
+
 import { mapGetters } from "vuex";
 import { apidogs } from "@/apis/ApiDogs";
 import {apilikesdogs} from '@/apis/ApiLikesDogs'
@@ -74,8 +77,10 @@ import { apisitters } from "@/apis/ApiSitters";
 
 
 
+
 export default {
   name: "NewAdd",
+
   data() {
     return {
       likesCount: "",
@@ -127,6 +132,7 @@ export default {
       user: "auth/user",
     }),
   },
+
 };
 </script>
 <style scoped>
@@ -154,10 +160,12 @@ h4 {
 }
 
 #text {
+  color: black;
   font-size: 12px;
 }
 
 #textitle {
+  color: black;
   font-size: 15px;
   font-weight: bold;
 }

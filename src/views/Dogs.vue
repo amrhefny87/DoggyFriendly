@@ -1,13 +1,16 @@
 <template>
   <div class="dogs">
     <Header />
-    <h2 class="mt-3 text-dark">{{type}}</h2>
+    <h2 class="mt-3" id="textitle">{{type}}</h2>
     <Button  root="/adtype" name="Add and Ad" />
     <div
      v-if="!isLoading" 
      v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
+
           <NewAd :key="event.id"  :result="event" :type="type" :thisLike="like" />
+
     </div>
+    
     <div class="d-flex justify-content-center align-content-center">
       <ring-loader :loading="isLoading" :color="'#e07f24'" :size="200"></ring-loader>
       
@@ -59,6 +62,12 @@ methods:{
 </script>
 
 <style scoped>
+
+#textitle {
+    color:black;
+    font-weight: bold;
+}
+
 #buttonDogs {
   background: #e07a1b;
 }
