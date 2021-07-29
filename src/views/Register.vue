@@ -68,7 +68,7 @@ export default {
     async register() {
       try {
         await auth.register(this.form);
-        this.$router.push("/")
+        this.$router.push("/login")
       } catch (error) {
         this.error = true;
       }

@@ -7,16 +7,16 @@
         <div id="formDogContainer" class="  mt-5 shadow">
           <div class="d-flex flex-column justify-content-center flex-sm-row">
             <div class="p-3">
-              <a href="/formdogs"
-                ><img class="icon-img" src="../assets/dogs.png"
-              /></a>
-              <a href="/formdogs" class="link"><p>DOGS</p></a>
+              <router-link to="/formdogs" class="btn text-white rounded-top rounded-bottom">
+              <img class="icon-img" src="../assets/dogs.png"/>              
+              <p class="link">DOGS</p>
+              </router-link>
             </div>
             <div class="p-3">
-              <a href="/formsitters"
-                ><img class="icon-img" src="../assets/sitters.png"
-              /></a>
-              <a href="/formsitters" class="link"><p>SITTERS</p></a>
+              <router-link to="/formsitters" class="btn text-white rounded-top rounded-bottom">
+              <img class="icon-img" src="../assets/sitters.png"/>              
+              <p class="link">SITTERS</p>
+              </router-link>
             </div>
           </div>
         </div>

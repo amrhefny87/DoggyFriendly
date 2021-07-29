@@ -89,10 +89,13 @@ export default {
   },
   props: ["result", "type", "thisLike"],
   mounted() {
-    this.countLikes(),
-    this.likeCheck()
+    this.likeandcheck()
   },
   methods: {
+    async likeandcheck() {
+      await this.countLikes()
+      await this.likeCheck()
+    },
     async buttonDeleteDogs() {
       await apidogs.delete(this.result.id);
     },
@@ -101,13 +104,11 @@ export default {
     },
     async likePostDog(){
       await apilikesdogs.like(this.result);
-      this.countLikes()
-      this.likeCheck()
+      await this.likeandcheck()
     },
     async dislikePostDog(){
       await apilikesdogs.dislike(this.result.id);
-      this.countLikes()
-      this.likeCheck()
+      await this.likeandcheck()
     },
     async countLikes(){
       const likeCount = await apilikesdogs.getLikes(this.result.id);
