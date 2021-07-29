@@ -75,9 +75,10 @@
           <b-form-group
             id="input-group-2"
             label-for="input-2"
-            class="m-2 d-flex flex-column"
+            class=" m-2  "
+            
           >
-          <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="">
+          <input type="file"  accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="" style="max-width: 250px;">
           </b-form-group>
         <b-button type="submit" id="buttonSubmit" class="m-2">Submit</b-button>
         <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
@@ -144,12 +145,14 @@ export default {
 
 </script>
 <style scoped>
+
+
 #formDogContainer {
   background: #e07a1b;
   padding: 10px;
   border-radius: 20px 20px 20px 0px;
   margin-top: 2rem;
-  max-width: 500px;
+  max-width: 300px;
   filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 0.25));
   
 }

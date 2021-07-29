@@ -78,7 +78,7 @@
             label-for="input-2"
             class="m-2 d-flex flex-column"
           >
-          <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="">
+          <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="" style="max-width: 250px;">
           </b-form-group>
         <b-button type="submit" id="buttonSubmit" class="m-2">Submit</b-button>
         <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
