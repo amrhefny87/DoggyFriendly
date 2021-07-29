@@ -1,22 +1,26 @@
 <template>
-  <div>
+  <div class="aboutus">
     <Header />
     <div class="header">
       <div class=" mb-2">
-        <h4><strong>About Us</strong></h4>
+        <h4 id="textitle"><strong>About Us</strong></h4>
       </div>
-      <div class="d-flex flex-column align-items-center">
+      <div class="overflow-hidden pr-2 pl-2 pb-1 pt-2  shadow "
+      style="max-width: 540px; background: #e07a1b; margin-right: 30px; margin-left:30px; margin-top: 15px; margin-bottom: 10px; border-radius: 20px">
+      
+      <div class="d-flex flex-column align-items-center p-4" id="text">
         <h5 class="mt-3">
           {{ info.title }}
         </h5>
-        <h6 class="h6 mt-3">
+        <h6 class="h6 mt-3" id="text">
           {{ info.description }}
         </h6>
-        <h5 class="mt-3">{{ info.title2 }}</h5>
-        <h6 class="h6 m-3 ">{{ info.description2 }}</h6>
+        <h5 class="mt-3" id="text">{{ info.title2 }}</h5>
+        <h6 class="h6 m-3 " id="text">{{ info.description2 }}</h6>
       </div>
     </div>
-    <h4 class="mt-4"><strong>Meet our team</strong></h4>
+    </div>
+    <h4 class="mt-4" id="textitle"><strong>Meet our team</strong></h4>
     <div class="body d-flex flex-lg-row">
       <div class="card " v-for="item in items" :key="item.message">
         <div class="imgBox">
@@ -24,11 +28,11 @@
           <img :src="item.imageMe" alt="" />
         </div>
         <div class="details">
-          <div class="content">
+          <div class="content" id="text">
             {{ item.namePerson }}
             <div>
-              <p class="infoCard">{{ item.profession }}</p>
-              <p class="infoCard">{{ item.description }}</p>
+              <p class="infoCard" id="text">{{ item.profession }}</p>
+              <p class="infoCard" id="text">{{ item.description }}</p>
             </div>
           </div>
         </div>
@@ -51,6 +55,7 @@ import Amr1 from "@/assets/Amr1.jpeg";
 import Amr from "@/assets/Amr.jpeg";
 import conejo from "@/assets/conejo.jpeg";
 import crock from "@/assets/crock.jpg";
+import abdulha from "@/assets/abdulha.jpg";
 export default {
   name: "aboutus",
   components: {
@@ -67,6 +72,7 @@ export default {
     Amr1,
     conejo,
     crock,
+    abdulha,
   },
   data() {
     return {
@@ -104,14 +110,14 @@ export default {
         {
           namePerson: "Amr",
           profession: "Graphic designer and Doggy-lover",
-          description: "Animacion and shisha",
+          description: "Animation and shisha and dancing",
           imageDog: Amr1,
           imageMe: Amr,
         },
         {
           namePerson: "Zhanna",
           profession: "Doggy-lover and Graphic designer",
-          description: "Future for all with animal",
+          description: "Future for all with animals",
           imageDog: janna,
           imageMe: janna1,
         },
@@ -120,7 +126,7 @@ export default {
           profession: "Programmer and and Doggy-lover",
           description: "More programming and walks",
           imageDog: crock,
-          imageMe: Martin,
+          imageMe: abdulha,
         },
       ],
     };
@@ -132,6 +138,9 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.aboutus {
+  background-image: url("../assets/background1.png");
 }
 .header {
   display: flex;
@@ -149,6 +158,14 @@ export default {
 p {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+#text {
+  color: black;
+}
+
+#textitle {
+  color: black;
+  font-weight: bold;
 }
 .card {
   display: flex;
