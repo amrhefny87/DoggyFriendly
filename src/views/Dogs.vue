@@ -24,6 +24,7 @@
 import NewAd from '@/components/NewAd.vue'
 import {apidogs} from '@/apis/ApiDogs'
 import {apilikesdogs} from '@/apis/ApiLikesDogs'
+import {apilikessitters} from '@/apis/ApiLikesSitters'
 import Button from '@/components/Button.vue'
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
