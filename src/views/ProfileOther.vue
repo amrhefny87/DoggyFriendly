@@ -17,6 +17,11 @@
           <p class="infoProfile">About us:</p>
           <p>{{ this.form.about_us }}</p>
         </div>
+
+        <div>
+          <p class="infoProfile">Phone Number:</p>
+          <p>{{ this.form.phone }}</p>
+        </div>
         
       </div>
       <div class="d-flex flex-column align-items-center justify-content-center">
