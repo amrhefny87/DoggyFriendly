@@ -3,9 +3,14 @@
 ### *DoggyF, el couchsurfing para perros* 
 <br>
 
-## FALTAN FOTOS!!!!!!!!!!!!!!
+## VISTAS
 
 ![image](https://user-images.githubusercontent.com/82060703/127542298-150922e8-9320-4821-9ecf-0e3105936109.png)
+
+![image](https://user-images.githubusercontent.com/82060703/127542470-3e50393c-a45c-42f9-b28a-2f8457c4491b.png)
+
+![image](https://user-images.githubusercontent.com/82060703/127542541-97975a8a-3a54-4f47-b029-9522cd8a91fb.png)
+
 
 
 
