@@ -11,9 +11,10 @@ export const apilikesdogs = {
       console.log(res)
     });
   },
-  
-  
   dislike(id) {
     return axios.delete(url + "/" + id);
-}
+  },
+  getLikes(id){
+    return axios.get(url+"/"+id);
+  }
 }

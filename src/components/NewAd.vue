@@ -94,11 +94,17 @@
             <b-button @click="likePostDog" id="likeAPost" class="m-2"
               >Woof</b-button
             >
+            <!-- <b-img :src="assets/pawDarK.png"></b-img> -->
             
             </div>
             <div v-if="type === 'Dogs'">
               <b-button @click="dislikePostDog" id="dislikeAPost" class="m-2"
               >DisWoof</b-button
+            >
+            </div>
+            <div v-if="type === 'Dogs'">
+              <p id="idCount" class="m-2"
+              >{{likesCount}} {{}}</p
             >
             </div>
             </div>
@@ -110,17 +116,27 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import { apidogs } from "@/apis/ApiDogs";
 import {apilikesdogs} from '@/apis/ApiLikesDogs'
 import { apisitters } from "@/apis/ApiSitters";
-import axios from "axios";
+
 
 
 
 export default {
   name: "NewAdd",
+  data() {
+    return {
+      likesCount: "",
+      profile:user
+    }
+  },
   props: ["result", "type"],
-  mounted() {},
+  mounted() {
+    this.countLikes(),
+    this.likeCheck()
+  },
   methods: {
     async buttonDeleteDogs() {
       await apidogs.delete(this.result.id);
@@ -140,7 +156,42 @@ export default {
       
       return (window.location.href = "dogs");
       
+    },
+    async countLikes(){
+      const likeCount = await apilikesdogs.getLikes(this.result.id);
+      this.likesCount = likeCount.data;
+      // return (window.location.href = "dogs");
+      return this.$router.push("Dogs");
+    },
+
+    async likeCheck(){
+      const likes = await apilikesdogs.getAll();
+
+      
+      
+      // var data = {specs:[{Name:"Power",Value:"1"},{
+      //   Name:"Weight",Value:"2"},{Name:"Height",Value:"3"}]}
+    
+      var check = likes.data.filter(function(elem){
+          if(elem.user_id == 5) return elem.user_id;
+      });
+
+      if(check.length > 0)
+        console.log(user)
+      
+          
+
+
+
+
+
     }
+  },
+  computed: {
+    ...mapGetters({
+      authenticated: "auth/authenticated",
+      user: "auth/user",
+    }),
   },
 };
 </script>
