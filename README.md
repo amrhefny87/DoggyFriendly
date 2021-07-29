@@ -23,36 +23,27 @@ La aplicación tiene características de Red Social y de Gestión de contenidos.
 - Debe estar testeada
 - Debe usar Laravel
 
-## Instalaciones
-PHP 8
-Laravel 8
-Vue 2
-Vuex
+## Instala los repositorios
 
-## Instala el proyecto
-El proyecto consta de dos repositorios github, uno para Laravel y otro para Vue:
+- Clone repositorio Laravel https://github.com/MuyDiversos/DoggyF.git
 
-Clone git https://github.com/MuyDiversos/DoggyF.git
+- Clone repositorio Vue https://github.com/MuyDiversos/Vue-DoggyF.git
 
-Clone git https://github.com/MuyDiversos/Vue-DoggyF.git
+- Necesitamos también crear una base de datos con el nombre de "doggyf" en phpMyAdmin en local, con las credenciales siguientes: user : root; password : "".
 
-Necesitamos también crear una base de datos en phpMyAdmin en local, con las credenciales siguientes: {user : root, password : ""}
+## Instala vue
+- npm install
+- npm install axios
+- npm install cli-spinners
+- NPM ROUTER?
+- NPM VUEX?
 
-Nombre de base de datos: doggyf
- 
- ## Install
-Vue:
-npm install
-npm install axios
-npm install cli-spinners
+## Instala laravel
+- composer require laravel/sanctum
+- php artisan vendor:publish--provider="Laravel\Sanctum\SanctumServiceProvider" 
+- php artisan migrate:fresh --seed
+- php artisan storage:link
 
-## Laravel:
-composer require laravel/sanctum
-php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
-php artisan migrate:fresh --seed
-php artisan storage:link
-
- 
 ## Características de la app
 Desde la Home se puede acceder a los anuncios publicados de perros que necesitan ser cuidados (Dogs) o de personas que cuidan a perros (Sitters). 
 
@@ -62,29 +53,30 @@ El usuario que esté registrado y logueado podrá publicar cualquier uno de los 
 
 El usuario tiene además la opción de visualizar, editar y borrar sus anuncios publicados
 
-
 ## Miembros del equipo de desarrollo 👯
-Abdulha Idrees
-Amr Hefny
-Cris Mouta
-Martín Madridejos
-Snezhanna Stefanova
-Thierno Diallo
+- Abdulha Idrees
+- Amr Hefny
+- Cris Mouta
+- Martín Madridejos
+- Snezhanna Stefanova
+- Thierno Diallo
 
 ## Servidor en producción
+- MECCCCCCC
 
 ## Herramientas y tecnologías utilizadas
-HTML5
-CSS
-Bootstrap
-PHP8
-MySQL
-Visual Studio Code
-XAMPP
-Laravel
-Javascript
-Vue
-Vuex
-Trello
-Miro
+- HTML5
+- CSS
+- Bootstrap
+- PHP8
+- MySQL
+- Visual Studio Code
+- XAMPP
+- Laravel
+- Javascript
+- Vue
+- Vuex
+- Trello
+- Miro
+- Figma
  
