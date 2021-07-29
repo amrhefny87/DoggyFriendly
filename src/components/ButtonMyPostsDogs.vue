@@ -18,9 +18,7 @@ export default {
 
 <style scoped>
 #buttonMyPostsDogs {
-    background: #5c636a;
-}
-#buttonMyPostsDogs:hover {
     background: #a15106;
 }
+
 </style>

@@ -18,9 +18,7 @@ export default {
 
 <style scoped>
 #buttonMyPostsSitters {
-    background: #5c636a;
-}
-#buttonMyPostsSitters:hover {
     background: #a15106;
 }
+
 </style>
