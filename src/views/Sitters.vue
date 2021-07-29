@@ -1,10 +1,16 @@
 <template>
   <div class="sitters">
     <Header />
-    <h1 class="mt-3">{{type}}</h1>
+    <h2 class="mt-3" id="textitle">{{type}}</h2>
     <Button root="/adtype" name="Add and Ad" />
-    <div v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
+    <div
+     v-if="!isLoading"
+     v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
           <NewAd :key="event.id"  :result="event" :type="type" />
+    </div>
+     <div class="d-flex justify-content-center align-content-center">
+       
+   <dot-loader :loading="isLoading" :color="'#e07f24'" :size="200"></dot-loader>
     </div>
     <Footer />
   </div>
@@ -32,12 +38,15 @@ export default {
   data(){
     return{
       type: "Sitters",
-      events:[]
+      events:[],
+      isLoading:false
     }
 },
 
 mounted(){
+  this.isLoading = true
     this.fetchApi()
+    .finally(()=>this.isLoading = false)
   },
 
 methods:{
@@ -50,6 +59,12 @@ methods:{
 </script>
 
 <style scoped>
+
+#textitle {
+    color:black;
+    font-weight: bold;
+}
+
 #button1{
   background: #EE8B16;
 }

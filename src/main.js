@@ -3,6 +3,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import { VueSpinners } from '@saeris/vue-spinners'
+
+
 
 // Import Bootstrap an BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
@@ -13,6 +16,7 @@ require("./store/subscriber")
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+Vue.use(VueSpinners)
 
 Vue.config.productionTip = false
 store.dispatch('auth/attempt',localStorage.getItem('token')).then(() => {

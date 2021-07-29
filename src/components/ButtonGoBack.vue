@@ -1,6 +1,6 @@
 <template>
   <button
-    class="btn text-white m-2 rounded-top rounded-bottom"
+    class="btn text-black m-2 rounded-top rounded-bottom"
     id="buttonGoBack"
     @click="goBack()"
   >
@@ -21,9 +21,10 @@ export default {
 
 <style>
 #buttonGoBack {
-  background: #5c636a;
+  background: #eab474;
 }
 #buttonGoBack:hover {
   background: #a15106;
 }
+
 </style>

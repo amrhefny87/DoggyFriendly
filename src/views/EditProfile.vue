@@ -1,10 +1,10 @@
 <template>
-  <div>
+<div>
     <Header />
     <div class="p-5 d-flex flex-column align-items-center">
-      <h2>Edit your Add</h2>
+      <h2>Edit your profile</h2>
       <div id="formDogContainer" class="shadow">
-        <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+        <b-form @submit="onSubmit" @reset="onReset" >
           <b-form-group
             class="m-2"
             id="input-group-2"
@@ -13,8 +13,8 @@
           >
             <b-form-textarea
               id="input-2"
-              v-model="form.description"
-              placeholder="Enter description"
+               v-model="form.name"
+              placeholder="Name"
               required
             ></b-form-textarea>
           </b-form-group>
@@ -26,42 +26,13 @@
           >
             <b-form-input
               id="input-2"
-              v-model="form.name"
-              placeholder="Enter name"
+              v-model="form.direction"
+              placeholder="Direction"
               required
             ></b-form-input>
           </b-form-group>
-          <b-form-group
-            class="m-2"
-            id="input-group-2"
-            label=""
-            label-for="input-2"
-          >
           
-            <b-form-input
-              id="input-2"
-              v-model="form.date"
-              required
-              placeholder="Enter date"
-              type="datetime-local"
-              min="2011-06-01T08:30:00"
-              max="2022-06-30T16:30:00"
-              pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}"
-            ></b-form-input>
-          </b-form-group>
-          <b-form-group
-            id="input-group-2"
-            label=""
-            label-for="input-2"
-            class="m-2"
-          >
-            <b-form-input
-              id="input-2"
-              v-model="form.title"
-              placeholder="Enter title"
-              required
-            ></b-form-input>
-          </b-form-group>
+          
 
           <b-form-group
             id="input-group-2"
@@ -71,8 +42,8 @@
           >
             <b-form-textarea
               id="input-2"
-              v-model="form.comments"
-              placeholder="Enter comments"
+              v-model="form.about_us"
+              placeholder="about_us"
               required
             ></b-form-textarea>
           </b-form-group>
@@ -81,15 +52,15 @@
             label-for="input-2"
             class="m-2 d-flex flex-column"
           >
-          <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="">
+          <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="" required>
           </b-form-group>
 
           <b-button type="submit" id="buttonEdit" class="m-2"
-            >Update</b-button
+            >Enviar</b-button
           >
           <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
         </b-form>
-        <ButtonGoBack />
+       
 
       </div>
     </div>
@@ -99,35 +70,25 @@
 
 <script>
 import Header from "@/components/Header.vue";
-import NewAd from "../components/NewAd";
-import FormDogs from "../views/FormDogs";
-import { auth } from '@/apis/auth'
-import { apidogs } from "@/apis/ApiDogs";
-import ButtonGoBack from "../components/ButtonGoBack.vue";
 import Footer from "@/components/Footer.vue";
-
-
+import { apiusers } from "@/apis/ApiUsers";
+import { auth } from '@/apis/auth'
 
 export default {
-  name: "EditAd",
-  components: {
-    Header,
-    NewAd,
-    FormDogs,
-    ButtonGoBack,
-    Footer,
-  },
-  props: ["id", "title", "description", "comments", "image", "date", "name"],
+    name: "editprofile",
+    
+    components: { Header, Footer},
+     props: ["id", "name", "direction", "image", "about_us", "password"],
 
   data() {
     return {
       form: {
         name: this.name,
-        title: this.title,
-        description: this.description,
-        comments: this.comments,
+        direction: this.direction,
+        about_us: this.about_us,
         image: this.image,
-        date: this.date
+        date: this.date,
+        password: this.password,
       },
       show: true,
       imageArray: null
@@ -147,15 +108,14 @@ export default {
     async onSubmit(event) {
       event.preventDefault();
       await this.saveImage()
-      await apidogs.editEvent(this.id,this.form);
-      return this.$router.push("/mypostsdogs")
+      await apiusers.editEvent(this.id,this.form);
+      return window.location.href =  "http://localhost:8080/profile"
     },
     onReset(event) {
       event.preventDefault();
-      this.form.description = "";
       this.form.name = "";
-      this.form.title = "";
-      this.form.comments = "";
+      this.form.direction = "";
+      this.form.pet_name = "";
       this.form.image = "";
       this.show = false;
       this.$nextTick(() => {
