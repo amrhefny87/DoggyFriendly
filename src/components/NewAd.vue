@@ -41,70 +41,20 @@
             >
             </div>
             <div v-if="type === 'Dogs'">
-            <router-link
-             :to="{
-                name: 'EditAdDogs',
-                params: {
-                  id: result.id,
-                  title: result.title,
-                  description: result.description,
-                  comments: result.comments,
-                  image: result.image,
-                  date: result.date,
-                  name: result.name,
-                },
-              }"
-              class="moreInfo btn text-black m-3 "
-              id="buttonMore"
-              >Edit</router-link
-            >
-            </div>
-            <div v-if="type === 'Sitters'">
-            <router-link
-             :to="{
-                name: 'EditAdSitters',
-                params: {
-                  id: result.id,
-                  title: result.title,
-                  description: result.description,
-                  comments: result.comments,
-                  image: result.image,
-                  date: result.date,
-                  name: result.name,
-                },
-              }"
-              class="moreInfo btn text-black m-3 "
-              id="buttonMore"
-              >Edit</router-link
-            >
+              <div v-if="!liked">
+            <img src="../assets/pawWhite.png" @click="likePostDog" id="likeAPost" class="m-2"
+              />
+              </div>
             </div>
             <div v-if="type === 'Dogs'">
-            <b-button @click="buttonDeleteDogs" id="deletemyEvent" class="m-2"
-              >Delete</b-button
-            >
+                <div v-if="liked">
+              <img src="../assets/pawDark.png" @click="dislikePostDog" id="dislikeAPost" class="m-2"
+              />
             </div>
-             <div v-if="type === 'Sitters'">
-            <b-button @click="buttonDeleteSitters" id="deletemyEvent" class="m-2"
-              >Delete</b-button
-            >
-            
-            
-            </div>
-            <div v-if="type === 'Dogs'">
-            <b-button @click="likePostDog" id="likeAPost" class="m-2"
-              >Woof</b-button
-            >
-            <!-- <b-img :src="assets/pawDarK.png"></b-img> -->
-            
-            </div>
-            <div v-if="type === 'Dogs'">
-              <b-button @click="dislikePostDog" id="dislikeAPost" class="m-2"
-              >DisWoof</b-button
-            >
             </div>
             <div v-if="type === 'Dogs'">
               <p id="idCount" class="m-2"
-              >{{likesCount}} {{}}</p
+              >{{likesCount}}</p
             >
             </div>
             </div>
@@ -129,10 +79,10 @@ export default {
   data() {
     return {
       likesCount: "",
-      profile:user
+      liked: this.thisLike
     }
   },
-  props: ["result", "type"],
+  props: ["result", "type", "thisLike"],
   mounted() {
     this.countLikes(),
     this.likeCheck()
@@ -140,52 +90,36 @@ export default {
   methods: {
     async buttonDeleteDogs() {
       await apidogs.delete(this.result.id);
-      //return (window.location.href = "dogs");
-      return this.$router.push("Dogs");
     },
     async buttonDeleteSitters() {
       await apisitters.delete(this.result.id);
-      return (window.location.href = "sitters");
     },
     async likePostDog(){
       await apilikesdogs.like(this.result);
-      return (window.location.href = "dogs");
+      this.countLikes()
+      this.likeCheck()
     },
     async dislikePostDog(){
       await apilikesdogs.dislike(this.result.id);
-      
-      return (window.location.href = "dogs");
-      
+      this.countLikes()
+      this.likeCheck()
     },
     async countLikes(){
       const likeCount = await apilikesdogs.getLikes(this.result.id);
       this.likesCount = likeCount.data;
       // return (window.location.href = "dogs");
-      return this.$router.push("Dogs");
     },
 
-    async likeCheck(){
+    async likeCheck(){      
       const likes = await apilikesdogs.getAll();
-
-      
-      
-      // var data = {specs:[{Name:"Power",Value:"1"},{
-      //   Name:"Weight",Value:"2"},{Name:"Height",Value:"3"}]}
-    
-      var check = likes.data.filter(function(elem){
-          if(elem.user_id == 5) return elem.user_id;
-      });
-
-      if(check.length > 0)
-        console.log(user)
-      
-          
-
-
-
-
-
-    }
+      for (let i = 0; i < likes.data.length; i++) {
+        if (likes.data[i].post_id == this.result.id && likes.data[i].user_id === this.$store.getters["auth/user"].id){
+          this.liked = true
+        } else {
+          this.liked = false
+        }
+      }
+    },
   },
   computed: {
     ...mapGetters({

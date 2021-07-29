@@ -7,9 +7,7 @@ export const apilikesdogs = {
     return axios.get(url);
   },
   like(request) {
-    return axios.post(url, request).then(res => {
-      console.log(res)
-    });
+    return axios.post(url, request)
   },
   dislike(id) {
     return axios.delete(url + "/" + id);
