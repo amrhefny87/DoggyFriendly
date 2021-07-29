@@ -17,8 +17,8 @@
       </div>
     </div>
     <h4 class="mt-4"><strong>Meet our team</strong></h4>
-    <div class="body d-flex flex-column flex-lg-row">
-      <div class="card" v-for="item in items" :key="item.message">
+    <div class="body d-flex flex-column flex-lg-row align-items-center justify-content-center">
+      <div class="card m-5" v-for="item in items" :key="item.message">
         <div class="imgBox">
           <img :src="item.imageDog" />
           <img :src="item.imageMe" alt="" />
@@ -27,10 +27,8 @@
           <div class="content">
             {{ item.namePerson }}
             <div>
-              <br /><span>{{ item.profession }}</span>
-              <p>
-                {{ item.description }}
-              </p>
+              <p class="infoCard">{{ item.profession }}</p>
+              <p class="infoCard">{{ item.description }}</p>
             </div>
           </div>
         </div>
@@ -124,20 +122,16 @@ export default {
   padding: 20px;
 }
 
-
-
 .body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
   background: #e9a14c;
   flex-wrap: wrap;
+  
 }
 p {
   margin-top: 20px;
   margin-bottom: 20px;
-  font-size: 20px;
+  
 }
 .card {
   position: relative;
@@ -148,9 +142,8 @@ p {
   transform: perspective(1000px);
   box-shadow: 10px 20px 40pc rgba(0, 0, 0, 0.25);
   transition: 1s;
-
   margin-top: 70px;
-  margin-left: 140px;
+  
 }
 .card:hover {
   transform: translateX(50%);
@@ -196,6 +189,7 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
 }
 
 .details {
@@ -216,6 +210,9 @@ p {
     margin: 30px;
   }
 
+.infoCard {
+  font-size: 10px;
+}
   
 }
 </style>
