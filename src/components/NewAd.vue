@@ -114,7 +114,7 @@ export default {
       const likes = await apilikesdogs.getAll();
       for (let i = 0; i < likes.data.length; i++) {
         if (likes.data[i].post_id == this.result.id && likes.data[i].user_id === this.$store.getters["auth/user"].id){
-          this.liked = true
+          return this.liked = true
         } else {
           this.liked = false
         }
