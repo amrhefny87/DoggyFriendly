@@ -6,8 +6,9 @@
     <div
      v-if="!isLoading" 
      v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
-          <NewAd :key="event.id"  :result="event" :type="type" />
-          
+
+          <NewAd :key="event.id"  :result="event" :type="type" :thisLike="like" />
+
     </div>
     
     <div class="d-flex justify-content-center align-content-center">
@@ -22,6 +23,7 @@
 // @ is an alias to /src
 import NewAd from '@/components/NewAd.vue'
 import {apidogs} from '@/apis/ApiDogs'
+import {apilikesdogs} from '@/apis/ApiLikesDogs'
 import Button from '@/components/Button.vue'
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
@@ -38,7 +40,8 @@ export default {
     return{
       type: "Dogs",
       events:[],
-      isLoading:false
+      isLoading:false,
+      like: false
       
     }
 },
