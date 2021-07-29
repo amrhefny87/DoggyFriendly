@@ -26,13 +26,13 @@
             user_id: this.$route.query.user_id 
             },
             }"
-            class="btn text-white m-2 rounded-top rounded-bottom"
+            class="btn text-black m-2 rounded-top rounded-bottom"
             id="buttonContact"
             >Contact</router-link>
            <ButtonGoBack />
            <b-card-text>
 
-          <span style=" font-weight: 800">Date:</span> <br />
+          <span id="text" style=" font-weight: 800">Date:</span> <br />
           {{ this.$route.query.date }}
         </b-card-text>
         </div>
@@ -41,7 +41,7 @@
           <span style=" font-weight: 800">Description:</span> <br />
           {{ this.$route.query.description }}
         </b-card-text>
-        <b-card-text class="p-3">
+        <b-card-text id="text" class="p-3">
           <span style=" font-weight: 800">Comments:</span> <br />
           {{ this.$route.query.comments }}</b-card-text
         >
@@ -75,7 +75,7 @@ export default {
 
 <style >
 #buttonContact {
-  background: #5c636a;
+  background: #eab474;
 }
 #buttonContact:hover {
   background: #a15106;
@@ -99,5 +99,22 @@ export default {
 
 .show {
   background-image: url("../assets/background1.png");
+}
+
+#buttonMore {
+  background: #eab474;
+}
+
+#buttonMore:hover {
+  background: #a15106;
+}
+
+#text {
+  color: black;
+}
+
+#textitle {
+  color: black;
+  font-weight: bold;
 }
 </style>
