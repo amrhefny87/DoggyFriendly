@@ -5,6 +5,10 @@
 
 ## FALTAN FOTOS!!!!!!!!!!!!!!
 
+![image](https://user-images.githubusercontent.com/82060703/127542298-150922e8-9320-4821-9ecf-0e3105936109.png)
+
+
+
 ## Contexto del proyecto 🌱
 Desarrollar una startup tecnológica y su aplicación Web MVP.
 Para ello buscaremos resolver un problema actual mediante una solución Web, prepararemos un Pitch para la presentación a posibles inversores, diseñaremos un prototipo, un RoadMap y desarrollaremos el producto mínimo viable.
