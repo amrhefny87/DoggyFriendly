@@ -128,7 +128,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .ButtonEdit {
   background: #a15106;
 }

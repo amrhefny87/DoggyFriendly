@@ -49,7 +49,7 @@
             </div>
             <div v-if="type === 'Dogs'">
                 <div v-if="liked">
-              <img src="../assets/pawDark.png" @click="dislikePostDog" id="dislikeAPost" class="m-2"
+              <img src="../assets/pawDark.png" @click="dislikePostDog" id="dislikeAPost" class="DeleteMyButton m-2"
               />
             </div>
             </div>
@@ -175,4 +175,10 @@ h4 {
     width: 200px;
   }
 }
+
+#dislikeAPost {
+  background: #a15106;
+}
+
+
 </style>
