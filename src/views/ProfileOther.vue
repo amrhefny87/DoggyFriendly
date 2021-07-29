@@ -1,40 +1,33 @@
 <template>
-  <div class="all d-flex justify-content-center">
+  <div class="all d-flex justify-content-center align-items-center">
     <Header />
-    <template v-if="authenticated">
-      
-    </template>
+    <template v-if="authenticated"> </template>
     <div class="all_info">
-         <h2 class="text-center m">Other profile</h2> 
-      <section class="profil">
-         
-        <img class="img" :src="this.form.image" alt="Foto" />
+      <h2 class="titleProfile text-center text-dark mb-5">{{ this.form.name }}</h2>
+      <div
+        class="d-flex flex-column flex-lg-row justify-content-around align-items-center  align-items-lg-start text-dark"
+      >
+        <img class="img mb-3 rounded-circle" :src="user.image" alt="Foto" />
 
-        <b-container class="info-grid">
-          <b-row class="mt-3" align-v="start">
-            <b-col cols="5" class="title">Name</b-col>
-            <b-col cols="3" class="text">{{this.form.name}}</b-col>
-            <b-col><img class="stars" src="../assets/stars.png" alt=""/></b-col>
-          </b-row>
-
-          <b-row class="mt-3">
-            <b-col sm="5" class="title">Direction</b-col>
-            <b-col sm="7" class="text">{{this.form.direction}}</b-col>
-          </b-row>
-
-          <b-row class="mt-3">
-            <b-col cols="5" class="title">About Us</b-col>
-            <b-col cols="7" class="text">{{this.form.about_us}}<p>
-               
-              </p></b-col
-            >
-          </b-row>
-        </b-container>
-      </section>
-      <section class="contact d-flex justify-content-center">
-        <img class="img_contact" src="../assets/whatsapp 1.png" @click="apiwhatsapp()" alt="fffff" />
-        <img class="img_contact2" src="../assets/email 1.png" alt="fffff" />
-      </section>
+        <div>
+          <p class="infoProfile">Direction:</p>
+          <p>{{ this.form.direction }}</p>
+        </div>
+        <div>
+          <p class="infoProfile">About us:</p>
+          <p>{{ this.form.about_us }}</p>
+        </div>
+        
+      </div>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+      <p class=" infoProfile text-dark ">Contact:</p>
+      <img
+            class="img_contact"
+            src="../assets/whatsapp 1.png"
+            @click="apiwhatsapp()"
+            alt="fffff"
+          />
+      </div>
     </div>
 
     <Footer />
@@ -53,13 +46,13 @@ export default {
     Header,
     Footer,
   },
-  data(){
-    return{
-      form:{},      
-    }
+  data() {
+    return {
+      form: {},
+    };
   },
-  mounted(){
-    this.profile()
+  mounted() {
+    this.profile();
   },
 
   methods: {
@@ -67,8 +60,8 @@ export default {
       window.location.href = `https://api.whatsapp.com/send?phone=${this.form.number}&text=hola ${this.form.name},%20qué%20tal?`;
     },
     async profile() {
-      const res = await auth.otherUser(this.$route.query.user_id)
-      this.form = res.data
+      const res = await auth.otherUser(this.$route.query.user_id);
+      this.form = res.data;
     },
     ...mapActions({
       login: "auth/login",
@@ -82,13 +75,12 @@ export default {
       });
     },
   },
-    computed: {
-      ...mapGetters({
-        authenticated: "auth/authenticated",
-        user: "auth/user",
-      }),
-    },
-  
+  computed: {
+    ...mapGetters({
+      authenticated: "auth/authenticated",
+      user: "auth/user",
+    }),
+  },
 };
 </script>
 
@@ -99,67 +91,37 @@ export default {
   background-image: url("../assets/background1.png");
 }
 .all_info {
+  display: flex;
+  justify-content: center;
   align-items: center;
-  border: 1px solid rgb(17, 17, 17);
+  flex-direction: column;
   border-radius: 25px 25px 25px 0px;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 110px;
   padding: 30px;
-  width: 90%;
+  width: 80%;
   background-color: #e9a14c;
   box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.25);
 }
 
-
+.titleProfile {
+  font-weight: 700;
+}
 
 .text {
   text-align: start;
   max-width: 100%;
 }
-.stars {
-  margin-top: -10px;
-  width: 10vh;
-}
-.profil {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
 
-.info-grid {
-  max-width: 90%;
-  overflow: hidden;
-}
-.title_form {
-  margin-left: 20px;
-}
-.title {
-  text-align: start;
-  font-weight: bolder;
-}
-strong {
-  width: 15px;
-  padding-right: 10px;
-}
-.item {
-  margin-top: 30px;
-}
-.item_3 {
-  display: flex;
-}
-.btn {
-  margin-top: 60px;
-}
+
 .contact {
   display: flex;
   margin-top: 20px;
 }
 
 .img_contact {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
 }
 
 .img_contact2 {
@@ -168,14 +130,4 @@ strong {
   margin-left: 30px;
 }
 
-p {
-  width: 220px;
-}
-
-#buttonLogout {
-  background: #5c636a;
-}
-#buttonLogout:hover {
-  background: #a15106;
-}
 </style>
