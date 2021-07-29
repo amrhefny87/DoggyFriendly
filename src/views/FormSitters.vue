@@ -125,7 +125,9 @@ uploadImage(event) {
       event.preventDefault();
       await this.saveImage()
       await apisitters.create(this.form);
-      return window.location.href =  "sitters"
+      return this.$router.replace({
+         name: "Sitters"
+       }) 
     },
     onReset(event) {
       event.preventDefault();
@@ -155,7 +157,7 @@ uploadImage(event) {
 }
 
 #buttonEdit {
-    background: #a08b71;
+    background: #a15106;
 }
 #buttonSubmit {
     background: #eab474;

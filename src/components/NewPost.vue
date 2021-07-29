@@ -88,11 +88,15 @@ export default {
     methods: {
         async buttonDeleteDogs() {
         await apidogs.delete(this.result.id);
-        return (window.location.href = "mypostsdogs");
+        return (this.$router.replace({
+         name: "Dogs"
+       }) );
         },
         async buttonDeleteSitters() {
         await apisitters.delete(this.result.id);
-        return (window.location.href = "mypostssitters");
+        return (this.$router.replace({
+         name: "Sitters"
+       }) );
         },
     },
 };

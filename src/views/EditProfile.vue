@@ -55,10 +55,10 @@
           <input type="file" accept="image/*" @change="uploadImage($event)" id="input-2" placeholder="" style="max-width: 250px;" required>
           </b-form-group>
 
-          <b-button type="submit" id="buttonEdit" class="m-2"
+          <b-button type="submit" id="buttonEdit" class="ButtonEdit m-2"
             >Enviar</b-button
           >
-          <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
+          <b-button type="reset" id="buttonReset" class="ButtonEdit m-2">Reset</b-button>
         </b-form>
        
 
@@ -109,7 +109,9 @@ export default {
       event.preventDefault();
       await this.saveImage()
       await apiusers.editEvent(this.id,this.form);
-      return window.location.href =  "http://localhost:8080/profile"
+      return this.$router.replace({
+         name: "profile"
+       }) 
     },
     onReset(event) {
       event.preventDefault();
@@ -126,4 +128,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.ButtonEdit {
+  background: #a15106;
+}
+</style>

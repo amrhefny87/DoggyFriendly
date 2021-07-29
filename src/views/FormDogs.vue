@@ -126,7 +126,9 @@ export default {
       event.preventDefault();
       await this.saveImage()
       await apidogs.create(this.form);
-      return window.location.href =  "dogs"
+      return this.$router.replace({
+         name: "Dogs"
+       }) 
     },
     onReset(event) {
       event.preventDefault();
@@ -158,7 +160,7 @@ export default {
 }
 
 #buttonEdit {
-    background: #a08b71;
+    background: #a15106;
 }
 #buttonSubmit {
     background: #eab474;
