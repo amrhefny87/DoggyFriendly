@@ -1,7 +1,7 @@
 <template>
   <div class="show">
-    <Header />
-    <div class="d-flex justify-content-center align-items-center mt-2 mb-5" >
+    <Header class="fixed-top" />
+    <div class="d-flex justify-content-center align-items-center mt-2 mb-5 gay" >
       <div 
       
         class="d-flex flex-column flex-sm-row p-3 shadow justify-content-center align-items-center"
@@ -52,7 +52,7 @@
       
     </div>
 
-    <Footer />
+    <Footer class="fixed-bottom"/>
   </div>
 </template>
 <script>
@@ -116,5 +116,8 @@ export default {
 #textitle {
   color: black;
   font-weight: bold;
+}
+.gay{
+  height: 150vh;
 }
 </style>

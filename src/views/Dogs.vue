@@ -1,8 +1,8 @@
 <template>
   <div class="dogs">
-    <Header />
+    <Header  class="fixed-top" />
     <h2 class="mt-3" id="textitle">{{type}}</h2>
-    <Button  root="/adtype" name="Add and Ad" />
+    <Button  class="fixe m-5"  root="/adtype" name="Add and Ad" />
     <div
      v-if="!isLoading" 
      v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
@@ -15,7 +15,7 @@
       <ring-loader :loading="isLoading" :color="'#e07f24'" :size="200"></ring-loader>
       
     </div>
-    <Footer />
+    <Footer  class="fixed-bottom" />
   </div>
 </template>
 
@@ -81,5 +81,10 @@ methods:{
 
 .dogs {
   background-image: url("../assets/background1.png");
+  height: 400vh;
 }
+.fixe{
+
+}
+
 </style>

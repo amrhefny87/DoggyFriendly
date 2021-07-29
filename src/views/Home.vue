@@ -1,8 +1,8 @@
 <template>
   <div class="home2">
-    <Header />
-    <img style="width: 12rem; margin-top: 1rem;" alt="Dog Logo" src="../assets/logoDog.png" />
-    <Inicio />
+    <Header  class="fixed-top"/>
+    <img style="width: 10rem; margin-top: 7rem;" alt="Dog Logo" src="../assets/logoDog.png" />
+    <Inicio  />
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
 </script>
 <style scoped>
    .home2 {
-     height: 100%;
+     height: 100vh;
      background-image: url('../assets/background1.png') ;
    }
 </style>

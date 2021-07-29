@@ -43,7 +43,7 @@
 
             <div v-if="type === 'Dogs'">
               <div v-if="!liked">
-            <img src="../assets/pawWhite.png" @click="likePostDog" id="likeAPost" class="m-2"
+            <img src="../assets/pawWhite.png" @click="likePostDog" id="likeAPost" class="m-2" style="cursor: pointer;"
               />
               </div>
             </div>

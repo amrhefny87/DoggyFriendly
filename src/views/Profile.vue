@@ -34,8 +34,8 @@
               about_us: user.about_us,
             },
           }"
-          class="moreInfo btn text-white m-3 "
-          id="buttonMore"
+          class="btn text-white m-3 "
+          id="buttonEditProfile"
           >Edit profile</router-link
         >
         <ButtonMyPostsDogs />
@@ -132,7 +132,7 @@ export default {
 }
 
 
-#buttonMore {
+#buttonEditProfile {
   background: #a15106;
 }
 
@@ -140,10 +140,5 @@ export default {
   font-weight: 900;
 }
 
-#buttonMyPost {
-  background: #5c636a;
-}
-#buttonMyPost:hover {
-  background: #a15106;
-}
+
 </style>
