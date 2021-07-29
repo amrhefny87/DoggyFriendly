@@ -1,7 +1,7 @@
 <template>
   <div class="sitters">
     <Header />
-    <h2 class="mt-3 text-dark">{{type}}</h2>
+    <h2 class="mt-3" id="textitle">{{type}}</h2>
     <Button root="/adtype" name="Add and Ad" />
     <div
      v-if="!isLoading"
@@ -59,6 +59,12 @@ methods:{
 </script>
 
 <style scoped>
+
+#textitle {
+    color:black;
+    font-weight: bold;
+}
+
 #button1{
   background: #EE8B16;
 }
