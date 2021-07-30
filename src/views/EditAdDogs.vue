@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header />
-    <div class="p-5 d-flex flex-column align-items-center">
-      <h2>Edit your Add</h2>
+    <div class="EditContainer p-5 d-flex flex-column align-items-center">
+      <h2 class="title2">Edit your Add</h2>
       <div id="formDogContainer" class="shadow">
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
           <b-form-group
@@ -89,7 +89,7 @@
           >
           <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
         </b-form>
-        <ButtonGoBack />
+        
 
       </div>
     </div>
@@ -103,7 +103,6 @@ import NewAd from "../components/NewAd";
 import FormDogs from "../views/FormDogs";
 import { auth } from '@/apis/auth'
 import { apidogs } from "@/apis/ApiDogs";
-import ButtonGoBack from "../components/ButtonGoBack.vue";
 import Footer from "@/components/Footer.vue";
 
 
@@ -114,7 +113,7 @@ export default {
     Header,
     NewAd,
     FormDogs,
-    ButtonGoBack,
+   
     Footer,
   },
   props: ["id", "title", "description", "comments", "image", "date", "name"],
@@ -166,4 +165,20 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+
+.title2 {
+  font-weight: 600;
+  color: black;
+}
+
+.EditContainer {
+    background-image: url("../assets/background1.png");
+
+}
+
+#formDogContainer {
+  background-color: #e9a14c;
+}
+
+</style>
