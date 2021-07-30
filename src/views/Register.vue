@@ -98,7 +98,7 @@ export default {
   min-width: 300px;
   max-width: 100%;
   background: #e07a1b;
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 40px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
 }

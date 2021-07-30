@@ -1,6 +1,6 @@
 <template>
   <div class="sitters">
-    <Header  class="fixed-top" />
+    <Header   />
     <h2 class="mt-3" id="textitle">{{type}}</h2>
     <Button  class="fixe m-5"  root="/adtype" name="Add and Ad" />
     <div
@@ -12,7 +12,7 @@
        
    <dot-loader :loading="isLoading" :color="'#e07f24'" :size="200"></dot-loader>
     </div>
-    <Footer  class="fixed-bottom"  />
+    <Footer    />
   </div>
 </template>
 
