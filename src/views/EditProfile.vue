@@ -3,7 +3,7 @@
     <Header />
     <div class="p-5 d-flex flex-column align-items-center">
       <h2>Edit your profile</h2>
-      <div id="formDogContainer" class="shadow">
+      <div id="formDogContainer"  style="height:50vh" class="shadow">
         <b-form @submit="onSubmit" @reset="onReset" >
           <b-form-group
             class="m-2"
