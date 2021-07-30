@@ -8,7 +8,7 @@
             <NewPost :key="event.id"  :result="event" :type="type" />
             
         </div>
-        <Footer />
+        <Footer class="fixed-bottom"/>
     </div>
 </template>
 
