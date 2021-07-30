@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="edit-profile">
     <Header />
     <div class="p-5 d-flex flex-column align-items-center">
       <h2>Edit your profile</h2>
@@ -141,4 +141,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.edit-profile{
+  background-image: url("../assets/background1.png");
+  height: 100%;
+}
+</style>

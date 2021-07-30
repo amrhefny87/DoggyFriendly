@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="logged">
     <Header />
     <template v-if="authenticated">
       <div class="d-flex justify-content-center align-items-center">
@@ -40,6 +40,9 @@ export default {
 </script>
 
 <style scoped>
+.logged {
+  background-image: url("../assets/background1.png");
+}
 .container-logged {
   background: #e07a1b;
   padding: 30px;
