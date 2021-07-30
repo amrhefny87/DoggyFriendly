@@ -3,7 +3,16 @@
 ### *DoggyF, el couchsurfing para perros* 
 <br>
 
-## FALTAN FOTOS!!!!!!!!!!!!!!
+## VISTAS
+
+![image](https://user-images.githubusercontent.com/82060703/127542298-150922e8-9320-4821-9ecf-0e3105936109.png)
+
+![image](https://user-images.githubusercontent.com/82060703/127542470-3e50393c-a45c-42f9-b28a-2f8457c4491b.png)
+
+![image](https://user-images.githubusercontent.com/82060703/127545715-3ff99679-faac-436a-898a-79879dbda6f7.png)
+
+
+
 
 ## Contexto del proyecto 🌱
 Desarrollar una startup tecnológica y su aplicación Web MVP.

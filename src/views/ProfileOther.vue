@@ -1,13 +1,12 @@
 <template>
   <div class="all d-flex justify-content-center align-items-center">
     <Header />
-    <template v-if="authenticated"> </template>
     <div class="all_info">
       <h2 class="titleProfile text-center text-dark mb-5">{{ this.form.name }}</h2>
       <div
         class="d-flex flex-column flex-lg-row justify-content-around align-items-center  align-items-lg-start text-dark"
       >
-        <img class="img mb-3 rounded-circle" :src="user.image" alt="Foto" />
+        <img class="img mb-3 rounded-circle" :src="this.form.image" alt="Foto" />
 
         <div>
           <p class="infoProfile">Direction:</p>
@@ -42,7 +41,7 @@
 <script>
 import Header from "../components/Header";
 import Footer from "@/components/Footer.vue";
-import { mapGetters, mapActions } from "vuex";
+import { mapActions } from "vuex";
 import { auth } from "@/apis/auth";
 export default {
   props: ["user_id"],
@@ -79,12 +78,6 @@ export default {
        }) */
       });
     },
-  },
-  computed: {
-    ...mapGetters({
-      authenticated: "auth/authenticated",
-      user: "auth/user",
-    }),
   },
 };
 </script>

@@ -14,12 +14,16 @@
       
     >
       <div class="d-flex flex-column justify-content-center align-items-center">
-        <a href="/dogs"><img class="icon-img" src="../assets/dogs.png"/></a>
-        <a href="/dogs" class="link"><p>DOGS</p></a>
+        <router-link to="/dogs" class="btn text-white rounded-top rounded-bottom">
+        <img class="icon-img" src="../assets/dogs.png"/>
+        <p class="link">DOGS</p>
+        </router-link>
       </div>
       <div class="d-flex flex-column justify-content-center align-items-center">
-        <a href="/sitters"><img class="icon-img" src="../assets/sitters.png"/></a>
-        <a href="/sitters" class="link"><p>SITTERS</p></a>
+        <router-link to="/sitters" class="btn text-white rounded-top rounded-bottom">
+        <img class="icon-img" src="../assets/sitters.png"/>
+        <p class="link">SITTERS</p>
+        </router-link>
       </div>
     </div>
     <div class="spacio"></div>
