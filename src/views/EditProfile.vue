@@ -31,6 +31,20 @@
               required
             ></b-form-input>
           </b-form-group>
+
+          <b-form-group
+            id="input-group-2"
+            label=""
+            label-for="input-2"
+            class="m-2 text-left"
+          >
+            <b-form-input
+              id="input-2"
+              v-model="form.phone"
+              placeholder="Phone Number"
+              required
+            ></b-form-input>
+          </b-form-group>
           
           
 
@@ -78,7 +92,7 @@ export default {
     name: "editprofile",
     
     components: { Header, Footer},
-     props: ["id", "name", "direction", "image", "about_us", "password"],
+     props: ["id", "name", "direction", "image", "about_us", "password", "phone"],
 
   data() {
     return {
@@ -89,6 +103,7 @@ export default {
         image: this.image,
         date: this.date,
         password: this.password,
+        phone: this.phone,
       },
       show: true,
       imageArray: null
