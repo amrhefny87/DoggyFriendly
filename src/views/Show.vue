@@ -1,6 +1,6 @@
 <template>
   <div class="show">
-    <Header class="fixed-top" />
+    <Header  />
     <div class="d-flex justify-content-center align-items-center mt-2 mb-5 gay" >
       <div 
       
@@ -52,7 +52,7 @@
       
     </div>
 
-    <Footer class="fixed-bottom"/>
+    <Footer />
   </div>
 </template>
 <script>
