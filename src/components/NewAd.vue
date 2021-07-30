@@ -59,6 +59,25 @@
             >
             </div>
 
+
+            <div v-if="type === 'Sitters'">
+              <div v-if="!likedSitter">
+            <img src="../assets/pawWhite.png" @click="likePostSitter" id="likeAPost" class="m-2"
+              />
+              </div>
+            </div>
+            <div v-if="type === 'Sitters'">
+                <div v-if="likedSitter">
+              <img src="../assets/pawDark.png" @click="dislikePostSitter" id="dislikeAPost" class="m-2"
+              />
+            </div>
+            </div>
+            <div v-if="type === 'Sitter'">
+              <p id="idCountSitters" class="m-2"
+              >{{likesCountSitter}}</p
+            >
+            </div>
+
             </div>
           </b-card-body>
         </b-col>
@@ -73,6 +92,7 @@ import { mapGetters } from "vuex";
 import { apidogs } from "@/apis/ApiDogs";
 import {apilikesdogs} from '@/apis/ApiLikesDogs'
 import { apisitters } from "@/apis/ApiSitters";
+import {apilikessitters} from '@/apis/ApiLikesSitters'
 
 
 
@@ -84,13 +104,17 @@ export default {
   data() {
     return {
       likesCount: "",
-      liked: this.thisLike
+      likesCountSitter: "",
+      liked: this.thisLike,
+      likedSitter: this.thisLikeSitter
     }
   },
-  props: ["result", "type", "thisLike"],
+  props: ["result", "type", "thisLike", "thisLikeSitter"],
   mounted() {
     this.countLikes(),
     this.likeCheck()
+    this.countLikesSitters(),
+    this.likeCheckSitters()
   },
   methods: {
     async buttonDeleteDogs() {
@@ -104,15 +128,28 @@ export default {
       this.countLikes()
       this.likeCheck()
     },
+    async likePostSitter(){
+      await apilikessitters.like(this.result);
+      this.countLikesSitters()
+      this.likeCheckSitters()
+    },
     async dislikePostDog(){
       await apilikesdogs.dislike(this.result.id);
       this.countLikes()
       this.likeCheck()
     },
+    async dislikePostSitter(){
+      await apilikessitters.dislike(this.result.id);
+      this.countLikesSitters()
+      this.likeCheckSitters()
+    },
     async countLikes(){
       const likeCount = await apilikesdogs.getLikes(this.result.id);
       this.likesCount = likeCount.data;
-      // return (window.location.href = "dogs");
+    },
+    async countLikesSitters(){
+      const likeCountSitter = await apilikessitters.getLikes(this.result.id);
+      this.likesCountSitter = likeCountSitter.data;
     },
 
     async likeCheck(){      
@@ -122,6 +159,17 @@ export default {
           return this.liked = true
         } else {
           this.liked = false
+        }
+      }
+    },
+
+    async likeCheckSitters(){      
+      const likes = await apilikessitters.getAll();
+      for (let i = 0; i < likes.data.length; i++) {
+        if (likes.data[i].post_id == this.result.id && likes.data[i].user_id === this.$store.getters["auth/user"].id){
+          return this.likedSitter = true
+        } else {
+          this.likedSitter = false
         }
       }
     },
