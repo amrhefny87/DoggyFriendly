@@ -72,7 +72,7 @@
               />
             </div>
             </div>
-            <div v-if="type === 'Sitter'">
+            <div v-if="type === 'Sitters'">
               <p id="idCountSitters" class="m-2"
               >{{likesCountSitter}}</p
             >
