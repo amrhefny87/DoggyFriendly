@@ -140,4 +140,10 @@ export default {
   },
 };
 </script>
+<style scoped>
+.edit-profile{
+    background-image: url("../assets/background1.png");
+
+}
+</style>
 
