@@ -6,7 +6,7 @@
     <div
      v-if="!isLoading"
      v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
-          <NewAd :key="event.id"  :result="event" :type="type" />
+          <NewAd :key="event.id"  :result="event" :type="type" :thisLike="like"/>
     </div>
      <div class="d-flex justify-content-center align-content-center">
        
@@ -39,7 +39,8 @@ export default {
     return{
       type: "Sitters",
       events:[],
-      isLoading:false
+      isLoading:false,
+      like: false
     }
 },
 
