@@ -61,7 +61,7 @@ export default {
 
   methods: {
     apiwhatsapp() {
-      window.location.href = `https://api.whatsapp.com/send?phone=${this.form.number}&text=hola ${this.form.name},%20qué%20tal?`;
+      window.location.href = `https://api.whatsapp.com/send?phone=${this.form.phone}&text=hola ${this.form.name},%20qué%20tal?`;
     },
     async profile() {
       const res = await auth.otherUser(this.$route.query.user_id);
