@@ -9,7 +9,9 @@
         />
       </router-link>
       <template  v-if="authenticated">
-        <a href="/profile" id="demo"><b-icon icon="person-fill" class="mr-4" scale="2"></b-icon>  </a> 
+        <router-link to="/profile">
+        <b-icon icon="person-fill" class="mr-4" scale="2"></b-icon>
+      </router-link>
         <ProfileMenu />
         
       </template>

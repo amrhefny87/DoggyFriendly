@@ -111,12 +111,15 @@ export default {
   },
   props: ["result", "type", "thisLike", "thisLikeSitter"],
   mounted() {
-    this.countLikes(),
-    this.likeCheck()
-    this.countLikesSitters(),
-    this.likeCheckSitters()
+    this.likeandcheck()
   },
   methods: {
+    async likeandcheck() {
+      await this.countLikes()
+      await this.likeCheck()
+      await this.countLikesSitters(),
+      await this.likeCheckSitters()
+    },
     async buttonDeleteDogs() {
       await apidogs.delete(this.result.id);
     },
@@ -125,8 +128,7 @@ export default {
     },
     async likePostDog(){
       await apilikesdogs.like(this.result);
-      this.countLikes()
-      this.likeCheck()
+      await this.likeandcheck()
     },
     async likePostSitter(){
       await apilikessitters.like(this.result);
@@ -135,8 +137,7 @@ export default {
     },
     async dislikePostDog(){
       await apilikesdogs.dislike(this.result.id);
-      this.countLikes()
-      this.likeCheck()
+      await this.likeandcheck()
     },
     async dislikePostSitter(){
       await apilikessitters.dislike(this.result.id);

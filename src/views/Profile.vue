@@ -20,6 +20,10 @@
           <p class="infoProfile">About us:</p>
           <p>{{ user.about_us }}</p>
         </div>
+        <div>
+          <p class="infoProfile">Phone Number:</p>
+          <p>{{ user.phone }}</p>
+        </div>
       </div>
       <div>
         <router-link
@@ -32,6 +36,7 @@
               password: user.password,
               image: user.image,
               about_us: user.about_us,
+              phone: user.phone
             },
           }"
           class="btn text-white m-3 "

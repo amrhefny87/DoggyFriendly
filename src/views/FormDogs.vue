@@ -1,6 +1,6 @@
 <template>
   <div class="form-dogs" style="height:100vh">
-    <Header  class="fixed-top" />
+    <Header   />
     <div class="p-5 d-flex flex-column align-items-center">
     <h2 class="font-weight-bold text-dark m-4">Create Add for your Dog</h2>
     <div id="formDogContainer" class="shadow">
@@ -85,7 +85,7 @@
       </b-form>
     </div>
     </div>
-    <Footer  class="fixed-bottom" />
+    <Footer  />
   </div>
 </template>
 <script>

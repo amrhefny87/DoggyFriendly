@@ -1,18 +1,18 @@
 <template>
   <div class="sitters">
-    <Header  class="fixed-top" />
+    <Header   />
     <h2 class="mt-3" id="textitle">{{type}}</h2>
     <Button  class="fixe m-5"  root="/adtype" name="Add and Ad" />
     <div
      v-if="!isLoading"
      v-for="event in events" :key="event.id"  class="d-flex flex-column align-items-center">
-          <NewAd :key="event.id"  :result="event" :type="type" />
+          <NewAd :key="event.id"  :result="event" :type="type" :thisLike="like"/>
     </div>
      <div class="d-flex justify-content-center align-content-center">
        
    <dot-loader :loading="isLoading" :color="'#e07f24'" :size="200"></dot-loader>
     </div>
-    <Footer  class="fixed-bottom"  />
+    <Footer    />
   </div>
 </template>
 
@@ -39,7 +39,8 @@ export default {
     return{
       type: "Sitters",
       events:[],
-      isLoading:false
+      isLoading:false,
+      like: false
     }
 },
 
