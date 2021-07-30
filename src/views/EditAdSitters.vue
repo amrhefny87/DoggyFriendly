@@ -86,9 +86,8 @@
           <b-button type="submit" id="buttonEdit" class="m-2"
             >Update</b-button
           >
-          <b-button type="reset" id="buttonReset" class="m-2">Reset</b-button>
         </b-form>
-        <ButtonGoBack />
+        
 
       </div>
     </div>
