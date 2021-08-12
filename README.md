@@ -34,9 +34,9 @@ La aplicación tiene características de Red Social y de Gestión de contenidos.
 
 ## Instala los repositorios ⚡
 
-- Clone repositorio Laravel https://github.com/MuyDiversos/DoggyF.git
+- Clone repositorio Laravel https://github.com/amrhefny87/DoggyFriendly.git
 
-- Clone repositorio Vue https://github.com/MuyDiversos/Vue-DoggyF.git
+- Clone repositorio Vue https://github.com/amrhefny87/DoggyFriendlyApi.git
 
 - Necesitamos también crear una base de datos con el nombre de "doggyf" en phpMyAdmin en local, con las credenciales siguientes: user : root; password : "".
 
